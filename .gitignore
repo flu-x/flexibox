@@ -1,0 +1,8 @@
+venv/
+*.pyc
+dependencies/
+.vscode/
+browserium.egg-info/
+dist/
+build/
+TestFunction/geckodriver.log
