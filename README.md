@@ -30,22 +30,10 @@ There are two ways in which you can use Browserium.
 You can refer to the above diagram for reference.
 
 ##Installing and Updating driver packages
-###Installing the module Browserium
-To install Browserium using PiP run the command:
+###Install Drivers
+* To install Browserium run the command
 
-	pip install browserium
-	
-To install Browserium from GitHub run the command:
-
-	pip install git+git://github.com/browserium/Browserium.git
-
-Make sure you have **ssh** configured in GitHub. You can also use **https** as well to install the module. But preferrable would be if you have **ssh** configured in GitHub.
-
-To install Browserium from GitHub using HTTPS run the command:
-
-	pip install git+https://github.com/browserium/Browserium.git
-	
-###Download browser drivers
+	```pip install browserium```
 
 * To download chromedriver run the command
 
@@ -84,23 +72,23 @@ To install Browserium from GitHub using HTTPS run the command:
 ### Browser Controller class by functionality
 The `Browser Controller` class provides you with some eccentric methods that can be utilised to achieve the required functions. 
 
-* **get_url(driver, url)**: request the required url entered. Pass the required driver object and the 'url' as parameters.
+* get_url(driver, url): request the required url entered. Pass the required driver object and the 'url' as parameters.
 
-* **implicit_wait_time(driver, time)**: Apply implicit wait before the dom loads. Pass the required driver object and the time as parameters.
+* implicit_wait_time(driver, time): Apply implicit wait before the dom loads. Pass the required driver object and the time as parameters.
 
-* **set_window_size(driver, height, width)**: Set the window size for the current running browser. Pass the required driver object, height and the width of the window.
+* set_window_size(driver, height, width): Set the window size for the current running browser. Pass the required driver object, height and the width of the window.
 
-* **get_current_url(driver)**: Get the current url. Pass the required driver object as parameter.
+* get_current_url(driver): Get the current url. Pass the required driver object as parameter.
 
-* **get_network_requests(driver)**: Get all the network requests for the current page. Pass the required driver object as parameter.
+* get_network_requests(driver): Get all the network requests for the current page. Pass the required driver object as parameter.
 
-* **performance_metrics(driver)**: Get required page performance data. Pass the required driver object as parameter.
+* performance_metrics(driver): Get required page performance data. Pass the required driver object as parameter.
 
-* **check_console_logs(driver)**: Get all console logs. Pass the required driver object as parameter. However, this feature is not available for Safari and Firefox.
+* check_console_logs(driver): Get all console logs. Pass the required driver object as parameter.
 
-* **get_page_source(driver)**: Get the current page source. Pass the required driver object as parameter.
+* get_page_source(driver): Get the current page source. Pass the required driver object as parameter.
 
-* **get_site_cookies(driver)**: Get all the site cookies. Pass the required driver object as parameter.
+* get_site_cookies(driver): Get all the site cookies. Pass the required driver object as parameter.
 
 ### Create instance for Chrome
 * Create instance for the `ChromeDriverObject` class
@@ -210,3 +198,7 @@ P.S: Safaridriver comes shipped with the Safari browser by default. You have to 
 
 Keep in mind that your safari version has to be more than 10. If it is not 10 or more than 10 then please update your Safari version.
 
+###Deleting all browser driver
+To delete all browser drivers from /usr/local/bin run the command:
+
+	browserium delete --driver=all
