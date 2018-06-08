@@ -184,3 +184,12 @@ class Utility():
     def set_executable_permission(driver_path):
         st = os.stat(driver_path)
         os.chmod(driver_path, st.st_mode | stat.S_IEXEC)
+
+    @staticmethod
+    def delete_driver_history():
+        rel_dir_path = Utility.get_driver_path("/dependencies")
+        if not os.path.exists(rel_dir_path):
+            Utility.log_message("INFO", "Driver directory does not exist")
+        else:
+            shutil.rmtree(rel_dir_path, ignore_errors=True)
+            Utility.log_message("INFO", "Deleted driver directory from /usr/local/bin")
