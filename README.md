@@ -1,6 +1,6 @@
 # Browserium
 
-![Browserium logo](https://farm2.staticflickr.com/1742/41852028144_642310d9b6_m.jpg)
+logo: [https://farm2.staticflickr.com/1742/41852028144_642310d9b6_m.jpg]
 
 **Browserium** is the a selenium wrapper for all **browsers** and **browser configurations**. This module is a single end point to access all the browser drivers and as well as the webdriver object for all the respective browsers along with the installation of your **selenium** module.
 
