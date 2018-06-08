@@ -2,6 +2,7 @@ from .chromedriver import Chromedriver
 from .operadriver import Operadriver
 from .geckodriver import Geckodriver
 from .phantomjsdriver import Phantomjs_driver
+from utility.utility import Utility
 
 class Driver(object):
 
@@ -13,5 +14,6 @@ driver_class = {
     'chromedriver': Chromedriver,
     'operadriver': Operadriver,
     'geckodriver': Geckodriver,
-    'phantomjsdriver': Phantomjs_driver
+    'phantomjsdriver': Phantomjs_driver,
+    'all': Utility
 }
