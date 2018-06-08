@@ -1,8 +1,8 @@
 # Browserium
 
-logo: [https://farm2.staticflickr.com/1742/41852028144_642310d9b6_m.jpg]
+![Browserium logo](https://farm2.staticflickr.com/1742/41852028144_642310d9b6_m.jpg)
 
-**Browserium** is a selenium wrapper for all **browsers** and **browser configurations**. This module is a single end point to access all the browser drivers and as well as the webdriver object for all the respective browsers along with the installation of your **selenium** module.
+**Browserium** is the a selenium wrapper for all **browsers** and **browser configurations**. This module is a single end point to access all the browser drivers and as well as the webdriver object for all the respective browsers along with the installation of your **selenium** module.
 
 ## Problem Statement
 With the very fast pace of development, it has now become very important to have regular release cycle and with it it should be also kept in mind that we do a quality release. For this reason we have to have our tests automated as well so that we can have a centralised reports for regressions and other flaws in the system at the end of each build.
@@ -198,7 +198,7 @@ P.S: Safaridriver comes shipped with the Safari browser by default. You have to 
 
 Keep in mind that your safari version has to be more than 10. If it is not 10 or more than 10 then please update your Safari version.
 
-### Deleting all browser driver
+###Deleting all browser driver
 To delete all browser drivers from /usr/local/bin run the command:
 
 	browserium delete --driver=all
