@@ -7,6 +7,7 @@ class Test_1():
         phantomdriver = PhantomDriverObject()
         controller = Browser_controller()
         driver = phantomdriver.set_phantomdriver_object()
+        print driver
         controller.implicit_wait_time(driver, 4)
         controller.get_url(driver, "https://www.google.co.in")
         current_url = controller.get_current_url(driver)

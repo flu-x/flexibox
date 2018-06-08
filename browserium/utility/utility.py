@@ -24,9 +24,8 @@ class Utility():
         try:
             requiredPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), path_param)
             return requiredPath
-        except IOError as e:
+        except OSError:
             print "Required Directory / File not found"
-            print e
 
     # This method would get the required configuration from the config.ini file
     # and ould return the parser object which can be utilised as required.
@@ -111,7 +110,7 @@ class Utility():
                 with ZipFile(zipFile_path + i, 'r') as zip:
                     zip.extractall(zipFile_path)
                     zip.close()
-        except IOError:
+        except OSError:
             Utility.log_message("ERROR","File / Directory " + dir_path + "not found")
 
     # Unzip the required .gzip package based on the path of the gzip file.
@@ -125,7 +124,7 @@ class Utility():
                 tar = tarfile.open(tarFile_path+fname, "r:gz")
                 tar.extractall(tarFile_path)
                 tar.close()
-        except IOError:
+        except OSError:
             Utility.log_message("ERROR","File / Directory " + dir_path + "not found")
 
     # Rename the required directory
@@ -135,7 +134,7 @@ class Utility():
             dir_path = Utility.get_driver_path('/dependencies/'+dir_path)
             file_info = os.listdir(dir_path)
             os.rename(dir_path+file_info[1],dir_path+'phantomjsdriver')
-        except IOError:
+        except OSError:
             Utility.log_message("ERROR","File / Directory " + dir_path + "not found")
 
     # Delete the contents of the directory when updating a package
@@ -150,7 +149,7 @@ class Utility():
                     shutil.rmtree(dep_tree+item)
                 else:
                     os.remove(dep_tree+item)
-        except IOError:
+        except OSError:
             Utility.log_message("ERROR","File / Directory " + dir_content_directory + "not found")
 
     # Checkpoint to verify driver is there in the directory before updating the driver binary

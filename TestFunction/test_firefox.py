@@ -25,4 +25,4 @@ class Test_2():
 
 t = Test_2()
 t.test_geckodriver_type1()
-# t.test_geckodriver_type2()
+t.test_geckodriver_type2()
