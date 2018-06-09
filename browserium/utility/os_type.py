@@ -17,7 +17,7 @@ class OS_type():
     @staticmethod
     def os_name():
         pl = sys.platform
-        if pl == "linux":
+        if "linux" in pl:
             return OS_type.LINUX
         if pl == "darwin":
             return OS_type.MAC

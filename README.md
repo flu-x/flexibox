@@ -30,10 +30,21 @@ There are two ways in which you can use Browserium.
 You can refer to the above diagram for reference.
 
 ##Installing and Updating driver packages
-###Install Drivers
-* To install Browserium run the command
+###Install Browserium module
+* To install Browserium using PiP run the command:
 
-	```pip install browserium```
+	`pip install browserium`
+	
+* To install Browserium from GitHub run the command:
+
+
+	`pip install git+git://github.com/browserium/Browserium.git`
+
+Make sure you have **ssh** configured in GitHub. You can also use **https** as well to install the module. But preferrable would be if you have **ssh** configured in GitHub.
+
+To install Browserium from GitHub using HTTPS run the command:
+
+	pip install git+https://github.com/browserium/Browserium.git	
 
 * To download chromedriver run the command
 
@@ -198,7 +209,7 @@ P.S: Safaridriver comes shipped with the Safari browser by default. You have to 
 
 Keep in mind that your safari version has to be more than 10. If it is not 10 or more than 10 then please update your Safari version.
 
-###Deleting all browser driver
+### Deleting all browser driver
 To delete all browser drivers from /usr/local/bin run the command:
 
 	browserium delete --driver=all
