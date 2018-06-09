@@ -22,24 +22,24 @@ class Browser_controller(Utility):
     def get_network_requests(self, driver):
         obj_requests = driver.execute_script("return window.performance.getEntries();")
         self.log_message("INFO", "Fetching all network requests")
-        return obj_requests.encode('utf-8').strip()
+        return obj_requests
 
     def performance_metrics(self, driver):
         obj_overallPerformance = driver.execute_script("return performance.timing")
         self.log_message("INFO", "Fetching current page performance data")
-        return obj_overallPerformance.encode('utf-8').strip()
+        return obj_overallPerformance
 
     def check_console_logs(self, driver):
         obj_consoleLog = driver.get_log('browser')
         self.log_message("INFO", "Fetching console logs")
-        return obj_consoleLog.encode('utf-8').strip()
+        return obj_consoleLog
 
     def get_page_source(self, driver):
         obj_pageSource = driver.page_source
         self.log_message("INFO", "Fetching page source")
-        return obj_pageSource.encode('utf-8').strip()
+        return obj_pageSource
 
     def get_site_cookies(self, driver):
         cookies = driver.get_cookies()
         self.log_message("INFO", "Fetching all cookies")
-        return cookies.encode('utf-8').strip()
+        return cookies
