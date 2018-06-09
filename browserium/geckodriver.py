@@ -50,7 +50,7 @@ class Geckodriver(Utility, OS_type):
             self.driver_downloader(url_builder_linux['linux'], dir_path)
             print "\n"
             self.log_message("INFO", "Download completed")
-            self.untar_file('dir_operadriver/')
+            self.untar_file('dir_geckodriver/')
             self.log_message("INFO","Unarchiving contents completed")
 
     # Create a required directory separately for gecko and called the evaluate_on_environment
