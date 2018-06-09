@@ -32,8 +32,7 @@ class ChromeDriverObject(Utility, OS_type):
                 if not '--headless' in args:
                     chromeOptions = webdriver.ChromeOptions()
                     chromeOptions.add_argument(args)
-                    chromeOptions.add_argument("--disable-dev-shm-usage")
-                    chromeOptions.add_argument("--no-sandbox")
+                    chromeOptions.add_experimental_option("useAutomationExtension", False)
                     self.log_message("INFO","setting path of chromedriver")
                     driver = webdriver.Chrome(
                         executable_path=driver_path,
