@@ -39,6 +39,13 @@ You can refer to the above diagram for reference.
 
 
 	`pip install git+git://github.com/browserium/Browserium.git`
+	
+###Modules installed with browserium
+* **requests**
+
+* **selenium**
+
+* **wget**
 
 Make sure you have **ssh** configured in GitHub. You can also use **https** as well to install the module. But preferrable would be if you have **ssh** configured in GitHub.
 
