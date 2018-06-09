@@ -69,7 +69,7 @@ To install Browserium from GitHub using HTTPS run the command:
 
 	```browserium download --driver=phantomjsdriver```
 
-###Update Drivers
+### Update Drivers
 * To update chromedriver run the command
 
 	```browserium update --driver=chromedriver```
@@ -86,27 +86,27 @@ To install Browserium from GitHub using HTTPS run the command:
 
 	```browserium update --driver=phantomjsdriver```
 
-##Get started with Browserium
+## Get started with Browserium
 ### Browser Controller class by functionality
 The `Browser Controller` class provides you with some eccentric methods that can be utilised to achieve the required functions. 
 
-* get_url(driver, url): request the required url entered. Pass the required driver object and the 'url' as parameters.
+* **get_url(driver, url)**: request the required url entered. Pass the required driver object and the 'url' as parameters.
 
-* implicit_wait_time(driver, time): Apply implicit wait before the dom loads. Pass the required driver object and the time as parameters.
+* **implicit_wait_time(driver, time)**: Apply implicit wait before the dom loads. Pass the required driver object and the time as parameters.
 
-* set_window_size(driver, height, width): Set the window size for the current running browser. Pass the required driver object, height and the width of the window.
+* **set_window_size(driver, height, width)**: Set the window size for the current running browser. Pass the required driver object, height and the width of the window.
 
-* get_current_url(driver): Get the current url. Pass the required driver object as parameter.
+* **get_current_url(driver)**: Get the current url. Pass the required driver object as parameter.
 
-* get_network_requests(driver): Get all the network requests for the current page. Pass the required driver object as parameter.
+* **get_network_requests(driver)**: Get all the network requests for the current page. Pass the required driver object as parameter.
 
-* performance_metrics(driver): Get required page performance data. Pass the required driver object as parameter.
+* **performance_metrics(driver)**: Get required page performance data. Pass the required driver object as parameter.
 
-* check_console_logs(driver): Get all console logs. Pass the required driver object as parameter.
+* **check_console_logs(driver)**: Get all console logs. Pass the required driver object as parameter.
 
-* get_page_source(driver): Get the current page source. Pass the required driver object as parameter.
+* **get_page_source(driver)**: Get the current page source. Pass the required driver object as parameter.
 
-* get_site_cookies(driver): Get all the site cookies. Pass the required driver object as parameter.
+* **get_site_cookies(driver)**: Get all the site cookies. Pass the required driver object as parameter.
 
 ### Create instance for Chrome
 * Create instance for the `ChromeDriverObject` class
