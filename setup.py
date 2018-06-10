@@ -1,5 +1,8 @@
 from setuptools import setup
 
+with open('README.md') as f:
+    long_description = f.read()
+
 setup(
     name = 'browserium',
     version = '1.0.0',
@@ -9,7 +12,13 @@ setup(
         'Bony Roopchandani'
     ],
     author_email = 'soumyajit.basu62@gmail.com',
-    classifiers = [],
+    classifiers = [
+        'Intended Audience :: Information Technology',
+        'Programming Language :: Python :: 2.7',
+        'License :: MIT License'
+    ],
+    long_description = long_description,
+    long_description_content_type = "text/markdown",
     install_requires = [
         'requests',
         'wget',   
