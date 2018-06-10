@@ -226,3 +226,6 @@ To delete all browser drivers from /usr/local/bin run the command:
 * Soumyajit Basu - soumyajit.basu62@gmail.com
 
 * Bony Roopchandani - broopchandani@dataliciious.com
+
+## Note
+Currently we are supporting this release version for Mac and Linux platforms. We will be supporting `Browserium` for **Windows** in the upcoming version release.
