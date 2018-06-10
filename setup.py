@@ -29,5 +29,7 @@ setup(
         'console_scripts': [
             'browserium = browserium.utility.main:main'
         ]
-    }
+    },
+    url = "https://github.com/browserium/Browserium",
+    download_url = "https://github.com/browserium/Browserium/archive/1.1.0.tar.gz"
 )
