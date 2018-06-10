@@ -221,3 +221,8 @@ Keep in mind that your safari version has to be more than 10. If it is not 10 or
 To delete all browser drivers from /usr/local/bin run the command:
 
 	browserium delete --driver=all
+
+## Module Contributors
+* Soumyajit Basu - soumyajit.basu62@gmail.com
+
+* Bony Roopchandani - broopchandani@dataliciious.com
