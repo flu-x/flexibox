@@ -1,0 +1,19 @@
+{
+    "chrome":[{
+        "disable_extension" : "chromeOptions.add_argument('--disable-extensions')",
+        "ignore_certificate_errors" : "chromeOptions.add_argument('--ignore-certificate-errors')",
+        "sandbox":"chromeOptions.add_argument('--no-sandbox')",
+        "start_maximized":"chromeOptions.add_argument('start-maximized')",
+        "incognito":"chromeOptions.add_argument('--incognito')",
+        "test_type":"chromeOptions.add_argument('--test-type')",
+        "add_extension":"chromeOptions.add_extension(extension_path)",
+        "disable_popup_blocking":"chromeOptions.add_argument('--disable-popup-blocking')",
+        "download_location":"chromeOptions.add_experimental_option('prefs',prefs)"
+    }],
+    "firefox":[
+
+    ],
+    "opera":[
+
+    ]
+}
