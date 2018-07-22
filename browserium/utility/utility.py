@@ -16,6 +16,7 @@ import sys
 import shutil
 import tarfile
 import argparse
+import json
 class Utility():
     # This method would get the required path for the directory or a file.
     # This would generate the absolute path to the required directory and the file
@@ -24,8 +25,9 @@ class Utility():
         try:
             requiredPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), path_param)
             return requiredPath
-        except OSError:
-            print "Required Directory / File not found"
+        except IOError as e:
+            Utility.log_message("ERROR", "Required Directory / File not found")
+            print e
 
     # This method would get the required configuration from the config.ini file
     # and ould return the parser object which can be utilised as required.
@@ -180,11 +182,13 @@ class Utility():
         driver_path = "/usr/local/bin"+path
         return driver_path
 
+    # Set executable permission for drivers
     @staticmethod
     def set_executable_permission(driver_path):
         st = os.stat(driver_path)
         os.chmod(driver_path, st.st_mode | stat.S_IEXEC)
 
+    # Delete driver executables from /usr/local/bin
     @staticmethod
     def delete_driver_history():
         rel_dir_path = Utility.get_driver_path("/dependencies")
@@ -193,3 +197,10 @@ class Utility():
         else:
             shutil.rmtree(rel_dir_path, ignore_errors=True)
             Utility.log_message("INFO", "Deleted driver directory from /usr/local/bin")
+
+    # return json data
+    @staticmethod
+    def json_file_reader(file_path):
+        with open(file_path) as data_file:
+            json_data = json.loads(data_file)
+            return json_data
