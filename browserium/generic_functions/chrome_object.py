@@ -9,6 +9,7 @@ class ChromeDriverObject(Utility, OS_type):
     # configuration
     def set_chromedriver_object(self, args=""):
         try:
+            chromeOptions = None
             driver = None
             driver_path = self.get_driver_path('/dependencies/dir_chromedriver/chromedriver')
             self.set_executable_permission(driver_path)
