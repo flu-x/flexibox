@@ -9,7 +9,7 @@ class ChromeDriverObject(Utility, OS_type):
     # configuration
     def set_chromedriver_object(self, args=""):
         try:
-            chromeOptions = None
+            chromeOptions = webdriver.ChromeOptions()
             driver = None
             driver_path = self.get_driver_path('/dependencies/dir_chromedriver/chromedriver')
             self.set_executable_permission(driver_path)
@@ -20,15 +20,16 @@ class ChromeDriverObject(Utility, OS_type):
                 self.log_message("INFO","Path for chrome binary is set")
             else:
                 self.log_message("INFO","setting chrome into headless mode")
-                chromeOptions = webdriver.ChromeOptions()
                 chromeOptions.add_argument(args)
                 self.log_message("INFO","setting path of chromedriver")
                 driver = webdriver.Chrome(
-                    executable_path=driver_path, 
-                    chrome_options=chromeOptions                        
+                    executable_path=driver_path,
+                    chrome_options=chromeOptions
                 )
                 self.log_message("INFO","Path for chrome binary is set")
             return driver
         except WebDriverException as e:
             self.log_message("ERROR","There is an exception in the Web Driver configuration")
             print e
+
+# Note: Do include extension and download preferences using a function rather than handling it through JSON
