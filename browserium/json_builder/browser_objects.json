@@ -7,7 +7,16 @@
         "start_maximized": "'--start-maximized'",
         "incognito": "'--incognito'",
         "test_type": "'--test-type'",
-        "disable_popup_blocking": "'--disable-popup-blocking'"
+        "disable_popup_blocking": "'--disable-popup-blocking'",
+        "headless": "'--headless'"
+      }
+    ],
+    "firefox": [
+      {
+        "headless": "'--headless'",
+        "accept_untrusted_certs": "accept_untrusted_certs",
+        "private_browsing": "private_browsing",
+        "disable_popup_blocking": "disable_popup_blocking"
       }
     ]
   }
