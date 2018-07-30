@@ -36,6 +36,9 @@ class elkConfigure(OS_type, Utility):
         call(["brew", "services", "start", "kibana"])
         self.install_logstashAsync()
 
+    def install_elkStack_forLinux(self):
+        pass
+
     def configure_kibana(self):
         file_path = self.get_path("elkStackConfigurer/kibana.yml")
         rectified_filePath = file_path.replace("utility/","")
