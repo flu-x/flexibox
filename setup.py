@@ -19,11 +19,21 @@ setup(
     ],
     install_requires = [
         'requests',
-        'wget',   
+        'wget',
         'selenium'
     ],
-    packages = ['browserium', 'browserium.utility', 'browserium.configurations', 'browserium.generic_functions', 'browserium.json_builder'],
-    package_data= {'browserium.configurations': ['*.ini'],'browserium.json_builder':['*.json']},
+    packages = [
+        'browserium',
+        'browserium.utility',
+        'browserium.configurations',
+        'browserium.generic_functions',
+        'browserium.json_builder',
+        'browserium.elkStackConfigurer'
+    ],
+    package_data= {
+        'browserium.configurations': ['*.ini'],
+        'browserium.json_builder':['*.json']
+    },
     include_package_data=True,
     zip_safe = False,
     entry_points={

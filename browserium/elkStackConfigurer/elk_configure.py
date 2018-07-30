@@ -1,7 +1,13 @@
 from browserium.utility.os_type import OS_type
+from browserium.utility.utility import Utility
 from subprocess import call
 
-class elkConfigure(OS_type):
+class elkConfigure(OS_type, Utility):
+
+    def platform_type(self):
+        platform_val = self.os_name()
+        return platform_val
+
     @staticmethod
     def input_user_data():
         print "Would you like to configure elk stack for logging preferences? (Y/N):"
@@ -16,7 +22,7 @@ class elkConfigure(OS_type):
             pass
 
     def configure_elkStack(self):
-        os_cat = self.os_name()
+        os_cat = self.platform_type()
         if os_cat == 'macos':
             self.install_elkStack_forMac()
 
@@ -27,6 +33,13 @@ class elkConfigure(OS_type):
         call(["brew", "services", "start", "logstash"])
         call(["brew", "install", "kibana"])
         self.configure_kibana()
+        call(["brew", "services", "start", "kibana"])
+        self.install_logstashAsync()
 
     def configure_kibana(self):
-        pass
+        file_path = self.get_path("elkStackConfigurer/kibana.yml")
+        rectified_filePath = file_path.replace("utility/","")
+        call(["cp", "-f", rectified_filePath, "/usr/local/etc/kibana/"])
+
+    def install_logstashAsync(self):
+        call(["pip", "install", "python-logstash-sync"])
