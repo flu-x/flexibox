@@ -1,4 +1,4 @@
-from browserium.utility.utility import Utility
+from utility import Utility
 import json
 import os
 
@@ -22,3 +22,8 @@ class BrowserConfiguration(Utility):
         opt_list = list(option_type)
         for i in opt_list:
             self.parse_json_data("chrome",i)
+
+    def firefox_configuration(self, *option_type):
+        opt_list = list(option_type)
+        for i in opt_list:
+            self.parse_json_data("firefox",i)
