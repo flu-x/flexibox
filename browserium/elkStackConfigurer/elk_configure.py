@@ -45,4 +45,4 @@ class elkConfigure(OS_type, Utility):
         call(["cp", "-f", rectified_filePath, "/usr/local/etc/kibana/"])
 
     def install_logstashAsync(self):
-        call(["pip", "install", "python-logstash-sync"])
+        call(["pip", "install", "python-logstash-async"])
