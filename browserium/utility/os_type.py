@@ -7,6 +7,7 @@
 
 import sys
 import platform
+import subprocess
 
 class OS_type():
     LINUX = "linux"
@@ -37,3 +38,10 @@ class OS_type():
     @staticmethod
     def os_type():
         return OS_type.os_name() + str(OS_type.os_architecture)
+
+    # Get platform distribution type
+    @staticmethod
+    def distribution_type(*dist):
+        for x in dist:
+            pckg_type = subprocess.check_output([x,"--version"])
+            return pckg_type

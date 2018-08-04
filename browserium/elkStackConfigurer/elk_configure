@@ -15,6 +15,8 @@ class elkConfigure(OS_type, Utility):
         os_cat = elkConfigure.platform_type()
         if os_cat == 'macos':
             elkConfigure.install_elkStack_forMac()
+        if os_cat == 'linux':
+            elkConfigure
 
     @staticmethod
     def install_elkStack_forMac():
@@ -23,18 +25,37 @@ class elkConfigure(OS_type, Utility):
         call(["brew", "install", "logstash"])
         call(["brew", "services", "start", "logstash"])
         call(["brew", "install", "kibana"])
-        elkConfigure.configure_kibana()
+        elkConfigure.configure_kibana_mac()
         call(["brew", "services", "start", "kibana"])
         elkConfigure.install_logstashAsync()
 
-    def install_elkStack_forLinux(self):
+    @staticmethod
+    def evaluate_package_type_debian():
+        pckg = OS_type.distribution_type("apt","rpm")
+
+        if "apt" in pckg:
+            Utility.log_message("INFO", "Package type is debian based")
+            elkConfigure.install_elkStack_forLinuxDebian()
+        elif "RPM" in pckg:
+            Utility.log_message("INFO", "Package type is RPM based")
+            elkConfigure.install_elkStack_forLinuxRPM()
+        else:
+            Utility.log_message("ERROR", "Package type not supported")
+
+    @staticmethod
+    def install_elkStack_forLinuxDebian():
         pass
 
     @staticmethod
-    def configure_kibana():
-        file_path = Utility.get_path("elkStackConfigurer/kibana.yml")
+    def install_elkStack_forLinuxRPM():
+        pass
+
+    @staticmethod
+    def configure_kibana_mac():
+        file_path = Utility.get_path("elkStackConfigurer/darwin/kibana.yml")
         rectified_filePath = file_path.replace("utility/","")
         call(["cp", rectified_filePath, "/usr/local/etc/kibana/"])
+        Utility.log_message("INFO", "kibana configuration file copied to /usr/local/etc/kibana")
 
     @staticmethod
     def install_logstashAsync():
