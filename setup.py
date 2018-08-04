@@ -27,12 +27,10 @@ setup(
         'browserium.utility',
         'browserium.configurations',
         'browserium.generic_functions',
-        'browserium.json_builder',
         'browserium.elkStackConfigurer'
     ],
     package_data= {
-        'browserium.configurations': ['*.ini'],
-        'browserium.json_builder':['*.json']
+        'browserium.configurations': ['*.ini']
     },
     include_package_data=True,
     zip_safe = False,
@@ -41,6 +39,7 @@ setup(
             'browserium = browserium.utility.main:main'
         ]
     },
+    scripts = ['browserium/elkStackConfigurer/elk_configure'],
     url = "https://github.com/browserium/Browserium",
-    download_url = "https://github.com/browserium/Browserium/archive/1.0.0.tar.gz"
+    download_url = "https://github.com/browserium/Browserium/archive/1.1.0.tar.gz"
 )

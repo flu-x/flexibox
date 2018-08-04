@@ -1,48 +1,49 @@
+#!/usr/bin/env python
 from browserium.utility.os_type import OS_type
 from browserium.utility.utility import Utility
 from subprocess import call
 
 class elkConfigure(OS_type, Utility):
 
-    def platform_type(self):
-        platform_val = self.os_name()
+    @staticmethod
+    def platform_type():
+        platform_val = OS_type.os_name()
         return platform_val
 
     @staticmethod
-    def input_user_data():
-        print "Would you like to configure elk stack for logging preferences? (Y/N):"
-        user_choice = raw_input()
-        return user_choice
-
-    def manipulate_userData(self):
-        user_choice = self.input_user_data().lower()
-        if user_choice == "y" or user_choice == "yes":
-            self.configure_elkStack()
-        else:
-            pass
-
-    def configure_elkStack(self):
-        os_cat = self.platform_type()
+    def configure_elkStack():
+        os_cat = elkConfigure.platform_type()
         if os_cat == 'macos':
-            self.install_elkStack_forMac()
+            elkConfigure.install_elkStack_forMac()
 
-    def install_elkStack_forMac(self):
+    @staticmethod
+    def install_elkStack_forMac():
         call(["brew", "install", "elasticsearch"])
         call(["brew", "services", "start", "elasticsearch"])
         call(["brew", "install", "logstash"])
         call(["brew", "services", "start", "logstash"])
         call(["brew", "install", "kibana"])
-        self.configure_kibana()
+        elkConfigure.configure_kibana()
         call(["brew", "services", "start", "kibana"])
-        self.install_logstashAsync()
+        elkConfigure.install_logstashAsync()
 
     def install_elkStack_forLinux(self):
         pass
 
-    def configure_kibana(self):
-        file_path = self.get_path("elkStackConfigurer/kibana.yml")
+    @staticmethod
+    def configure_kibana():
+        file_path = Utility.get_path("elkStackConfigurer/kibana.yml")
         rectified_filePath = file_path.replace("utility/","")
-        call(["cp", "-f", rectified_filePath, "/usr/local/etc/kibana/"])
+        call(["cp", rectified_filePath, "/usr/local/etc/kibana/"])
 
-    def install_logstashAsync(self):
+    @staticmethod
+    def install_logstashAsync():
         call(["pip", "install", "python-logstash-async"])
+
+    @staticmethod
+    def main():
+        elkConfigure.configure_elkStack()
+
+if __name__ == '__main__':
+    elkConfigure.main()
+
