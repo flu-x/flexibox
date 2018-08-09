@@ -27,10 +27,16 @@ setup(
         'browserium.utility',
         'browserium.configurations',
         'browserium.generic_functions',
-        'browserium.elkStackConfigurer'
+        'browserium.elkStackConfigurer',
+        'browserium.elkStackConfigurer.darwin',
+        'browserium.elkStackConfigurer.debian',
+        'browserium.elkStackConfigurer.rpm'
     ],
     package_data= {
-        'browserium.configurations': ['*.ini']
+        'browserium.configurations': ['*.ini'],
+        'browserium.elkStackConfigurer.darwin':['*.yml','*.sh'],
+        'browserium.elkStackConfigurer.debian':['*.yml','*.sh'],
+        'browserium.elkStackConfigurer.rpm':['*.yml','*.sh']
     },
     include_package_data=True,
     zip_safe = False,

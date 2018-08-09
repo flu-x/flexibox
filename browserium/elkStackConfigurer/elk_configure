@@ -31,10 +31,14 @@ class elkConfigure(OS_type, Utility):
     def install_elkStack_forMac():
         try:
             file_path = Utility.get_path("elkStackConfigurer/darwin/mac_installation.sh")
-            rectified_filePath = file_path.replace("utility/","")
-            call(["chmod", "+x", rectified_filePath])
-            call(rectified_filePath)
-            call("")
+            rectified_filePath_forBash = file_path.replace("utility/","")
+            call(["chmod", "+x", rectified_filePath_forBash])
+            call(rectified_filePath_forBash)
+            file_path = Utility.get_path("elkStackConfigurer/darwin/kibana.yml")
+            rectified_filePath_forYML = file_path.replace("utility","")
+            dest_path = "/usr/local/etc/kibana/"
+            call(["cp",rectified_filePath_forYML,dest_path])
+            call(["brew", "services", "restart", "kibana"])
             elkConfigure.install_logstashAsync()
         except OSError as e:
             Utility.log_message("ERROR", "Error in installation")
