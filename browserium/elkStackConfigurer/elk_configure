@@ -4,6 +4,10 @@ from browserium.utility.utility import Utility
 from subprocess import call
 
 class elkConfigure(OS_type, Utility):
+    @staticmethod
+    def evaluate_package_type_debian():
+        pckg = OS_type.distribution_type()
+        return pckg
 
     @staticmethod
     def platform_type():
@@ -16,35 +20,35 @@ class elkConfigure(OS_type, Utility):
         if os_cat == 'macos':
             elkConfigure.install_elkStack_forMac()
         if os_cat == 'linux':
-            elkConfigure
+            dist_type = OS_type.distribution_type()
+            print dist_type
+            if 'debian' in dist_type:
+                elkConfigure.install_elkStack_forLinuxDebian()
+            elif 'rhel fedora':
+                elkConfigure.install_elkStack_forLinuxRPM()
 
     @staticmethod
     def install_elkStack_forMac():
-        call(["brew", "install", "elasticsearch"])
-        call(["brew", "services", "start", "elasticsearch"])
-        call(["brew", "install", "logstash"])
-        call(["brew", "services", "start", "logstash"])
-        call(["brew", "install", "kibana"])
-        elkConfigure.configure_kibana_mac()
-        call(["brew", "services", "start", "kibana"])
-        elkConfigure.install_logstashAsync()
-
-    @staticmethod
-    def evaluate_package_type_debian():
-        pckg = OS_type.distribution_type("apt","rpm")
-
-        if "apt" in pckg:
-            Utility.log_message("INFO", "Package type is debian based")
-            elkConfigure.install_elkStack_forLinuxDebian()
-        elif "RPM" in pckg:
-            Utility.log_message("INFO", "Package type is RPM based")
-            elkConfigure.install_elkStack_forLinuxRPM()
-        else:
-            Utility.log_message("ERROR", "Package type not supported")
+        try:
+            file_path = Utility.get_path("elkStackConfigurer/darwin/mac_installation.sh")
+            rectified_filePath = file_path.replace("utility/","")
+            call(["chmod", "+x", rectified_filePath])
+            call(rectified_filePath)
+            call("")
+            elkConfigure.install_logstashAsync()
+        except OSError as e:
+            Utility.log_message("ERROR", "Error in installation")
+            print e
 
     @staticmethod
     def install_elkStack_forLinuxDebian():
-        pass
+        call(["sudo", "apt-get", "install", "wget"])
+        call(["sudo", "add-apt-repository", "-y", "ppa:webupd8team/java"])
+        call(["sudo", "apt-get", "update"])
+        call(["sudo", "apt-get", "-y", "install", "oracle-java8-installer"])
+        call(["wget", "-qO", "- https://packages.elastic.co/GPG-KEY-elasticsearch", "|", "sudo", "apt-key", "add", "-"])
+        call(["sudo", "apt-get", "install", "apt-transport-https"])
+        call(["echo", "deb", "https://artifacts.elastic.co/packages/6.x/apt", "stable", "main", "|", "sudo", "tee" ,"-a", "/etc/apt/sources.list.d/elastic-6.x.list"])
 
     @staticmethod
     def install_elkStack_forLinuxRPM():
