@@ -7,8 +7,10 @@
 
 import sys
 import platform
+import subprocess
+from browserium.utility.utility import Utility
 
-class OS_type():
+class OS_type(Utility):
     LINUX = "linux"
     MAC = "macos"
     WIN = "windows"
@@ -37,3 +39,10 @@ class OS_type():
     @staticmethod
     def os_type():
         return OS_type.os_name() + str(OS_type.os_architecture)
+
+    # Get platform distribution type
+    @staticmethod
+    def distribution_type():
+        file_path = Utility.get_path("distType.sh")
+        id_like = subprocess.check_output("./%s" % file_path)
+        return id_like
