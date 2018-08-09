@@ -76,4 +76,3 @@ class elkConfigure(OS_type, Utility):
 
 if __name__ == '__main__':
     elkConfigure.main()
-
