@@ -8,10 +8,10 @@ from ConfigParser import SafeConfigParser
 from time import sleep
 from zipfile import ZipFile
 from datetime import datetime
+import wget
 import requests
 import os
 import stat
-import wget
 import sys
 import shutil
 import tarfile
