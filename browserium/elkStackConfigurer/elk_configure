@@ -21,7 +21,7 @@ class elkConfigure(OS_type, Utility):
             elkConfigure.install_elkStack_forMac()
         if os_cat == 'linux':
             dist_type = OS_type.distribution_type()
-            print dist_type
+            Utility.log_message("INFO","Dist type is: "+dist_type)
             if 'debian' in dist_type:
                 elkConfigure.install_elkStack_forLinuxDebian()
             elif 'rhel fedora':
