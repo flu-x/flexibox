@@ -45,7 +45,7 @@ setup(
             'browserium = browserium.utility.main:main'
         ]
     },
-    scripts = ['browserium/elkStackConfigurer/elk_configure'],
+    scripts = ['browserium/elkStackConfigurer/elk_configure.py'],
     url = "https://github.com/browserium/Browserium",
     download_url = "https://github.com/browserium/Browserium/archive/1.1.0.tar.gz"
 )

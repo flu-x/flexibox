@@ -44,11 +44,33 @@ class elkConfigure(OS_type, Utility):
 
     @staticmethod
     def install_elkStack_forLinuxDebian():
-        pass
+        try:
+            file_path = Utility.get_path("elkStackConfigurer/debian/debian_installation.sh")
+            rectified_filePath_forBash = file_path.replace("utility/","")
+            call(["chmod", "+x", rectified_filePath_forBash])
+            call(rectified_filePath_forBash)
+            elkConfigure.configure_kibana_mac()
+            call(["sudo", "systemctl",  "restart", "kibana.service"])
+            elkConfigure.install_logstashAsync()
+            Utility.log_message("INFO", "Installing python module for logstash")
+        except OSError as e:
+            Utility.log_message("ERROR", "File not found")
+            print e
 
     @staticmethod
     def install_elkStack_forLinuxRPM():
-        pass
+        try:
+            file_path = Utility.get_path("elkStackConfigurer/rpm/rpm_installation.sh")
+            rectified_filePath_forBash = file_path.replace("utility/","")
+            call(["chmod", "+x", rectified_filePath_forBash])
+            call(rectified_filePath_forBash)
+            elkConfigure.configure_kibana_mac()
+            call(["sudo", "systemctl", "restart", "kibana.service"])
+            elkConfigure.install_logstashAsync()
+            Utility.log_message("INFO", "Installing python module for logstash")
+        except OSError as e:
+            Utility.log_message("ERROR", "File not found")
+            print e
 
     @staticmethod
     def configure_kibana_mac():
@@ -60,11 +82,19 @@ class elkConfigure(OS_type, Utility):
 
     @staticmethod
     def configure_kibana_debian():
-        pass
+        file_path = Utility.get_path("elkStackConfigurer/debian/kibana.yml")
+        rectified_filePath_forYML = file_path.replace("utility","")
+        dest_path = "/usr/local/etc/kibana/"
+        call(["cp",rectified_filePath_forYML,dest_path])
+        Utility.log_message("INFO", "kibana configuration file copied to /usr/local/etc/kibana")
 
     @staticmethod
     def configure_kibana_rpm():
-        pass
+        file_path = Utility.get_path("elkStackConfigurer/rpm/kibana.yml")
+        rectified_filePath_forYML = file_path.replace("utility","")
+        dest_path = "/usr/local/etc/kibana/"
+        call(["cp",rectified_filePath_forYML,dest_path])
+        Utility.log_message("INFO", "kibana configuration file copied to /usr/local/etc/kibana")
 
     @staticmethod
     def install_logstashAsync():
