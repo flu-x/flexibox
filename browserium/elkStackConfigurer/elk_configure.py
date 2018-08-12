@@ -98,7 +98,7 @@ class elkConfigure(OS_type, Utility):
 
     @staticmethod
     def install_logstashAsync():
-        call(["pip", "install", "python-logstash-async"])
+        call(["pip", "install", "python-logstash"])
 
     @staticmethod
     def main():
