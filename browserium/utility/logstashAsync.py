@@ -21,6 +21,9 @@ class LogstashAsync():
         if log_type == "WARNING":
             test_logger.warning(log_message)
 
+        if log_type == "DEBUG":
+            test_logger.debug(log_message)
+
         if log_type == "EXCEPTION":
             test_logger.exception(log_message)
 
