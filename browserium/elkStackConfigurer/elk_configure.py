@@ -38,6 +38,7 @@ class elkConfigure(OS_type, Utility):
             call(["brew", "services", "restart", "kibana"])
             elkConfigure.install_logstashAsync()
             Utility.log_message("INFO", "Installing python module for logstash")
+            elkConfigure.run_logstash_background()
         except OSError as e:
             Utility.log_message("ERROR", "File not found")
             print e
@@ -53,6 +54,7 @@ class elkConfigure(OS_type, Utility):
             call(["sudo", "systemctl",  "restart", "kibana.service"])
             elkConfigure.install_logstashAsync()
             Utility.log_message("INFO", "Installing python module for logstash")
+            elkConfigure.run_logstash_background()
         except OSError as e:
             Utility.log_message("ERROR", "File not found")
             print e
@@ -68,6 +70,7 @@ class elkConfigure(OS_type, Utility):
             call(["sudo", "systemctl", "restart", "kibana.service"])
             elkConfigure.install_logstashAsync()
             Utility.log_message("INFO", "Installing python module for logstash")
+            elkConfigure.run_logstash_background()
         except OSError as e:
             Utility.log_message("ERROR", "File not found")
             print e
