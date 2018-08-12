@@ -101,6 +101,11 @@ class elkConfigure(OS_type, Utility):
         call(["pip", "install", "python-logstash"])
 
     @staticmethod
+    def run_logstash_background():
+        call(['nohup', 'logstash', '-f', 'logstash.conf', '&'])
+        Utility.log_message("INFO", "Running logstash process in background")
+
+    @staticmethod
     def main():
         elkConfigure.configure_elkStack()
 
