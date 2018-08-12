@@ -1,9 +1,10 @@
 import logging
 import logstash
 import sys
+import platform
 
 class LogstashAsync():
-    def logstash_configure(self):
+    def logstash_configure(self, log_type, log_message):
         host = 'localhost'
         port = 5959
 
@@ -11,17 +12,25 @@ class LogstashAsync():
         test_logger.setLevel(logging.INFO)
         test_logger.addHandler(logstash.LogstashHandler(host, port, version=1))
 
-        test_logger.error('python-logstash-async: test logstash error message.')
-        test_logger.info('python-logstash-async: test logstash info message.')
-        test_logger.warning('python-logstash-async: test logstash warning message.')
+        if log_type == "ERROR":
+            test_logger.error(log_message)
+
+        if log_type == "INFO":
+            test_logger.info(log_message)
+
+        if log_type == "WARNING":
+            test_logger.warning(log_message)
+
+        if log_type == "EXCEPTION":
+            test_logger.exception(log_message)
 
         # add extra field to logstash message
         extra = {
-            'test_string': 'python version: ' + repr(sys.version_info),
-            'test_boolean': True,
-            'test_dict': {'a': 1, 'b': 'c'},
-            'test_float': 1.23,
-            'test_integer': 123,
-            'test_list': [1, 2, '3'],
+            'Architecture': 'arch_type: ' + repr(platform.machine()),
+            'PlatformVersion': 'platform_version: '+ repr(platform.version()),
+            'SystemType': 'sys_type: '+ repr(platform.platform()),
+            'OperatingSystem': 'os_type: '+ repr(platform.system()),
+            'PlatformProcessor': 'platform_processor: '+ repr(platform.processor()),
+            'Python_Version': 'python version: ' + repr(sys.version_info)
         }
-        test_logger.info('python-logstash: test extra fields', extra=extra)
+        test_logger.info('logstash-system-info: INFORMATION', extra=extra)
