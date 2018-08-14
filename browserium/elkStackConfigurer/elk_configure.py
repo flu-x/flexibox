@@ -77,27 +77,39 @@ class elkConfigure(OS_type, Utility):
 
     @staticmethod
     def configure_kibana_mac():
-        file_path = Utility.get_path("elkStackConfigurer/darwin/kibana.yml")
-        rectified_filePath_forYML = file_path.replace("utility","")
-        dest_path = "/usr/local/etc/kibana/"
-        call(["cp",rectified_filePath_forYML,dest_path])
-        Utility.log_message("INFO", "kibana configuration file copied to /usr/local/etc/kibana")
+        try:
+            file_path = Utility.get_path("elkStackConfigurer/darwin/kibana.yml")
+            rectified_filePath_forYML = file_path.replace("utility","")
+            dest_path = "/usr/local/etc/kibana/"
+            call(["cp",rectified_filePath_forYML,dest_path])
+            Utility.log_message("INFO", "kibana configuration file copied to /usr/local/etc/kibana")
+        except OSError as e:
+            Utility.log_message("ERROR", "File not found")
+            print e
 
     @staticmethod
     def configure_kibana_debian():
-        file_path = Utility.get_path("elkStackConfigurer/debian/kibana.yml")
-        rectified_filePath_forYML = file_path.replace("utility","")
-        dest_path = "/usr/local/etc/kibana/"
-        call(["cp",rectified_filePath_forYML,dest_path])
-        Utility.log_message("INFO", "kibana configuration file copied to /usr/local/etc/kibana")
+        try:
+            file_path = Utility.get_path("elkStackConfigurer/debian/kibana.yml")
+            rectified_filePath_forYML = file_path.replace("utility","")
+            dest_path = "/usr/local/etc/kibana/"
+            call(["cp",rectified_filePath_forYML,dest_path])
+            Utility.log_message("INFO", "kibana configuration file copied to /usr/local/etc/kibana")
+        except OSError as e:
+            Utility.log_message("ERROR", "File not found")
+            print e
 
     @staticmethod
     def configure_kibana_rpm():
-        file_path = Utility.get_path("elkStackConfigurer/rpm/kibana.yml")
-        rectified_filePath_forYML = file_path.replace("utility","")
-        dest_path = "/usr/local/etc/kibana/"
-        call(["cp",rectified_filePath_forYML,dest_path])
-        Utility.log_message("INFO", "kibana configuration file copied to /usr/local/etc/kibana")
+        try:
+            file_path = Utility.get_path("elkStackConfigurer/rpm/kibana.yml")
+            rectified_filePath_forYML = file_path.replace("utility","")
+            dest_path = "/usr/local/etc/kibana/"
+            call(["cp",rectified_filePath_forYML,dest_path])
+            Utility.log_message("INFO", "kibana configuration file copied to /usr/local/etc/kibana")
+        except OSError as e:
+            Utility.log_message("ERROR", "File not found")
+            print e
 
     @staticmethod
     def install_logstashAsync():
