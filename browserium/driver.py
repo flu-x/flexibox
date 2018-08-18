@@ -3,7 +3,7 @@ from .operadriver import Operadriver
 from .geckodriver import Geckodriver
 from .phantomjsdriver import Phantomjs_driver
 from utility.utility import Utility
-
+from .elkStackConfigurer.elk_configure import elkConfigure
 class Driver(object):
 
     @staticmethod
@@ -15,5 +15,6 @@ driver_class = {
     'operadriver': Operadriver,
     'geckodriver': Geckodriver,
     'phantomjsdriver': Phantomjs_driver,
-    'all': Utility
+    'all': Utility,
+    'elk_configure': elkConfigure
 }
