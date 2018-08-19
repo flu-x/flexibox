@@ -13,13 +13,11 @@ elk = subparser.add_parser("elk", help="install elk stack")
 download.add_argument("--driver", help="download the respective driver")
 update.add_argument("--driver", help="update the respective driver")
 delete.add_argument("--driver", help="delete all drivers")
-elk.add_argument("--configure", help="install elk stack")
+elk.add_argument("--driver", help="install elk stack")
 
 def main():
     args = parser.parse_args()
-    args1 = parser.parse_args()
     driver_object = Driver.get_driver(args.driver)()
-    configure_object = Driver.get_driver(args1.configure)
     if args.command == "download":
         driver_object.download_driver()
     elif args.command == "update":
@@ -27,7 +25,7 @@ def main():
     elif args.command == "delete":
         driver_object.delete_driver_history()
     elif args.command == "elk":
-        configure_object.Elkmain()
+        driver_object.Elkmain()
 
 if __name__ == '__main__':
     main()
