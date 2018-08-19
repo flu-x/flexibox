@@ -1,9 +1,8 @@
-#!/usr/bin/env python
 from browserium.utility.os_type import OS_type
 from browserium.utility.utility import Utility
 from subprocess import call
 
-class elkConfigure(OS_type, Utility):
+class Elk_configure(OS_type, Utility):
     @staticmethod
     def evaluate_package_type_debian():
         pckg = OS_type.distribution_type()
@@ -16,16 +15,16 @@ class elkConfigure(OS_type, Utility):
 
     @staticmethod
     def configure_elkStack():
-        os_cat = elkConfigure.platform_type()
+        os_cat = Elk_configure.platform_type()
         if os_cat == 'macos':
-            elkConfigure.install_elkStack_forMac()
+            Elk_configure.install_elkStack_forMac()
         if os_cat == 'linux':
             dist_type = OS_type.distribution_type()
             Utility.log_message("INFO","Dist type is: "+dist_type)
             if 'debian' in dist_type:
-                elkConfigure.install_elkStack_forLinuxDebian()
+                Elk_configure.install_elkStack_forLinuxDebian()
             elif 'rhel fedora':
-                elkConfigure.install_elkStack_forLinuxRPM()
+                Elk_configure.install_elkStack_forLinuxRPM()
 
     @staticmethod
     def install_elkStack_forMac():
@@ -34,11 +33,11 @@ class elkConfigure(OS_type, Utility):
             rectified_filePath_forBash = file_path.replace("utility/","")
             call(["chmod", "+x", rectified_filePath_forBash])
             call(rectified_filePath_forBash)
-            elkConfigure.configure_kibana_mac()
+            Elk_configure.configure_kibana_mac()
             call(["brew", "services", "restart", "kibana"])
-            elkConfigure.install_logstashAsync()
+            Elk_configure.install_logstashAsync()
             Utility.log_message("INFO", "Installing python module for logstash")
-            elkConfigure.run_logstash_background()
+            Elk_configure.run_logstash_background()
         except OSError as e:
             Utility.log_message("ERROR", "File not found")
             print e
@@ -50,11 +49,11 @@ class elkConfigure(OS_type, Utility):
             rectified_filePath_forBash = file_path.replace("utility/","")
             call(["chmod", "+x", rectified_filePath_forBash])
             call("sudo", rectified_filePath_forBash)
-            elkConfigure.configure_kibana_mac()
+            Elk_configure.configure_kibana_mac()
             call(["sudo", "systemctl",  "restart", "kibana.service"])
-            elkConfigure.install_logstashAsync()
+            Elk_configure.install_logstashAsync()
             Utility.log_message("INFO", "Installing python module for logstash")
-            elkConfigure.run_logstash_background()
+            Elk_configure.run_logstash_background()
         except OSError as e:
             Utility.log_message("ERROR", "File not found")
             print e
@@ -66,11 +65,11 @@ class elkConfigure(OS_type, Utility):
             rectified_filePath_forBash = file_path.replace("utility/","")
             call(["chmod", "+x", rectified_filePath_forBash])
             call("sudo", rectified_filePath_forBash)
-            elkConfigure.configure_kibana_mac()
+            Elk_configure.configure_kibana_mac()
             call(["sudo", "systemctl", "restart", "kibana.service"])
-            elkConfigure.install_logstashAsync()
+            Elk_configure.install_logstashAsync()
             Utility.log_message("INFO", "Installing python module for logstash")
-            elkConfigure.run_logstash_background()
+            Elk_configure.run_logstash_background()
         except OSError as e:
             Utility.log_message("ERROR", "File not found")
             print e
@@ -122,7 +121,7 @@ class elkConfigure(OS_type, Utility):
 
     @staticmethod
     def main():
-        elkConfigure.configure_elkStack()
+        Elk_configure.configure_elkStack()
 
 if __name__ == '__main__':
-    elkConfigure.main()
+    Elk_configure.main()
