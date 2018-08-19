@@ -124,7 +124,7 @@ class Elk_configure(OS_type, Utility):
     @staticmethod
     def run_logstash_background():
         file_path = Elk_configure.get_path("logstash.conf")
-        call(["logstash", "-f", file_path])
+        call(["nohup","logstash", "-f", file_path, "&"])
         Utility.log_message("INFO", "Running logstash process in background")
 
     @staticmethod
