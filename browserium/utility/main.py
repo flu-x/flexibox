@@ -22,7 +22,7 @@ def main():
     elif args.command == "delete":
         driver_object.delete_driver_history()
     elif args.command == "elk_configure":
-        pass
+        driver_object.main()
 
 
 if __name__ == '__main__':
