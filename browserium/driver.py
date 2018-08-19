@@ -16,5 +16,5 @@ driver_class = {
     'geckodriver': Geckodriver,
     'phantomjsdriver': Phantomjs_driver,
     'all': Utility,
-    'elk_configure': Elk_configure
+    'elk': Elk_configure
 }
