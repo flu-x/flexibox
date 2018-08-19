@@ -18,6 +18,7 @@ elk.add_argument("--configure", help="install elk stack")
 def main():
     args = parser.parse_args()
     driver_object = Driver.get_driver(args.driver)()
+    config_object = Driver.get_driver(args.configure)()
     if args.command == "download":
         driver_object.download_driver()
     elif args.command == "update":
@@ -25,7 +26,7 @@ def main():
     elif args.command == "delete":
         driver_object.delete_driver_history()
     elif args.command == "elk":
-        driver_object.Elkmain()
+        config_object.Elkmain()
 
 
 if __name__ == '__main__':
