@@ -120,8 +120,5 @@ class Elk_configure(OS_type, Utility):
         Utility.log_message("INFO", "Running logstash process in background")
 
     @staticmethod
-    def configure_main():
+    def ELkmain():
         Elk_configure.configure_elkStack()
-
-if __name__ == '__main__':
-    Elk_configure.configure_main()
