@@ -34,6 +34,7 @@ setup(
     ],
     package_data= {
         'browserium.configurations': ['*.ini'],
+        'browserium.elkStackConfigurer': ['*.conf'],
         'browserium.elkStackConfigurer.darwin':['*.yml','*.sh'],
         'browserium.elkStackConfigurer.debian':['*.yml','*.sh'],
         'browserium.elkStackConfigurer.rpm':['*.yml','*.sh','*.repo']
