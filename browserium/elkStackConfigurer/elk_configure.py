@@ -1,6 +1,7 @@
 from browserium.utility.os_type import OS_type
 from browserium.utility.utility import Utility
 from subprocess import call
+import daemon
 import os
 
 class Elk_configure(OS_type, Utility):
@@ -46,7 +47,8 @@ class Elk_configure(OS_type, Utility):
             call(["brew", "services", "restart", "kibana"])
             Elk_configure.install_logstashAsync()
             Utility.log_message("INFO", "Installing python module for logstash")
-            Elk_configure.run_logstash_background()
+            # Elk_configure.run_logstash_background()
+            Elk_configure.run_daemon()
         except OSError as e:
             Utility.log_message("ERROR", "File not found")
             print e
@@ -61,7 +63,8 @@ class Elk_configure(OS_type, Utility):
             call(["sudo", "systemctl",  "restart", "kibana.service"])
             Elk_configure.install_logstashAsync()
             Utility.log_message("INFO", "Installing python module for logstash")
-            Elk_configure.run_logstash_background()
+            # Elk_configure.run_logstash_background()
+            Elk_configure.run_daemon()
         except OSError as e:
             Utility.log_message("ERROR", "File not found")
             print e
@@ -76,7 +79,8 @@ class Elk_configure(OS_type, Utility):
             call(["sudo", "systemctl", "restart", "kibana.service"])
             Elk_configure.install_logstashAsync()
             Utility.log_message("INFO", "Installing python module for logstash")
-            Elk_configure.run_logstash_background()
+            # Elk_configure.run_logstash_background()
+            Elk_configure.run_daemon()
         except OSError as e:
             Utility.log_message("ERROR", "File not found")
             print e
@@ -124,8 +128,13 @@ class Elk_configure(OS_type, Utility):
     @staticmethod
     def run_logstash_background():
         file_path = Elk_configure.get_path("logstash.conf")
-        call(["nohup","logstash", "-f", file_path, "&"])
+        call(["logstash", "-f", file_path])
         Utility.log_message("INFO", "Running logstash process in background")
+
+    @staticmethod
+    def run_daemon():
+        with daemon.DaemonContext():
+            Elk_configure.run_logstash_background()
 
     @staticmethod
     def Elkmain():
