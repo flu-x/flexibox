@@ -20,7 +20,8 @@ setup(
     install_requires = [
         'requests',
         'wget',
-        'selenium'
+        'selenium',
+        'python-daemon'
     ],
     packages = [
         'browserium',
