@@ -14,10 +14,10 @@ class Elk_configure(OS_type, Utility):
             Utility.log_message("ERROR", "Required Directory / File not found")
             print e
 
-    @staticmethod
-    def evaluate_package_type_debian():
-        pckg = OS_type.distribution_type()
-        return pckg
+    # @staticmethod
+    # def evaluate_package_type_debian():
+    #     pckg = OS_type.distribution_type()
+    #     return pckg
 
     @staticmethod
     def platform_type():
