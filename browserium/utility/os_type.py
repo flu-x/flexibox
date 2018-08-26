@@ -45,18 +45,15 @@ class OS_type(Utility):
     # Get platform distribution type
     @staticmethod
     def distribution_type():
-        try:
-            file_path = Utility.get_path("distType.sh")
-            print file_path
-            call(["chmod", "+x", file_path])
-            print "check1"
-            # id_like = subprocess.check_output("./%s" % file_path)
-            cmd = "./%s" % file_path
-            id_like = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE,
-            stderr=subprocess.STDOUT, env=os.environ, stdout=subprocess.PIPE, close_fds=True)
-            print "check2"
-            print id_like
-            return ""
-        except OSError as e:
-            Utility.log_message("ERROR", "No such file or directory")
-            print e
+        # file_path = Utility.get_path("distType.sh")
+        # print file_path
+        # call(["chmod", "+x", file_path])
+        # print "check1"
+        # id_like = subprocess.check_output("./%s" % file_path)
+        # cmd = "./%s" % file_path
+        # id_like = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE,
+        # stderr=subprocess.STDOUT, env=os.environ, stdout=subprocess.PIPE, close_fds=True)
+        # print "check2"
+        # print id_like
+        id_like = os.system("cat /etc/*release | grep 'ID_LIKE'")
+        return id_like
