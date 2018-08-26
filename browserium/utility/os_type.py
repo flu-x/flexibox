@@ -55,5 +55,5 @@ class OS_type(Utility):
         # stderr=subprocess.STDOUT, env=os.environ, stdout=subprocess.PIPE, close_fds=True)
         # print "check2"
         # print id_like
-        id_like = os.system("cat /etc/*release | grep 'ID_LIKE'")
-        return id_like
+        if "debian" in os.system("cat /etc/*release | grep 'ID_LIKE'"):
+            print "true"

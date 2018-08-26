@@ -30,8 +30,8 @@ class Elk_configure(OS_type, Utility):
         if os_cat == 'macos':
             Elk_configure.install_elkStack_forMac()
         if os_cat == 'linux':
-            dist_type = OS_type.distribution_type()
-            print dist_type
+            OS_type.distribution_type()
+            # print dist_type
             # Utility.log_message("INFO","Dist type is: "+str(dist_type))
             # if 'debian' in dist_type:
             #     Elk_configure.install_elkStack_forLinuxDebian()
