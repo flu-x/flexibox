@@ -55,7 +55,8 @@ class OS_type(Utility):
             id_like = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE,
             stderr=subprocess.STDOUT, env=os.environ, stdout=subprocess.PIPE, close_fds=True)
             print "check2"
-            return str(id_like)
+            print id_like
+            return null
         except OSError as e:
             Utility.log_message("ERROR", "No such file or directory")
             print e
