@@ -53,7 +53,7 @@ class Elk_configure(OS_type, Utility):
         try:
             file_path = Elk_configure.get_path("debian/debian_installation.sh")
             call(["chmod", "+x", file_path])
-            call("sudo", "./", file_path)
+            call(["./", file_path])
             Elk_configure.configure_kibana_mac()
             call(["sudo", "systemctl",  "restart", "kibana.service"])
             Elk_configure.install_logstashAsync()
@@ -69,7 +69,7 @@ class Elk_configure(OS_type, Utility):
         try:
             file_path = Elk_configure.get_path("rpm/rpm_installation.sh")
             call(["chmod", "+x", file_path])
-            call("sudo", "./", file_path)
+            call(["./", file_path])
             Elk_configure.configure_kibana_mac()
             call(["sudo", "systemctl", "restart", "kibana.service"])
             Elk_configure.install_logstashAsync()
