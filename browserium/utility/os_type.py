@@ -56,7 +56,7 @@ class OS_type(Utility):
             stderr=subprocess.STDOUT, env=os.environ, stdout=subprocess.PIPE, close_fds=True)
             print "check2"
             print id_like
-            return null
+            return ""
         except OSError as e:
             Utility.log_message("ERROR", "No such file or directory")
             print e
