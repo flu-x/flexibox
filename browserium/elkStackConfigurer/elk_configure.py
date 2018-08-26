@@ -14,11 +14,6 @@ class Elk_configure(OS_type, Utility):
             Utility.log_message("ERROR", "Required Directory / File not found")
             print e
 
-    # @staticmethod
-    # def evaluate_package_type_debian():
-    #     pckg = OS_type.distribution_type()
-    #     return pckg
-
     @staticmethod
     def platform_type():
         platform_val = OS_type.os_name()
@@ -32,11 +27,11 @@ class Elk_configure(OS_type, Utility):
         if os_cat == 'linux':
             dist_type = OS_type.distribution_type()
             print dist_type
-            Utility.log_message("INFO","Dist type is: "+str(dist_type))
-            if 'debian' in dist_type:
-                Elk_configure.install_elkStack_forLinuxDebian()
-            elif 'rhel fedora':
-                Elk_configure.install_elkStack_forLinuxRPM()
+            # Utility.log_message("INFO","Dist type is: "+str(dist_type))
+            # if 'debian' in dist_type:
+            #     Elk_configure.install_elkStack_forLinuxDebian()
+            # elif 'rhel fedora':
+            #     Elk_configure.install_elkStack_forLinuxRPM()
 
     @staticmethod
     def install_elkStack_forMac():

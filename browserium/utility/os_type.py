@@ -44,5 +44,10 @@ class OS_type(Utility):
     # Get platform distribution type
     @staticmethod
     def distribution_type():
+        dist_type = ""
         output = subprocess.check_output("cat /etc/*release | grep 'ID_LIKE'")
-        return output
+        if "debian" in output:
+            dist_type = "debian"
+        if "rhel fedora" in output:
+            dist_type = "RHEL"
+        return dist_type
