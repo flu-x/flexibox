@@ -49,7 +49,7 @@ class OS_type(Utility):
             call(["chmod", "+x", "distType.sh"])
             # id_like = subprocess.check_output("./%s" % file_path)
             id_like = subprocess.check_output("./distType.sh")
-            return str(id_like)
+            return id_like
         except OSError as e:
             Utility.log_message("ERROR", "No such file or directory")
             print e
