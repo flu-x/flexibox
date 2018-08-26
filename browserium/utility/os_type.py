@@ -9,6 +9,7 @@ import sys
 import platform
 import subprocess
 from browserium.utility.utility import Utility
+from subprocess import call
 
 class OS_type(Utility):
     LINUX = "linux"
@@ -43,6 +44,12 @@ class OS_type(Utility):
     # Get platform distribution type
     @staticmethod
     def distribution_type():
-        file_path = Utility.get_path("distType.sh")
-        id_like = subprocess.check_output("./%s" % file_path)
-        return id_like
+        try:
+            # file_path = Utility.get_path("distType.sh")
+            call(["chmod", "+x", "distType.sh"])
+            # id_like = subprocess.check_output("./%s" % file_path)
+            id_like = subprocess.check_output("./distType.sh")
+            return id_like
+        except OSError as e:
+            Utility.log_message("ERROR", "No such file or directory")
+            print e
