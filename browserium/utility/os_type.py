@@ -46,11 +46,9 @@ class OS_type(Utility):
     def distribution_type():
         try:
             file_path = Utility.get_path("distType.sh")
-            return file_path
-            # call(["chmod", "+x", "distType.sh"])
-            # # id_like = subprocess.check_output("./%s" % file_path)
-            # id_like = subprocess.check_output("./distType.sh")
-            # return id_like
+            call(["chmod", "+x", file_path])
+            id_like = subprocess.check_output("./%s" % file_path)
+            return id_like
         except OSError as e:
             Utility.log_message("ERROR", "No such file or directory")
             print e
