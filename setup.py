@@ -38,7 +38,8 @@ setup(
         'browserium.elkStackConfigurer': ['*.conf'],
         'browserium.elkStackConfigurer.darwin':['*.yml','*.sh'],
         'browserium.elkStackConfigurer.debian':['*.yml','*.sh'],
-        'browserium.elkStackConfigurer.rpm':['*.yml','*.sh','*.repo']
+        'browserium.elkStackConfigurer.rpm':['*.yml','*.sh','*.repo'],
+        'browserium.utility':['*.sh']
     },
     include_package_data=True,
     zip_safe = False,

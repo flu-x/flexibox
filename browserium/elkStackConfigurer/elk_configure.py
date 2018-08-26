@@ -46,7 +46,7 @@ class Elk_configure(OS_type, Utility):
             Elk_configure.configure_kibana_mac()
             call(["brew", "services", "restart", "kibana"])
             Elk_configure.install_logstashAsync()
-            Utility.log_message("INFO", "Installing python module for logstash")
+            Utility.log_message("INFO", "Installed python module for logstash")
             # Elk_configure.run_logstash_background()
             Elk_configure.run_daemon()
         except OSError as e:
@@ -62,7 +62,7 @@ class Elk_configure(OS_type, Utility):
             Elk_configure.configure_kibana_mac()
             call(["sudo", "systemctl",  "restart", "kibana.service"])
             Elk_configure.install_logstashAsync()
-            Utility.log_message("INFO", "Installing python module for logstash")
+            Utility.log_message("INFO", "Installed python module for logstash")
             # Elk_configure.run_logstash_background()
             Elk_configure.run_daemon()
         except OSError as e:
@@ -129,7 +129,7 @@ class Elk_configure(OS_type, Utility):
     def run_logstash_background():
         file_path = Elk_configure.get_path("logstash.conf")
         call(["logstash", "-f", file_path])
-        Utility.log_message("INFO", "Running logstash process in background")
+        Utility.log_message("INFO", "Running logstash configuration as a daemon process")
 
     @staticmethod
     def run_daemon():
