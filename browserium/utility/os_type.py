@@ -46,7 +46,7 @@ class OS_type(Utility):
     def distribution_type():
         try:
             file_path = Utility.get_path("distType.sh")
-            print file_path
+            return file_path
             # call(["chmod", "+x", "distType.sh"])
             # # id_like = subprocess.check_output("./%s" % file_path)
             # id_like = subprocess.check_output("./distType.sh")
