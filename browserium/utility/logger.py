@@ -3,7 +3,7 @@ import logstash
 import sys
 import platform
 
-class LogstashAsync():
+class Logstash():
     def logstash_configure(self, log_type, log_message):
         host = 'localhost'
         port = 5959
