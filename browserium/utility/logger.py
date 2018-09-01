@@ -4,7 +4,7 @@ import sys
 import platform
 
 class Logstash():
-    def logstash_configure(self, log_type, log_message):
+    def logstash_type(self, log_type, log_message):
         host = 'localhost'
         port = 5959
 
