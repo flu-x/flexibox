@@ -40,16 +40,3 @@ class OS_type(Utility):
     @staticmethod
     def os_type():
         return OS_type.os_name() + str(OS_type.os_architecture)
-
-    # Get platform distribution type
-    @staticmethod
-    def distribution_type():
-        try:
-            # file_path = Utility.get_path("distType.sh")
-            call(["chmod", "+x", "distType.sh"])
-            # id_like = subprocess.check_output("./%s" % file_path)
-            id_like = subprocess.check_output("./distType.sh")
-            return id_like
-        except OSError as e:
-            Utility.log_message("ERROR", "No such file or directory")
-            print e

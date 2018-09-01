@@ -3,7 +3,7 @@ from .operadriver import Operadriver
 from .geckodriver import Geckodriver
 from .phantomjsdriver import Phantomjs_driver
 from utility.utility import Utility
-from .elkStackConfigurer.elk_configure import Elk_configure
+from .logstashRunner.logstash_runner import Logstash_runner
 class Driver(object):
 
     @staticmethod
@@ -16,5 +16,5 @@ driver_class = {
     'geckodriver': Geckodriver,
     'phantomjsdriver': Phantomjs_driver,
     'all': Utility,
-    'elk_configure': Elk_configure
+    'logstash_build': Logstash_runner
 }
