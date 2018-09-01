@@ -40,9 +40,3 @@ class OS_type(Utility):
     @staticmethod
     def os_type():
         return OS_type.os_name() + str(OS_type.os_architecture)
-
-    # Get platform distribution type
-    @staticmethod
-    def distribution_type():
-        output = subprocess.check_output("cat /etc/*release | grep 'ID_LIKE'",shell=True)
-        return output

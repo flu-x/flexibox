@@ -28,17 +28,11 @@ setup(
         'browserium.utility',
         'browserium.configurations',
         'browserium.generic_functions',
-        'browserium.elkStackConfigurer',
-        'browserium.elkStackConfigurer.darwin',
-        'browserium.elkStackConfigurer.debian',
-        'browserium.elkStackConfigurer.rpm'
+        'browserium.logstashRunner'
     ],
     package_data= {
         'browserium.configurations': ['*.ini'],
-        'browserium.elkStackConfigurer': ['*.conf'],
-        'browserium.elkStackConfigurer.darwin':['*.yml','*.sh'],
-        'browserium.elkStackConfigurer.debian':['*.yml','*.sh'],
-        'browserium.elkStackConfigurer.rpm':['*.yml','*.sh','*.repo'],
+        'browserium.logstashRunner': ['*.conf'],
         'browserium.utility':['*.sh']
     },
     include_package_data=True,
@@ -48,7 +42,7 @@ setup(
             'browserium = browserium.utility.main:main'
         ]
     },
-    scripts = ['browserium/elkStackConfigurer/elk_configure.py'],
+    scripts = ['browserium/logstashRunner/logstash_runner.py'],
     url = "https://github.com/browserium/Browserium",
     download_url = "https://github.com/browserium/Browserium/archive/1.1.0.tar.gz"
 )
