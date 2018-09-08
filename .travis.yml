@@ -9,6 +9,7 @@ before_install:
   sudo chmod 757 /usr/local/bin/
 install:
   - pip install browserium
+  - pip install urllib3
   - browserium download --driver=chromedriver
 before_script:
   cd TestFunction/
