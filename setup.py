@@ -15,7 +15,7 @@ setup(
     classifiers = [
         'Intended Audience :: Information Technology',
         'Programming Language :: Python :: 2.7',
-        'License :: MIT License'
+        'License :: OSI Approved :: MIT License'
     ],
     install_requires = [
         'requests',
@@ -42,5 +42,7 @@ setup(
         ]
     },
     url = "https://github.com/browserium/Browserium",
-    download_url = "https://github.com/browserium/Browserium/archive/1.1.0.tar.gz"
+    download_url = "https://github.com/browserium/Browserium/archive/1.1.0.tar.gz",
+    long_description = long_description,
+    long_description_content_type = 'text/markdown'
 )
