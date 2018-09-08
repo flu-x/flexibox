@@ -1,6 +1,6 @@
 # Browserium
 
-![Browserium logo](https://farm2.staticflickr.com/1724/41987025154_572d6d1940.jpg)
+![Browserium logo](https://farm2.staticflickr.com/1742/41852028144_642310d9b6_m.jpg)
 
 **Browserium** is the a selenium wrapper for all **browsers** and **browser configurations**. This module is a single end point to access all the browser drivers and as well as the webdriver object for all the respective browsers along with the installation of your **selenium** module.
 
@@ -29,19 +29,18 @@ There are two ways in which you can use Browserium.
 
 You can refer to the above diagram for reference.
 
-## Installing and Updating driver packages
-
-### Install Browserium module
+##Installing and Updating driver packages
+###Install Browserium module
 * To install Browserium using PiP run the command:
 
 	`pip install browserium`
-	
+
 * To install Browserium from GitHub run the command:
 
 
 	`pip install git+git://github.com/browserium/Browserium.git`
-	
-### Modules installed with browserium
+
+###Modules installed with browserium
 * **requests**
 
 * **selenium**
@@ -52,7 +51,7 @@ Make sure you have **ssh** configured in GitHub. You can also use **https** as w
 
 To install Browserium from GitHub using HTTPS run the command:
 
-	pip install git+https://github.com/browserium/Browserium.git	
+	pip install git+https://github.com/browserium/Browserium.git
 
 * To download chromedriver run the command
 
@@ -70,7 +69,7 @@ To install Browserium from GitHub using HTTPS run the command:
 
 	```browserium download --driver=phantomjsdriver```
 
-### Update Drivers
+###Update Drivers
 * To update chromedriver run the command
 
 	```browserium update --driver=chromedriver```
@@ -87,27 +86,27 @@ To install Browserium from GitHub using HTTPS run the command:
 
 	```browserium update --driver=phantomjsdriver```
 
-## Get started with Browserium
+##Get started with Browserium
 ### Browser Controller class by functionality
-The `Browser Controller` class provides you with some eccentric methods that can be utilised to achieve the required functions. 
+The `Browser Controller` class provides you with some eccentric methods that can be utilised to achieve the required functions.
 
-* **get_url(driver, url)**: request the required url entered. Pass the required driver object and the 'url' as parameters.
+* get_url(driver, url): request the required url entered. Pass the required driver object and the 'url' as parameters.
 
-* **implicit_wait_time(driver, time)**: Apply implicit wait before the dom loads. Pass the required driver object and the time as parameters.
+* implicit_wait_time(driver, time): Apply implicit wait before the dom loads. Pass the required driver object and the time as parameters.
 
-* **set_window_size(driver, height, width)**: Set the window size for the current running browser. Pass the required driver object, height and the width of the window.
+* set_window_size(driver, height, width): Set the window size for the current running browser. Pass the required driver object, height and the width of the window.
 
-* **get_current_url(driver)**: Get the current url. Pass the required driver object as parameter.
+* get_current_url(driver): Get the current url. Pass the required driver object as parameter.
 
-* **get_network_requests(driver)**: Get all the network requests for the current page. Pass the required driver object as parameter.
+* get_network_requests(driver): Get all the network requests for the current page. Pass the required driver object as parameter.
 
-* **performance_metrics(driver)**: Get required page performance data. Pass the required driver object as parameter.
+* performance_metrics(driver): Get required page performance data. Pass the required driver object as parameter.
 
-* **check_console_logs(driver)**: Get all console logs. Pass the required driver object as parameter.
+* check_console_logs(driver): Get all console logs. Pass the required driver object as parameter.
 
-* **get_page_source(driver)**: Get the current page source. Pass the required driver object as parameter.
+* get_page_source(driver): Get the current page source. Pass the required driver object as parameter.
 
-* **get_site_cookies(driver)**: Get all the site cookies. Pass the required driver object as parameter.
+* get_site_cookies(driver): Get all the site cookies. Pass the required driver object as parameter.
 
 ### Create instance for Chrome
 * Create instance for the `ChromeDriverObject` class
@@ -115,24 +114,34 @@ The `Browser Controller` class provides you with some eccentric methods that can
 * Create instance for the `Browser_controller` class to use the generic methods.
 
 ```python
-chromedriver = ChromeDriverObject()
-controller = Browser_controller()
-driver = chromedriver.set_chromedriver_object()
-controller.get_url(driver, "https://www.google.co.in")
-controller.implicit_wait_time(driver, 4)
-current_url = controller.get_current_url(driver)
-print current_url
+from browserium.generic_functions.chrome_object import ChromeDriverObject
+from browserium.generic_functions.browser_controller import Browser_controller
+from time import sleep
+
+class Test_1():
+	def test_chromedriver_type1(self):
+		chromedriver = ChromeDriverObject()
+		controller = Browser_controller()
+		driver = chromedriver.set_chromedriver_object()
+		controller.get_url(driver, "https://www.google.co.in")
+		controller.implicit_wait_time(driver, 4)
+		current_url = controller.get_current_url(driver)
+		print current_url
 ```
 * To run chromedriver using the `headless` feature you have to pass the argument '--headless' in the `set_chromedriver_object()` method
 
 ```python
-chromedriver = ChromeDriverObject()
-controller = Browser_controller()
-driver = chromedriver.set_chromedriver_object('--headless')
-controller.get_url(driver, "https://www.google.co.in")
-controller.implicit_wait_time(driver, 4)
-current_url = controller.get_current_url(driver)
-print current_url
+from browserium.generic_functions.chrome_object import ChromeDriverObject
+from browserium.generic_functions.browser_controller import Browser_controller
+class Test_1():
+	def test_chromedriver_type1(self):
+		chromedriver = ChromeDriverObject()
+		controller = Browser_controller()
+		driver = chromedriver.set_chromedriver_object('--headless')
+		controller.get_url(driver, "https://www.google.co.in")
+		controller.implicit_wait_time(driver, 4)
+		current_url = controller.get_current_url(driver)
+		print current_url
 ```
 
 ### Create instance for Firefox
@@ -141,26 +150,34 @@ print current_url
 * Create instance for the `Browser_controller` class to use the generic methods.
 
 ```python
-geckodriver = GeckoDriverObject()
-controller = Browser_controller()
-driver = geckodriver.set_geckodriver_object()
-controller.implicit_wait_time(driver, 4)
-controller.get_url(driver, "https://www.google.co.in")
-current_url = controller.get_current_url(driver)
-print current_url
-print driver.title
+from browserium.generic_functions.gecko_object import GeckoDriverObject
+from browserium.generic_functions.browser_controller import Browser_controller
+class Test1():
+	def test_geckodriver_type1(self):
+		geckodriver = GeckoDriverObject()
+		controller = Browser_controller()
+		driver = geckodriver.set_geckodriver_object()
+		controller.implicit_wait_time(driver, 4)
+		controller.get_url(driver, "https://www.google.co.in")
+		current_url = controller.get_current_url(driver)
+		print current_url
+		print driver.title
 ```
-* To run chromedriver using the `headless` feature you have to pass the argument '--headless' in the `set_geckodriver_object()` method
+* To run geckodriver using the `headless` feature you have to pass the argument '--headless' in the `set_geckodriver_object()` method
 
 ```python
-geckodriver = GeckoDriverObject()
-controller = Browser_controller()
-driver = geckodriver.set_geckodriver_object('--headless')
-controller.implicit_wait_time(driver, 4)
-controller.get_url(driver, "https://www.google.co.in")
-current_url = controller.get_current_url(driver)
-print current_url
-print driver.title
+from browserium.generic_functions.gecko_object import GeckoDriverObject
+from browserium.generic_functions.browser_controller import Browser_controller
+class Test1():
+	def test_geckodriver_type1(self):
+		geckodriver = GeckoDriverObject()
+		controller = Browser_controller()
+		driver = geckodriver.set_geckodriver_object('--headless')
+		controller.implicit_wait_time(driver, 4)
+		controller.get_url(driver, "https://www.google.co.in")
+		current_url = controller.get_current_url(driver)
+		print current_url
+		print driver.title
 ```
 
 ### Create instance for Opera
@@ -169,32 +186,19 @@ print driver.title
 * Create instance for the `Browser_controller` class to use the generic methods.
 
 ```python
-operadriver = OperaDriverObject()
-controller = Browser_controller()
-driver = operadriver.set_operadriver_object()
-controller.implicit_wait_time(driver, 4)
-controller.get_url(driver, "https://www.google.co.in")
-current_url = controller.get_current_url(driver)
-print current_url
-print driver.title
+from browserium.generic_functions.opera_object import OperaDriverObject
+from browserium.generic_functions.browser_controller import Browser_controller
+class Test1():
+	def test_operadriver_type1(self):
+		operadriver = OperaDriverObject()
+		controller = Browser_controller()
+		driver = operadriver.set_operadriver_object()
+		controller.implicit_wait_time(driver, 4)
+		controller.get_url(driver, "https://www.google.co.in")
+		current_url = controller.get_current_url(driver)
+		print current_url
+		print driver.title
 ```
-
-### Create instance for PhantomJS
-* Create instance for the `PhantomDriverObject` class
-* Use the instance for `PhantomDriverObject` class to call the `set_phantomdriver_object` method
-* Create instance for the `Browser_controller` class to use the generic methods.
-
-```python
-phantomdriver = PhantomDriverObject()
-controller = Browser_controller()
-driver = phantomdriver.set_phantomdriver_object()
-print driver
-controller.implicit_wait_time(driver, 4)
-controller.get_url(driver, "https://www.google.co.in")
-current_url = controller.get_current_url(driver)
-print current_url
-```
-P.S: It would be wise not to use PhantomJS as Selenium would not support PhantomJS in its later versions. To run your tests in headless you can use the headless feature provided by `Chromedriver` or `Firefoxdriver`
 
 ### Create instance for Safari
 * Create instance for the `SafariDriverObject` class
@@ -202,15 +206,19 @@ P.S: It would be wise not to use PhantomJS as Selenium would not support Phantom
 * Create instance for the `Browser_controller` class to use the generic methods.
 
 ```python
-safaridriver = SafariDriverObject()
-controller = Browser_controller()
-driver = safaridriver.set_safaridriver_object()
-controller.get_url(driver, "https://www.google.co.in")
-controller.implicit_wait_time(driver, 4)
-current_url = controller.get_current_url(driver)
-print current_url
-print driver.title
-driver.quit()
+from browserium.generic_functions.safari_object import SafariDriverObject
+from browserium.generic_functions.browser_controller import Browser_controller
+class Test_1():
+    def test_safaridriver_type1(self):
+		safaridriver = SafariDriverObject()
+		controller = Browser_controller()
+		driver = safaridriver.set_safaridriver_object()
+		controller.get_url(driver, "https://www.google.co.in")
+		controller.implicit_wait_time(driver, 4)
+		current_url = controller.get_current_url(driver)
+		print current_url
+		print driver.title
+		driver.quit()
 ```
 P.S: Safaridriver comes shipped with the Safari browser by default. You have to enable the `Allow Remote Automation` option from the `Develop` menu. Please check this screenshot.
 ![Safari](https://farm2.staticflickr.com/1738/28757957868_38fff165d4.jpg)
@@ -221,11 +229,3 @@ Keep in mind that your safari version has to be more than 10. If it is not 10 or
 To delete all browser drivers from /usr/local/bin run the command:
 
 	browserium delete --driver=all
-
-## Module Contributors
-* Soumyajit Basu - soumyajit.basu62@gmail.com
-
-* Bony Roopchandani - broopchandani@dataliciious.com
-
-## Note
-Currently we are supporting this release version for Mac and Linux platforms. We will be supporting `Browserium` for **Windows** in the upcoming version release.
