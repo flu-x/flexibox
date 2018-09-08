@@ -1,6 +1,6 @@
 from browserium.generic_functions.chrome_object import ChromeDriverObject
 from browserium.generic_functions.browser_controller import Browser_controller
-from browserium.generic_functions.logger import Logstash
+# from browserium.generic_functions.logger import Logstash
 from time import sleep
 
 class Test_1():
