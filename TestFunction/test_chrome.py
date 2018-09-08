@@ -8,7 +8,7 @@ class Test_1():
         chromedriver = ChromeDriverObject()
         controller = Browser_controller()
         driver = chromedriver.set_chromedriver_object()
-        log = Logstash()
+        # log = Logstash()
         controller.get_url(driver, "https://www.google.co.in")
         controller.implicit_wait_time(driver, 4)
         controller.set_window_size(driver, "1440", "900")
@@ -24,16 +24,16 @@ class Test_1():
         print site_cookies
         current_url = controller.get_current_url(driver)
         print current_url
-        log.logstash_type("INFO","Test")
-        log.logstash_type("ERROR","Test")
-        log.logstash_type("WARNING","Test")
+        # log.logstash_type("INFO","Test")
+        # log.logstash_type("ERROR","Test")
+        # log.logstash_type("WARNING","Test")
         driver.quit()
 
     def test_chromedriver_type2(self):
         chromedriver = ChromeDriverObject()
         controller = Browser_controller()
         driver = chromedriver.set_chromedriver_object("--headless")
-        log = Logstash()
+        # log = Logstash()
         controller.get_url(driver, "https://www.google.co.in")
         controller.implicit_wait_time(driver, 4)
         controller.set_window_size(driver, "1440", "900")
@@ -49,9 +49,9 @@ class Test_1():
         print site_cookies
         current_url = controller.get_current_url(driver)
         print current_url
-        log.logstash_type("INFO","Test")
-        log.logstash_type("ERROR","Test")
-        log.logstash_type("WARNING","Test")
+        # log.logstash_type("INFO","Test")
+        # log.logstash_type("ERROR","Test")
+        # log.logstash_type("WARNING","Test")
         driver.quit()
 
 t = Test_1()
