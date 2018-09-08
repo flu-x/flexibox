@@ -32,8 +32,7 @@ setup(
     ],
     package_data= {
         'browserium.configurations': ['*.ini'],
-        'browserium.logstashRunner': ['*.conf'],
-        'browserium.utility':['*.sh']
+        'browserium.logstashRunner': ['*.conf']
     },
     include_package_data=True,
     zip_safe = False,
@@ -42,7 +41,6 @@ setup(
             'browserium = browserium.utility.main:main'
         ]
     },
-    scripts = ['browserium/logstashRunner/logstash_runner.py'],
     url = "https://github.com/browserium/Browserium",
     download_url = "https://github.com/browserium/Browserium/archive/1.1.0.tar.gz"
 )
