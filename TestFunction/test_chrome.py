@@ -33,6 +33,7 @@ class Test_1():
         chromedriver = ChromeDriverObject()
         controller = Browser_controller()
         driver = chromedriver.set_chromedriver_object("--headless")
+        log = Logstash()
         controller.get_url(driver, "https://www.google.co.in")
         controller.implicit_wait_time(driver, 4)
         controller.set_window_size(driver, "1440", "900")
