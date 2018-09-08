@@ -16,7 +16,7 @@ class Logstash_runner(OS_type, Utility):
 
     @staticmethod
     def install_logstashAsync():
-        call(["pip", "install", "python-logstash"])
+        call(["pip", "install", "python-logstash-async"])
 
     @staticmethod
     def run_logstash_background():

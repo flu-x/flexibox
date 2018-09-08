@@ -6,4 +6,4 @@ browserium.egg-info/
 dist/
 build/
 TestFunction/geckodriver.log
-nohup.out
+TestFunction/logstash.db
