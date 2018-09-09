@@ -30,13 +30,13 @@ There are two ways in which you can use Browserium.
 You can refer to the above diagram for reference.
 
 ##Installing and Updating driver packages
+
 ###Install Browserium module
 * To install Browserium using PiP run the command:
 
 	`pip install browserium`
 
 * To install Browserium from GitHub run the command:
-
 
 	`pip install git+git://github.com/browserium/Browserium.git`
 
