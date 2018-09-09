@@ -29,9 +29,9 @@ There are two ways in which you can use Browserium.
 
 You can refer to the above diagram for reference.
 
-##Installing and Updating driver packages
+## Installing and Updating driver packages
 
-###Install Browserium module
+### Install Browserium module
 * To install Browserium using PiP run the command:
 
 	`pip install browserium`
@@ -40,7 +40,7 @@ You can refer to the above diagram for reference.
 
 	`pip install git+git://github.com/browserium/Browserium.git`
 
-###Modules installed with browserium
+### Modules installed with browserium
 * **requests**
 
 * **selenium**
@@ -69,7 +69,7 @@ To install Browserium from GitHub using HTTPS run the command:
 
 	```browserium download --driver=phantomjsdriver```
 
-###Update Drivers
+### Update Drivers
 * To update chromedriver run the command
 
 	```browserium update --driver=chromedriver```
@@ -86,7 +86,7 @@ To install Browserium from GitHub using HTTPS run the command:
 
 	```browserium update --driver=phantomjsdriver```
 
-##Get started with Browserium
+## Get started with Browserium
 ### Browser Controller class by functionality
 The `Browser Controller` class provides you with some eccentric methods that can be utilised to achieve the required functions.
 
