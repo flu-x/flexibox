@@ -7,3 +7,4 @@ dist/
 build/
 TestFunction/geckodriver.log
 TestFunction/logstash.db
+todo.md
