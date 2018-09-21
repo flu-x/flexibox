@@ -65,10 +65,6 @@ To install Browserium from GitHub using HTTPS run the command:
 
 	```browserium download --driver=operadriver```
 
-* To download phantomjsdriver run the command
-
-	```browserium download --driver=phantomjsdriver```
-
 ### Update Drivers
 * To update chromedriver run the command
 
@@ -81,10 +77,6 @@ To install Browserium from GitHub using HTTPS run the command:
 * To update operadriver run the command
 
 	```browserium update --driver=operadriver```
-
-* To update phantomjsdriver run the command
-
-	```browserium update --driver=phantomjsdriver```
 
 ## Get started with Browserium
 ### Browser Controller class by functionality
