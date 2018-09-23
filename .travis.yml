@@ -8,8 +8,10 @@ virtualenv:
 before_install:
   sudo chmod 757 /usr/local/bin/
 install:
+  - python -m pip install --upgrade pip
   - pip install browserium
-  - pip install urllib3
+addons:
+  chrome: stable
 before_script:
   - browserium download --driver=chromedriver
   - cd TestFunction/

@@ -46,5 +46,5 @@ class Test_1():
         driver.quit()
 
 t = Test_1()
-t.test_chromedriver_type1()
+# t.test_chromedriver_type1()
 t.test_chromedriver_type2()
