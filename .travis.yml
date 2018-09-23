@@ -8,12 +8,13 @@ virtualenv:
 before_install:
   sudo chmod 757 /usr/local/bin/
 install:
-  - python -m pip install --upgrade pip
-  - pip install browserium
+  pip install browserium
 addons:
   chrome: stable
 before_script:
   - browserium download --driver=chromedriver
-  - cd TestFunction/
-script:
-  python test_chrome.py
+  - cd /usr/local/bin
+  - ls
+  # - cd TestFunction/
+# script:
+#   python test_chrome.py
