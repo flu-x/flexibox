@@ -7,12 +7,15 @@ import requests
 
 class UnittestModule(Chromedriver):
 
+    # Apply assertion for testing equality condition
     def AssertEquals(self,actual,expected):
         assert_equals(actual, expected)
 
+    # Apply assertion for testing boolean condition for True
     def AssertTrue(self, result):
         assert_true(result)
 
+    # Check api hit of chromedriver for mac
     def test_api_chromedriver_mac(self):
         api_url_mac = self.url_builder('_mac')
         response = requests.get(api_url_mac)
@@ -21,6 +24,7 @@ class UnittestModule(Chromedriver):
         result = os.path.exists("chromedriver_mac64.zip")
         self.AssertTrue(result)
 
+    # Check api hit of chromedriver for linux
     def test_api_chromedriver_linux(self):
         api_url_linux = self.url_builder("_linux")
         response = requests.get(api_url_linux)
