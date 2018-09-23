@@ -218,6 +218,6 @@ P.S: Safaridriver comes shipped with the Safari browser by default. You have to 
 Keep in mind that your safari version has to be more than 10. If it is not 10 or more than 10 then please update your Safari version.
 
 ### Deleting all browser driver
-To delete all browser drivers from /usr/local/bin run the command:
+To delete all browser drivers from `/usr/local/bin` run the command:
 
 	browserium delete --driver=all
