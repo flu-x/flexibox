@@ -1,0 +1,24 @@
+{
+    "assets" : [
+        {
+            "geckodriver" : {
+                "linux_v_32":"https://api.github.com/repos/mozilla/geckodriver/releases/assets/8691310",
+                "linux_v_64":"https://api.github.com/repos/mozilla/geckodriver/releases/assets/8691308",
+                "macos_v":"https://api.github.com/repos/mozilla/geckodriver/releases/assets/8691318"
+            },
+            "chromedriver" : {
+                "url":"http://chromedriver.storage.googleapis.com/",
+                "release_version":"http://chromedriver.storage.googleapis.com/LATEST_RELEASE",
+                "mac_v_64":"chromedriver_mac64.zip",
+                "linux_v_64":"chromedriver_linux64.zip"
+            },
+            "operadriver" : {
+                "linux_v_64":"https://api.github.com/repos/operasoftware/operachromiumdriver/releases/assets/8362150",
+                "mac_v_64":"https://api.github.com/repos/operasoftware/operachromiumdriver/releases/assets/8362151"
+            },
+            "phantomjsdriver" : {
+                "apiURL":"https://api.github.com/repos/Medium/phantomjs/releases/4879868"
+            }
+        }
+    ]
+}
