@@ -24,6 +24,6 @@ class Utility():
     # return json data
     @staticmethod
     def json_file_reader():
-        with open("../api.json") as data_file:
+        with open("../api.json","r") as data_file:
             json_data = json.loads(data_file)
             return json_data
