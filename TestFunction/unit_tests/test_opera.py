@@ -1,18 +1,18 @@
-from UnitTest.utility.utility import Utility
+from utility.utility import Utility_object
 import unittest
 
 class TestOpera(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         unittest.TestCase.__init__(self, *args, **kwargs)
-        self.utility=Utility()
+        self.utility=Utility_object()
 
     def parseJSONOpera(self):
         dict_data = {}
         jsonData = self.utility.json_file_reader()
-        for item in jsonData:
+        for item in jsonData['assets']:
             dict_data = {
-                "mac" : item['assets']['operadriver']['mac_v_64'],
-                "linux" : item['assets']['operadriver']['linux_v_64']
+                "mac" : item['operadriver']['mac_v_64'],
+                "linux" : item['operadriver']['linux_v_64']
             }
         return dict_data
 

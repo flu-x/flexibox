@@ -6,24 +6,30 @@
 
 from datetime import datetime
 import json
+import os
 
-class Utility():
+class Utility_object():
+    def get_path(self, path_param):
+        try:
+            requiredPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), path_param)
+            return requiredPath
+        except IOError as e:
+            print e
+
     # Get the current time stamp
-    @staticmethod
-    def get_current_time_stamp():
+    def get_current_time_stamp(self):
         curr_timestamp = str(datetime.now())
         return curr_timestamp
 
     # Print the required message
-    @staticmethod
-    def log_message(log_type, log_message):
-        time_stamp = Utility.get_current_time_stamp()
+    def log_message(self, log_type, log_message):
+        time_stamp = self.get_current_time_stamp()
         log_message = "["+time_stamp+"]: "+"["+log_type+"] - "+log_message
         print log_message
 
     # return json data
-    @staticmethod
-    def json_file_reader():
-        with open("../api.json","r") as data_file:
-            json_data = json.loads(data_file)
+    def json_file_reader(self):
+        file_path = self.get_path("../api.json")
+        with open(file_path,'r') as data_file:
+            json_data = json.load(data_file)
             return json_data
