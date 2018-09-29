@@ -30,9 +30,11 @@ class TestOpera(unittest.TestCase):
         data = driverAPI.get('mac')
         download_url = self.parse_json(data)
         wget.download(download_url)
+        self.utility.log_message("INFO", "Binary for operadriver downloaded for macOS")
 
     def testOperaDriverLinux(self):
         driverAPI = self.parseJSONOpera()
         data = driverAPI.get('linux')
         download_url = self.parse_json(data)
         wget.download(download_url)
+        self.utility.log_message("INFO", "Binary for operadriver downloaded for LINUX")
