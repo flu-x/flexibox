@@ -34,10 +34,12 @@ then
     # checkout to master branch at first
     git checkout master
     create_tag
+    distribution
     release
 elif [ $current_branch = 'master' ];
 then
     create_tag
+    distribution
     release
 else
     echo "Not a release branch"
