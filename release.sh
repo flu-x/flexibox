@@ -18,7 +18,8 @@ create_tag () {
 }
 
 release () {
-    cd browserium/
+    # Navigate tot the browserium directory
+    # cd browserium/
 
     # Release version to TestPyPi
     twine upload --repository-url https://test.pypi.org/legacy/ dist/*
