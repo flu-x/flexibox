@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Read from config file
+source config
+userName=$userName
+userPassword=$userPassword
+
 distribution () {
     # Setup distribution
     python setup.py sdist bdist_wheel
@@ -22,8 +27,8 @@ release () {
     # cd browserium/
     expect -c '
         # Set password
-        set un ""
-        set pw ""
+        set un "$userName"
+        set pw "$userPassword"
 
         # Release version to TestPyPi
         send "twine upload --repository-url https://test.pypi.org/legacy/ dist/*\r"
