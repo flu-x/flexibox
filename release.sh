@@ -22,8 +22,8 @@ release () {
     # cd browserium/
     expect -c '
         # Set password
-        set un "Corefinder89"
-        set pw "Opt!musPr!m3"
+        set un ""
+        set pw ""
 
         # Release version to TestPyPi
         send "twine upload --repository-url https://test.pypi.org/legacy/ dist/*\r"
