@@ -20,24 +20,37 @@ create_tag () {
 release () {
     # Navigate tot the browserium directory
     # cd browserium/
+    expect -c '
+        # Set password
+        set un "Corefinder89"
+        set pw "Opt!musPr!m3"
 
-    # Release version to TestPyPi
-    twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+        # Release version to TestPyPi
+        send "twine upload --repository-url https://test.pypi.org/legacy/ dist/*\r"
+        expect "Username: "
+        send "$un\r"
+        expect "Password: "
+        send "$pw\r"
 
-    # Release verstion to PyPi
-    twine upload dist/*
+        # Release verstion to PyPi
+        send "twine upload dist/*\r""
+        expect "Username: "
+        send "$un\r"
+        expect "Password: "
+        send "$pw\r"
+    '
 }
 
 current_branch=$(git branch | grep \* | cut -d ' ' -f2)
 #Check for current branch
-if [ $current_branch = 'develop' ];
+if [ $current_branch = "develop" ];
 then
     # checkout to master branch at first
     git checkout master
     create_tag
     distribution
     release
-elif [ $current_branch = 'master' ];
+elif [ $current_branch = "master" ];
 then
     create_tag
     distribution
