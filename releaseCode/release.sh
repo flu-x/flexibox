@@ -1,14 +1,9 @@
 #!/usr/bin/env bash
 
-# Read from config file
+# Read username and password from config file
 source config
 userName=$userName
 userPassword=$userPassword
-
-distribution () {
-    # Setup distribution
-    python setup.py sdist bdist_wheel
-}
 
 create_tag () {
     echo "Enter release version: "
@@ -20,6 +15,11 @@ create_tag () {
     git tag $releaseVersion
     # push release tag to git
     git push origin $releaseVersion
+}
+
+distribution () {
+    # Setup distribution
+    python setup.py sdist bdist_wheel
 }
 
 release () {
