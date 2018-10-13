@@ -8,10 +8,10 @@
 import sys
 import platform
 import subprocess
-from browserium.utility.utility import Utility
 from subprocess import call
 
-class OS_type(Utility):
+class OS_type():
+
     LINUX = "linux"
     MAC = "macos"
     WIN = "windows"
