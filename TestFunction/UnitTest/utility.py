@@ -29,7 +29,12 @@ class Utility_object():
 
     # return json data
     def json_file_reader(self):
-        file_path = self.get_path("../api.json")
+        file_path = self.get_path("api.json")
         with open(file_path,'r') as data_file:
             json_data = json.load(data_file)
             return json_data
+
+    # delete file
+    def delete_file(self, file_name):
+        file_path = self.get_path(file_name)
+        os.remove(file_path)

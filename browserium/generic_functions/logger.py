@@ -1,5 +1,4 @@
 import logging
-import logstash
 import sys
 import platform
 from logstash_async.handler import AsynchronousLogstashHandler
@@ -9,7 +8,7 @@ class Logstash():
         host = 'localhost'
         port = 5959
 
-        test_logger = logging.getLogger('python-logstash-logger')
+        test_logger = logging.getLogger('python-logstash-async')
 
         test_logger.setLevel(logging.INFO)
 
