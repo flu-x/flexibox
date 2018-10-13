@@ -3,6 +3,7 @@ import unittest
 import requests
 import json
 import wget
+import os
 
 class TestOpera(unittest.TestCase):
     def __init__(self, *args, **kwargs):
@@ -36,6 +37,12 @@ class TestOpera(unittest.TestCase):
 
         self.utility.log_message("INFO", "Binary for operadriver downloaded for macOS")
 
+        # Assert for file exists
+        self.assertTrue(os.path.exists('operadriver_mac64.zip'))
+
+        # Delete file
+        self.utility.delete_file("operadriver_mac64.zip")
+
     def testOperaDriverLinux(self):
         driverAPI = self.parseJSONOpera()
         data = driverAPI.get('linux')
@@ -46,3 +53,9 @@ class TestOpera(unittest.TestCase):
             wget.download(download_url)
 
         self.utility.log_message("INFO", "Binary for operadriver downloaded for LINUX")
+
+        # Assert for file exists
+        self.assertTrue(os.path.exists('operadriver_linux64.zip'))
+
+        # Delete file
+        self.utility.delete_file("operadriver_linux64.zip")

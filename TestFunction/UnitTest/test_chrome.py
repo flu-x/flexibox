@@ -50,6 +50,8 @@ class TestChrome(unittest.TestCase):
         if _url.status_code == 200:
             wget.download(_apiURLBuilder)
 
+        self.utility.log_message("INFO", "Binary for chromedriver downloaded for macOS")
+
         # Assert for file exists
         self.assertTrue(os.path.exists('chromedriver_mac64.zip'))
 
