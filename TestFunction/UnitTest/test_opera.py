@@ -1,10 +1,10 @@
-from utility.utility import Utility_object
+from utility import Utility_object
 import unittest
 import requests
 import json
 import wget
 
-class TestGecko(unittest.TestCase):
+class TestOpera(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.utility=Utility_object()
@@ -15,20 +15,19 @@ class TestGecko(unittest.TestCase):
             data = response.json()
             return data['browser_download_url']
 
-    def parseJSONGecko(self):
+    def parseJSONOpera(self):
         dict_data = {}
         jsonData = self.utility.json_file_reader()
         for item in jsonData['assets']:
             dict_data = {
-                "macos" : item['geckodriver']['macos_v'],
-                "linux_64" : item['geckodriver']['linux_v_64'],
-                "linux_32" : item['geckodriver']['linux_v_32']
+                "mac" : item['operadriver']['mac_v_64'],
+                "linux" : item['operadriver']['linux_v_64']
             }
         return dict_data
 
-    def testGeckoDriverMac(self):
-        driverAPI = self.parseJSONGecko()
-        data = driverAPI.get('macos')
+    def testOperaDriverMac(self):
+        driverAPI = self.parseJSONOpera()
+        data = driverAPI.get('mac')
         download_url = self.parse_json(data)
 
         _response = requests.get(download_url)
@@ -37,20 +36,9 @@ class TestGecko(unittest.TestCase):
 
         self.utility.log_message("INFO", "Binary for operadriver downloaded for macOS")
 
-    def testGeckoDriverLinux64(self):
-        driverAPI = self.parseJSONGecko()
-        data = driverAPI.get('linux_64')
-        download_url = self.parse_json(data)
-
-        _response = requests.get(download_url)
-        if _response.status_code == 200:
-            wget.download(download_url)
-
-        self.utility.log_message("INFO", "Binary for operadriver downloaded for LINUX")
-
-    def testGeckoDriverLinux32(self):
-        driverAPI = self.parseJSONGecko()
-        data = driverAPI.get('linux_32')
+    def testOperaDriverLinux(self):
+        driverAPI = self.parseJSONOpera()
+        data = driverAPI.get('linux')
         download_url = self.parse_json(data)
 
         _response = requests.get(download_url)
