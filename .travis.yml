@@ -4,8 +4,9 @@ python:
 before_install:
   sudo apt-get update
 install:
-  - pip install wget
-  - pip install requests
+  pip install wget
+install:
+  pip install requests
 before_script:
  cd TestFunction/UnitTest/
 script:
