@@ -3,58 +3,98 @@ import unittest
 import requests
 import json
 import wget
+import os
 
 class TestGecko(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.utility=Utility_object()
 
-    def parse_json(self, api):
-        response = requests.get(api)
-        if response.status_code == 200:
-            data = response.json()
-            return data['browser_download_url']
-
     def parseJSONGecko(self):
-        dict_data = {}
         jsonData = self.utility.json_file_reader()
+        apiURL = ""
         for item in jsonData['assets']:
-            dict_data = {
-                "macos" : item['geckodriver']['macos_v'],
-                "linux_64" : item['geckodriver']['linux_v_64'],
-                "linux_32" : item['geckodriver']['linux_v_32']
-            }
-        return dict_data
+            apiURL = item['geckodriver']['apiURL']
+        return apiURL
+
+    def parseJSONResponse(self):
+        linux_downloadURL_32 = None
+        linux_downloadURL_64 = None
+        mac_downloadURL = None
+        linux_tagName_32 = None
+        linux_tagName_64 = None
+        mac_tagName = None
+        env = {}
+
+        _response = requests.get(self.parseJSONGecko())
+        if _response.status_code == 200:
+            data = _response.json()
+            for ent in data['assets']:
+                if "linux32.tar.gz" in ent['browser_download_url']:
+                    linux_downloadURL_32 = ent['browser_download_url']
+                    linux_tagName_32 = ent['name']
+                if "linux64.tar.gz" in ent['browser_download_url']:
+                    linux_downloadURL_64 = ent['browser_download_url']
+                    linux_tagName_64 = ent['name']
+                if "macos.tar.gz" in ent['browser_download_url']:
+                    mac_downloadURL = ent['browser_download_url']
+                    mac_tagName = ent['name']
+
+        env = {
+            "linux_downloadURL_32": linux_downloadURL_32,
+            "linux_tagName_32": linux_tagName_32,
+            "linux_downloadURL_64": linux_downloadURL_64,
+            "linux_tagName_64": linux_tagName_64,
+            "mac_downloadURL": mac_downloadURL,
+            "mac_tagName": mac_tagName
+        }
+
+        return env
 
     def testGeckoDriverMac(self):
-        driverAPI = self.parseJSONGecko()
-        data = driverAPI.get('macos')
-        download_url = self.parse_json(data)
+        _data = self.parseJSONResponse()
+        _geckoBinMacDownloadURL = _data.get('mac_downloadURL')
+        _geckoBinMacTagName = _data.get('mac_tagName')
 
-        _response = requests.get(download_url)
-        if _response.status_code == 200:
-            wget.download(download_url)
+        #Download driver
+        wget.download(_geckoBinMacDownloadURL)
 
-        self.utility.log_message("INFO", "Binary for operadriver downloaded for macOS")
+        self.utility.log_message("INFO", "Binary for geckodriver downloaded for macOS")
 
-    def testGeckoDriverLinux64(self):
-        driverAPI = self.parseJSONGecko()
-        data = driverAPI.get('linux_64')
-        download_url = self.parse_json(data)
+        #Assert for file exists
+        self.assertTrue(os.path.exists(_geckoBinMacTagName))
 
-        _response = requests.get(download_url)
-        if _response.status_code == 200:
-            wget.download(download_url)
-
-        self.utility.log_message("INFO", "Binary for operadriver downloaded for LINUX")
+        #Delete file
+        self.utility.delete_file(_geckoBinMacTagName)
 
     def testGeckoDriverLinux32(self):
-        driverAPI = self.parseJSONGecko()
-        data = driverAPI.get('linux_32')
-        download_url = self.parse_json(data)
+        _data = self.parseJSONResponse()
+        _geckoBinLinux32DownloadURL = _data.get('linux_downloadURL_32')
+        _geckoBinLinux32TagName = _data.get('linux_tagName_32')
 
-        _response = requests.get(download_url)
-        if _response.status_code == 200:
-            wget.download(download_url)
+        #Download driver
+        wget.download(_geckoBinLinux32DownloadURL)
 
-        self.utility.log_message("INFO", "Binary for operadriver downloaded for LINUX")
+        self.utility.log_message("INFO", "Binary for geckodriver downloaded for Linux 32 bit")
+
+        #Assert for file exists
+        self.assertTrue(os.path.exists(_geckoBinLinux32TagName))
+
+        #Delete file
+        self.utility.delete_file(_geckoBinLinux32TagName)
+
+    def testGeckoDriverLinux64(self):
+        _data = self.parseJSONResponse()
+        _geckoBinLinux64DownloadURL = _data.get('linux_downloadURL_64')
+        _geckoBinLinux64TagName = _data.get('linux_tagName_64')
+
+        #Download driver
+        wget.download(_geckoBinLinux64DownloadURL)
+
+        self.utility.log_message("INFO", "Binary for geckodriver downloaded for Linux 64 bit")
+
+        #Assert for file exists
+        self.assertTrue(os.path.exists(_geckoBinLinux64TagName))
+
+        #Delete file
+        self.utility.delete_file(_geckoBinLinux64TagName)

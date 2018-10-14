@@ -11,12 +11,6 @@ class TestChrome(unittest.TestCase):
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.utility = Utility_object()
 
-    def parse_json(self, api):
-        response = requests.get(api)
-        if response.status_code == 200:
-            data = response.json()
-            return data['browser_download_url']
-
     def parseJSONChrome(self):
         dict_data = {}
         jsonData = self.utility.json_file_reader()

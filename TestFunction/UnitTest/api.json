@@ -2,9 +2,7 @@
     "assets" : [
         {
             "geckodriver" : {
-                "linux_v_32":"https://api.github.com/repos/mozilla/geckodriver/releases/assets/8691310",
-                "linux_v_64":"https://api.github.com/repos/mozilla/geckodriver/releases/assets/8691308",
-                "macos_v":"https://api.github.com/repos/mozilla/geckodriver/releases/assets/8691318"
+                "apiURL":"https://api.github.com/repos/mozilla/geckodriver/releases/latest"
             },
             "chromedriver" : {
                 "url":"http://chromedriver.storage.googleapis.com/",
