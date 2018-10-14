@@ -44,6 +44,7 @@ class TestChrome(unittest.TestCase):
         if _url.status_code == 200:
             wget.download(_apiURLBuilder)
 
+        print "\n"
         self.utility.log_message("INFO", "Binary for chromedriver downloaded for macOS")
 
         # Assert for file exists
@@ -71,6 +72,9 @@ class TestChrome(unittest.TestCase):
         _url = requests.get(_apiURLBuilder)
         if _url.status_code == 200:
             wget.download(_apiURLBuilder)
+
+        print "\n"
+        self.utility.log_message("INFO", "Binary for chromedriver downloaded for Linux")
 
         # Assert for file exists
         self.assertTrue(os.path.exists('chromedriver_linux64.zip'))

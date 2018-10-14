@@ -59,6 +59,7 @@ class TestGecko(unittest.TestCase):
         #Download driver
         wget.download(_geckoBinMacDownloadURL)
 
+        print "\n"
         self.utility.log_message("INFO", "Binary for geckodriver downloaded for macOS")
 
         #Assert for file exists
@@ -69,12 +70,13 @@ class TestGecko(unittest.TestCase):
 
     def testGeckoDriverLinux32(self):
         _data = self.parseJSONResponse()
-        _geckoBinLinux32DownloadURL = _data.get('linux_downloadURL_32')
+        _geckoBinLinux32DownloadURL = _data.get('linux_downloadURL_32').strip()
         _geckoBinLinux32TagName = _data.get('linux_tagName_32')
 
         #Download driver
         wget.download(_geckoBinLinux32DownloadURL)
 
+        print "\n"
         self.utility.log_message("INFO", "Binary for geckodriver downloaded for Linux 32 bit")
 
         #Assert for file exists
@@ -85,12 +87,13 @@ class TestGecko(unittest.TestCase):
 
     def testGeckoDriverLinux64(self):
         _data = self.parseJSONResponse()
-        _geckoBinLinux64DownloadURL = _data.get('linux_downloadURL_64')
+        _geckoBinLinux64DownloadURL = _data.get('linux_downloadURL_64').strip()
         _geckoBinLinux64TagName = _data.get('linux_tagName_64')
 
         #Download driver
         wget.download(_geckoBinLinux64DownloadURL)
 
+        print "\n"
         self.utility.log_message("INFO", "Binary for geckodriver downloaded for Linux 64 bit")
 
         #Assert for file exists
