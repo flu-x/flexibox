@@ -3,10 +3,6 @@ python:
   "2.7"
 before_install:
   sudo apt-get update
-install:
-  pip install wget
-install:
-  pip install requests
 before_script:
  cd TestFunction/UnitTest/
 script:
