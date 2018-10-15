@@ -1,4 +1,5 @@
 from browserium.utility.utility import Utility
+from time import sleep
 
 class Browser_controller():
 
@@ -48,3 +49,6 @@ class Browser_controller():
         cookies = driver.get_cookies()
         self.ut.log_message("INFO", "Fetching all cookies")
         return cookies
+
+    def apply_explicit_wait_time(self, sleepTime):
+        sleep(sleepTime)
