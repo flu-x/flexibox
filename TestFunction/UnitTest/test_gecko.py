@@ -70,7 +70,7 @@ class TestGecko(unittest.TestCase):
 
     def testGeckoDriverLinux32(self):
         _data = self.parseJSONResponse()
-        _geckoBinLinux32DownloadURL = _data.get('linux_downloadURL_32').strip()
+        _geckoBinLinux32DownloadURL = _data.get('linux_downloadURL_32')
         _geckoBinLinux32TagName = _data.get('linux_tagName_32')
 
         #Download driver
@@ -87,7 +87,7 @@ class TestGecko(unittest.TestCase):
 
     def testGeckoDriverLinux64(self):
         _data = self.parseJSONResponse()
-        _geckoBinLinux64DownloadURL = _data.get('linux_downloadURL_64').strip()
+        _geckoBinLinux64DownloadURL = _data.get('linux_downloadURL_64')
         _geckoBinLinux64TagName = _data.get('linux_tagName_64')
 
         #Download driver
