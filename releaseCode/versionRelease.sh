@@ -38,7 +38,7 @@ release () {
         send "$pw\r"
 
         # Release version to PyPi
-        send "twine upload dist/*\r""
+        send "twine upload dist/*\r"
         expect "Username: "
         send "$un\r"
         expect "Password: "
