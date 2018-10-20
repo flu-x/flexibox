@@ -26,19 +26,16 @@ release () {
     # Navigate tot the browserium directory
     # cd browserium/
     expect -c '
-        # Set password
         set un "$userName"
         set pw "$userPassword"
 
-        # Release version to TestPyPi
         send "twine upload --repository-url https://test.pypi.org/legacy/ dist/*\r"
         expect "Username: "
         send "$un\r"
         expect "Password: "
         send "$pw\r"
 
-        # Release version to PyPi
-        send "twine upload dist/*\r""
+        send "twine upload dist/*\r"
         expect "Username: "
         send "$un\r"
         expect "Password: "
