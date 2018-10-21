@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from browserium.utility.utility import Utility
 
-class ChromeDriverObject():
+class ChromeDriverObject(object):
 
     def __init__(self):
         self.ut = Utility()

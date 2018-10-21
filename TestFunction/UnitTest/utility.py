@@ -8,7 +8,7 @@ from datetime import datetime
 import json
 import os
 
-class Utility_object():
+class Utility_object(object):
     def get_path(self, path_param):
         try:
             requiredPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), path_param)

@@ -15,9 +15,9 @@ import stat
 import sys
 import shutil
 import tarfile
-import argparse
 import json
-class Utility():
+
+class Utility(object):
     # This method would get the required path for the directory or a file.
     # This would generate the absolute path to the required directory and the file
     @staticmethod

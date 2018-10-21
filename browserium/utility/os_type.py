@@ -7,8 +7,6 @@
 
 import sys
 import platform
-import subprocess
-from subprocess import call
 
 class OS_type():
 

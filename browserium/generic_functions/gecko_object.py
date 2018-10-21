@@ -3,7 +3,7 @@ from browserium.utility.utility import Utility
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import WebDriverException
 
-class GeckoDriverObject():
+class GeckoDriverObject(object):
 
     def __init__(self):
         self.ut = Utility()

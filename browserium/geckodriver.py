@@ -1,10 +1,8 @@
 from utility.utility import Utility
 from utility.os_type import OS_type
-from selenium import webdriver
-import requests
 import os
-import shutil
-class Geckodriver():
+
+class Geckodriver(object):
 
     def __init__(self):
         self.ut = Utility()
