@@ -1,6 +1,5 @@
 from selenium import webdriver
 from browserium.utility.utility import Utility
-from selenium.webdriver.opera.options import Options
 from selenium.common.exceptions import WebDriverException
 from browserium.utility.os_type import OS_type
 
