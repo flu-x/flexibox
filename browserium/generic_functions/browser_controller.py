@@ -1,4 +1,10 @@
 from browserium.utility.utility import Utility
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import ElementNotVisibleException
+from selenium.common.exceptions import ElementNotSelectableException
+
 from time import sleep
 
 class Browser_controller():
@@ -52,3 +58,20 @@ class Browser_controller():
 
     def apply_explicit_wait_time(self, sleepTime):
         sleep(sleepTime)
+
+    def maximize_window(self, driver):
+        driver.maximize_window()
+
+    def apply_fluent_wait(self, driver, fluent_wait_time):
+        wait = WebDriverWait(
+                    driver,
+                    fluent_wait_time,
+                    poll_frequency=1,
+                    ignored_exceptions=[
+                        NoSuchElementException,
+                        ElementNotVisibleException,
+                        ElementNotSelectableException
+                    ]
+                )
+
+        return wait
