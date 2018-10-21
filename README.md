@@ -1,5 +1,7 @@
 # Browserium
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/72d73e20b35f411daf9af68bdc4b7806)](https://app.codacy.com/app/soumyajit.basu/Browserium?utm_source=github.com&utm_medium=referral&utm_content=browserium/Browserium&utm_campaign=Badge_Grade_Dashboard)
+
 ![Browserium logo](https://farm2.staticflickr.com/1742/41852028144_642310d9b6_m.jpg)
 
 **Browserium** is the a selenium wrapper for all **browsers** and **browser configurations**. This module is a single end point to access all the browser drivers and as well as the webdriver object for all the respective browsers along with the installation of your **selenium** module.
