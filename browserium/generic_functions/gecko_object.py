@@ -11,24 +11,25 @@ class GeckoDriverObject(object):
     # Set geckodriver path
     # Pass the option 'headless' if it is needed to run gecko in headless
     # configuration
-    def set_geckodriver_object(self, args=[]):
+    def set_geckodriver_object(self, geckoArgs=None):
         try:
+            geckoArgs = []
+            firefoxOptions = Options()
             driver = None
             driver_path = self.ut.get_driver_path('/dependencies/dir_geckodriver/geckodriver')
-            for val in args:
-                if not '--headless' in val:
-                    self.ut.log_message("INFO","setting path of geckodriver")
-                    driver = webdriver.Firefox(executable_path=driver_path)
-                    self.ut.log_message("INFO","executable path for geckodriver is set")
-                else:
-                    self.ut.log_message("INFO","setting gecko into headless mode")
-                    firefoxOptions = Options()
+            self.ut.log_message("INFO","setting path of geckodriver")
+            self.ut.log_message("INFO","executable path for geckodriver is set")
+            if not geckoArgs:
+                driver = webdriver.Firefox(executable_path=driver_path)
+            else:
+                while '' in geckoArgs:
+                    geckoArgs.remove()
+                for val in geckoArgs:
                     firefoxOptions.add_argument(val)
-                    self.ut.log_message("INFO","setting path of geckodriver")
-                    driver = webdriver.Firefox(
-                        executable_path=driver_path,
-                        firefox_options=firefoxOptions
-                    )
+                driver = webdriver.Firefox(
+                            executable_path=driver_path,
+                            firefox_options=firefoxOptions
+                        )
             self.ut.log_message("INFO","executable path for geckodriver is set")
             return driver
         except WebDriverException as e:
