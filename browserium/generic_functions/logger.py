@@ -1,6 +1,4 @@
 import logging
-import sys
-import platform
 from logstash_async.handler import AsynchronousLogstashHandler
 
 class Logstash():

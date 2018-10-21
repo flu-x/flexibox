@@ -4,7 +4,7 @@ from subprocess import call
 import daemon
 import os
 
-class Logstash_runner():
+class Logstash_runner(object):
     def __init__(self):
         self.ot = OS_type()
         self.ut = Utility()

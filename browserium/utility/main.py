@@ -1,6 +1,5 @@
 import argparse
 from ..driver import Driver
-from .utility import Utility
 
 parser = argparse.ArgumentParser()
 subparser = parser.add_subparsers(dest='command',help="download")

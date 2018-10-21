@@ -1,7 +1,6 @@
 from utility import Utility_object
 import unittest
 import requests
-import json
 import wget
 import os
 

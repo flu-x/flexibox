@@ -3,7 +3,7 @@ from utility.os_type import OS_type
 import requests
 import os
 
-class Chromedriver():
+class Chromedriver(object):
 
     def __init__(self):
         self.ut = Utility()

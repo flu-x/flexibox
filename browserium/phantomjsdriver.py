@@ -1,7 +1,5 @@
 from utility.utility import Utility
 from utility.os_type import OS_type
-from selenium import webdriver
-import requests
 import os
 
 class Phantomjs_driver(Utility, OS_type):
