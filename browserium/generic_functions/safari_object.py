@@ -3,7 +3,7 @@ from browserium.utility.utility import Utility
 from browserium.utility.os_type import OS_type
 from selenium.common.exceptions import WebDriverException
 
-class SafariDriverObject():
+class SafariDriverObject(object):
     def __init__(self):
         self.ut = Utility()
         self.ot = OS_type()
