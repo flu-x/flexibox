@@ -1,7 +1,7 @@
 import logging
 from logstash_async.handler import AsynchronousLogstashHandler
 
-class Logstash():
+class Logstash(object):
     def logstash_type(self, log_type, log_message):
         host = 'localhost'
         port = 5959
