@@ -57,10 +57,13 @@ class Browser_controller():
 
     def apply_explicit_wait_time(self, sleepTime):
         sleep(sleepTime)
+        self.ut.log_message("INFO", "Applying explicit wait time")
 
     def maximize_window(self, driver):
         driver.maximize_window()
+        self.ut.log_message("INFO", "Window maximized")
 
+    @classmethod
     def apply_fluent_wait(self, driver, fluent_wait_time):
         wait = WebDriverWait(
                     driver,
