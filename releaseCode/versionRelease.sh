@@ -23,24 +23,24 @@ distribution () {
 }
 
 release () {
-    # Navigate tot the browserium directory
+    # Navigate to the browserium directory
     # cd browserium/
-    expect -c "
-        set un "'$userName'"
-        set pw "'$userPassword'"
+    expect -c '
+        set un "$userName"
+        set pw "$userPassword"
 
-        send "'twine upload --repository-url https://test.pypi.org/legacy/ dist/*\r'"
-        expect "'Username: '"
-        send "'$un\r'"
-        expect "'Password: '"
-        send "'$pw\r'"
+        send "twine upload --repository-url https://test.pypi.org/legacy/ dist/*\r"
+        expect "Username: "
+        send "$un\r"
+        expect "Password: "
+        send "$pw\r"
 
-        send "'twine upload dist/*\r'"
-        expect "'Username: '"
-        send "'$un\r'"
-        expect "'Password: '"
-        send "'$pw\r'"
-    "
+        send "twine upload dist/*\r"
+        expect "Username: "
+        send "$un\r"
+        expect "Password: "
+        send "$pw\r"
+    '
 }
 
 current_branch=$(git branch | grep \* | cut -d ' ' -f2)
