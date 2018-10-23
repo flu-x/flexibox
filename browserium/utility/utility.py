@@ -40,11 +40,11 @@ class Utility(object):
     # This method would download the required binaries and packages required
     # for the respective browser
     @staticmethod
-    def driver_downloader(api_url, dir):
+    def driver_downloader(api_url, dir_path):
         try:
             request_api = requests.get(api_url, stream=True)
             if request_api.status_code == 200:
-                wget.download(api_url, out=dir)
+                wget.download(api_url, out=dir_path)
             else:
                 request_api.raise_for_status()
         except requests.exceptions.Timeout:
@@ -109,9 +109,9 @@ class Utility(object):
             file_info = os.listdir(zipFile_path)
             sleep(2)
             for i in file_info:
-                with ZipFile(zipFile_path + i, 'r') as zip:
-                    zip.extractall(zipFile_path)
-                    zip.close()
+                with ZipFile(zipFile_path + i, 'r') as zipfile:
+                    zipfile.extractall(zipFile_path)
+                    zipfile.close()
         except OSError:
             Utility.log_message("ERROR","File / Directory " + dir_path + "not found")
 
