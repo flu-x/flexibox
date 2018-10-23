@@ -11,8 +11,9 @@ class GeckoDriverObject(object):
     # Set geckodriver path
     # Pass the option 'headless' if it is needed to run gecko in headless
     # configuration
-    def set_geckodriver_object(self, geckoArgs=[]):
+    def set_geckodriver_object(self, geckoArgs=None):
         try:
+            geckoArgs = geckoArgs
             firefoxOptions = Options()
             driver = None
             driver_path = self.ut.get_driver_path('/dependencies/dir_geckodriver/geckodriver')
