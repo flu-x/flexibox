@@ -8,6 +8,7 @@ build/
 TestFunction/geckodriver.log
 TestFunction/logstash.db
 releaseCode/config
+TestFunction/UnitTest/.coverage
 todo.md
 notes.md
 RELEASENOTES.md
