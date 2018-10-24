@@ -15,8 +15,8 @@ The problem statement that has been defined above was the reason I took out time
 ## Features covered up by 'Browserium'
 *  One step to **download** the required browser drivers.
 *  One step to **update** the required browser drivers.
-*  Create a **single** **instance** for your required browser object. No more code required to configure your browsers separately.
-*  A set of browser related **generic** **functions** that can be utilised for debugging as well as for achieving the required functionalities. So, we are reducing quite an effort over here as well !!
+*   Create a **single** **instance** for your required browser object. No more code required to configure your browsers separately.
+*   A set of browser related **generic** **functions** that can be utilised for debugging as well as for achieving the required functionalities. So, we are reducing quite an effort over here as well !!
 *  You can run browsers **Chrome** and **Firefox** using the **headless** option as well so that it is comfortable running your framework on the server as well.
 
 ## Browserium by functionality
