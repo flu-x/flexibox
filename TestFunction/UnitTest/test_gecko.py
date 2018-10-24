@@ -53,50 +53,66 @@ class TestGecko(unittest.TestCase):
     def testGeckoDriverMac(self):
         _data = self.parseJSONResponse()
         _geckoBinMacDownloadURL = _data.get('mac_downloadURL')
-        _geckoBinMacTagName = _data.get('mac_tagName')
+
+        # Check response status
+        _response = requests.get(_geckoBinMacDownloadURL)
+
+        # Assert for response status
+        self.assertEquals(_response.status_code,200,"Response status code does not match")
 
         #Download driver
-        wget.download(_geckoBinMacDownloadURL)
+        # wget.download(_geckoBinMacDownloadURL)
 
-        print "\n"
-        self.utility.log_message("INFO", "Binary for geckodriver downloaded for macOS")
+        # print "\n"
+        # self.utility.log_message("INFO", "Binary for geckodriver downloaded for macOS")
 
         #Assert for file exists
-        self.assertTrue(os.path.exists(_geckoBinMacTagName))
+        # self.assertTrue(os.path.exists(_geckoBinMacTagName))
 
         #Delete file
-        self.utility.delete_file(_geckoBinMacTagName)
+        # self.utility.delete_file(_geckoBinMacTagName)
 
     def testGeckoDriverLinux32(self):
         _data = self.parseJSONResponse()
-        _geckoBinLinux32DownloadURL = _data.get('linux_downloadURL_32').strip()
-        _geckoBinLinux32TagName = _data.get('linux_tagName_32').strip()
+        _geckoBinLinux32DownloadURL = _data.get('linux_downloadURL_32')
+
+        # Check response status
+        _response = requests.get(_geckoBinLinux32DownloadURL)
+
+        # Assert for response status
+        self.assertEquals(_response.status_code,200,"Response status code does not match")
 
         #Download driver
-        wget.download(_geckoBinLinux32DownloadURL)
+        # wget.download(_geckoBinLinux32DownloadURL)
 
-        print "\n"
-        self.utility.log_message("INFO", "Binary for geckodriver downloaded for Linux 32 bit")
+        # print "\n"
+        # self.utility.log_message("INFO", "Binary for geckodriver downloaded for Linux 32 bit")
 
         #Assert for file exists
-        self.assertTrue(os.path.exists(_geckoBinLinux32TagName))
+        # self.assertTrue(os.path.exists(_geckoBinLinux32TagName))
 
         #Delete file
-        self.utility.delete_file(_geckoBinLinux32TagName)
+        # self.utility.delete_file(_geckoBinLinux32TagName)
 
     def testGeckoDriverLinux64(self):
         _data = self.parseJSONResponse()
-        _geckoBinLinux64DownloadURL = _data.get('linux_downloadURL_64').strip()
-        _geckoBinLinux64TagName = _data.get('linux_tagName_64').strip()
+        _geckoBinLinux64DownloadURL = _data.get('linux_downloadURL_64')
+        _geckoBinLinux64TagName = _data.get('linux_tagName_64')
+
+        # Check response status
+        _response = requests.get(_geckoBinLinux64DownloadURL)
+
+        # Assert for response status
+        self.assertEquals(_response.status_code,200,"Response status code does not match")
 
         #Download driver
-        wget.download(_geckoBinLinux64DownloadURL)
+        # wget.download(_geckoBinLinux64DownloadURL)
 
-        print "\n"
-        self.utility.log_message("INFO", "Binary for geckodriver downloaded for Linux 64 bit")
+        # print "\n"
+        # self.utility.log_message("INFO", "Binary for geckodriver downloaded for Linux 64 bit")
 
         #Assert for file exists
-        self.assertTrue(os.path.exists(_geckoBinLinux64TagName))
+        # self.assertTrue(os.path.exists(_geckoBinLinux64TagName))
 
         #Delete file
-        self.utility.delete_file(_geckoBinLinux64TagName)
+        # self.utility.delete_file(_geckoBinLinux64TagName)

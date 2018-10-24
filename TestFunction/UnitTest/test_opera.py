@@ -31,31 +31,31 @@ class TestOpera(unittest.TestCase):
         data = driverAPI.get('mac')
         download_url = self.parse_json(data)
 
+        # Check response code
         _response = requests.get(download_url)
-        if _response.status_code == 200:
-            wget.download(download_url)
+        # if _response.status_code == 200:
+        #     wget.download(download_url)
 
-        self.utility.log_message("INFO", "Binary for operadriver downloaded for macOS")
-
-        # Assert for file exists
-        self.assertTrue(os.path.exists('operadriver_mac64.zip'))
+        # Assert for response status
+        # self.assertTrue(os.path.exists('operadriver_mac64.zip'))
+        self.assertEquals(_response.status_code,200,"Response status code does not match")
 
         # Delete file
-        self.utility.delete_file("operadriver_mac64.zip")
+        # self.utility.delete_file("operadriver_mac64.zip")
 
     def testOperaDriverLinux(self):
         driverAPI = self.parseJSONOpera()
         data = driverAPI.get('linux')
         download_url = self.parse_json(data)
 
+        # Check response code
         _response = requests.get(download_url)
-        if _response.status_code == 200:
-            wget.download(download_url)
-
-        self.utility.log_message("INFO", "Binary for operadriver downloaded for LINUX")
+        # if _response.status_code == 200:
+        #     wget.download(download_url)
 
         # Assert for file exists
-        self.assertTrue(os.path.exists('operadriver_linux64.zip'))
+        # self.assertTrue(os.path.exists('operadriver_linux64.zip'))
+        self.assertEquals(_response.status_code,200,"Response status code does not match")
 
         # Delete file
-        self.utility.delete_file("operadriver_linux64.zip")
+        # self.utility.delete_file("operadriver_linux64.zip")
