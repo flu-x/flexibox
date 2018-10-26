@@ -220,4 +220,4 @@ To delete all browser drivers from `/usr/local/bin` run the command:
 
    ```browserium delete --driver=all```
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1f934ed5fbb4f9ab8c7e5ac4d27f923)](https://www.codacy.com/app/Corefinder89/Browserium?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=browserium/Browserium&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d8f7a6f46bc4182992b04c7f9b51447)](https://www.codacy.com/app/Corefinder89/Browserium?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=browserium/Browserium&amp;utm_campaign=Badge_Grade)
