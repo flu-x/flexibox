@@ -4,7 +4,6 @@ python:
 before_install:
   sudo apt-get update
 before_script:
-  - cd TestFunction/UnitTest/
-  - chmod +x execute.sh
+  cd TestFunction/UnitTest/
 script:
- ./execute.sh
+ python execute.py
