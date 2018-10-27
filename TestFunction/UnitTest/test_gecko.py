@@ -1,8 +1,6 @@
 from utility import Utility_object
 import unittest
 import requests
-import wget
-import os
 
 class TestGecko(unittest.TestCase):
     def __init__(self, *args, **kwargs):
