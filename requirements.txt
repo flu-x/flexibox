@@ -4,5 +4,6 @@ pylint==1.9.2
 pytest==3.8.1
 twine==1.11.0
 virtualenv==16.0.0
+PyUnitReport
 wget
 requests

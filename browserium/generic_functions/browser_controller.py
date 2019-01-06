@@ -77,3 +77,7 @@ class Browser_controller():
                 )
 
         return wait
+
+    @classmethod
+    def tear_browser(self, driver):
+        driver.quit()

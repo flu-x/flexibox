@@ -14,8 +14,17 @@ setup(
     author_email = 'soumyajit.basu62@gmail.com',
     classifiers = [
         'Intended Audience :: Information Technology',
+        'Intended Audience :: Developers',
+        'Development Status :: 5 - Production/Stable',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'License :: OSI Approved :: MIT License'
+        'Programming Language :: Implementation :: PyPy',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: MacOS :: MacOS X',
+        'Operating System :: POSIX',
+        'Topic :: Software Development :: Quality Assurance',
+        'Topic :: Software Development :: Testing Utilities'
     ],
     install_requires = [
         'requests',
