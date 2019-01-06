@@ -19,12 +19,10 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Implementation :: PyPy',
         'License :: OSI Approved :: MIT License',
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: POSIX',
-        'Topic :: Software Development :: Quality Assurance',
-        'Topic :: Software Development :: Testing Utilities'
+        'Topic :: Software Development :: Quality Assurance'
     ],
     install_requires = [
         'requests',
