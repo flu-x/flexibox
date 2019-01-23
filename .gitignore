@@ -6,7 +6,6 @@ browserium.egg-info/
 dist/
 build/
 TestFunction/geckodriver.log
-TestFunction/logstash.db
 releaseCode/config
 TestFunction/UnitTest/.coverage
 todo.md
