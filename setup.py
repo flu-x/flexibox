@@ -27,19 +27,16 @@ setup(
     install_requires = [
         'requests',
         'wget',
-        'selenium',
-        'python-daemon'
+        'selenium'
     ],
     packages = [
         'browserium',
         'browserium.utility',
         'browserium.configurations',
-        'browserium.generic_functions',
-        'browserium.logstashRunner'
+        'browserium.generic_functions'
     ],
     package_data= {
-        'browserium.configurations': ['*.ini'],
-        'browserium.logstashRunner': ['*.conf']
+        'browserium.configurations': ['*.ini']
     },
     include_package_data=True,
     zip_safe = False,
@@ -49,7 +46,7 @@ setup(
         ]
     },
     url = "https://github.com/browserium/Browserium",
-    download_url = "https://github.com/browserium/Browserium/archive/1.1.2.tar.gz",
+    download_url = "https://github.com/browserium/Browserium/archive/1.2.2.tar.gz",
     long_description = long_description,
     long_description_content_type = 'text/markdown'
 )
