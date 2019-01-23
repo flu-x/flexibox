@@ -1,24 +1,19 @@
-import logging
-from logstash_async.handler import AsynchronousLogstashHandler
+from browserium.utility.logger import Logger
 
-class Logstash(object):
 
-    @classmethod
-    def logstash_type(self, log_type, log_message):
-        host = 'localhost'
-        port = 5959
+class Loggerobject(object):
 
-        test_logger = logging.getLogger('python-logstash-async')
+    def __init__(self):
+        self.log = Logger()
 
-        test_logger.setLevel(logging.INFO)
+    def logInformation(self, info):
+        self.log.log_info(info)
 
-        test_logger.addHandler(AsynchronousLogstashHandler(host, port, database_path='logstash.db'))
+    def logError(self, error):
+        self.log.log_error(error)
 
-        if log_type == "ERROR":
-            test_logger.error(log_message)
+    def logWarning(self, warning):
+        self.log.log_warning(warning)
 
-        if log_type == "INFO":
-            test_logger.info(log_message)
-
-        if log_type == "WARNING":
-            test_logger.warning(log_message)
+    def logDebug(self, debug):
+        self.log.log_debug(debug)

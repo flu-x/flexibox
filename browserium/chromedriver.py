@@ -1,5 +1,6 @@
 from utility.utility import Utility
 from utility.os_type import OS_type
+from utility.logger import Logger
 import requests
 import os
 
@@ -8,6 +9,7 @@ class Chromedriver(object):
     def __init__(self):
         self.ut = Utility()
         self.ot = OS_type()
+        self.log = Logger()
 
     # Get the required chromedriver informations from the downloader_config.ini
     # Use the config_reader function from the Utility class to read the required configuration
