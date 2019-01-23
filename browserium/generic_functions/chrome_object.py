@@ -1,4 +1,5 @@
 from selenium import webdriver
+from browserium.utility.logger import Logger
 from selenium.common.exceptions import WebDriverException
 from browserium.utility.utility import Utility
 
@@ -6,6 +7,7 @@ class ChromeDriverObject(object):
 
     def __init__(self):
         self.ut = Utility()
+        self.log = Logger()
 
     # Set chromedriver path
     # Pass the option 'headless' if it is needed to run chrome in headless
@@ -17,8 +19,8 @@ class ChromeDriverObject(object):
             driver = None
             driver_path = self.ut.get_driver_path('/dependencies/dir_chromedriver/chromedriver')
             self.ut.set_executable_permission(driver_path)
-            self.ut.log_message("INFO","setting executable permission to the chrome binary")
-            self.ut.log_message("INFO","setting path of chromedriver")
+            self.log.log_info("Setting executable permission to the chrome binary")
+            self.log.log_info("Setting path of chromedriver")
             if not chromeArgs:
                 driver = webdriver.Chrome(executable_path=driver_path)
             else:
@@ -30,8 +32,8 @@ class ChromeDriverObject(object):
                             executable_path=driver_path,
                             chrome_options=chromeOptions
                         )
-            self.ut.log_message("INFO","Path for chrome binary is set")
+            self.log.log_info("Path for chrome binary is set")
             return driver
         except WebDriverException as e:
-            self.ut.log_message("ERROR","There is an exception in the Web Driver configuration")
+            self.log.log_error("There is an exception in the Web Driver configuration")
             print e
