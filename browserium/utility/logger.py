@@ -1,24 +1,17 @@
 import os
 import logging
-from logging.config import dictConfig
 
 class Logger(object):
     def __init__(self):
-        path = os.path.dirname(os.path.abspath(__file__))
-        self.logger = self.configureLogger(path)
+        self.logger = self.configureLogger()
 
-    def configureLogger(self, filePath):
+    def configureLogger(self):
         rootLogger = logging.getLogger()
         logFormatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
 
         consoleHandler = logging.StreamHandler()
         consoleHandler.setFormatter(logFormatter)
         rootLogger.addHandler(consoleHandler)
-        rootLogger.setLevel(logging.DEBUG)
-
-        fileHandler = logging.FileHandler("{0}/{1}.log".format(filePath, "Logger"))
-        fileHandler.setFormatter(logFormatter)
-        rootLogger.addHandler(fileHandler)
         rootLogger.setLevel(logging.DEBUG)
 
         return rootLogger

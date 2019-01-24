@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name = 'browserium',
-    version = '1.1.2',
+    version = '1.2.2',
     description = 'A single endpoint for your browser driver configuration',
     author = [
         'Soumyajit Basu',
