@@ -1,13 +1,16 @@
 import os
 import logging
 import logging.config
+from utility import Utility
 
 class Logger(object):
     def __init__(self):
         self.logger = self.configureLogger()
+        self.ut = Utility()
 
     def configureLogger(self):
-        logging.config.fileConfig(fname='logging_config.ini', disable_existing_loggers=False)
+        path = self.ut.get_path('../configurations/logging_config.ini')
+        logging.config.fileConfig(fname=path, disable_existing_loggers=False)
         rootLogger = logging.getLogger(__name__)
         return rootLogger
 
