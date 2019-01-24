@@ -1,6 +1,5 @@
 from browserium.utility.logger import Logger
 
-
 class Loggerobject(object):
 
     def __init__(self):
