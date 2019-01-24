@@ -1,6 +1,5 @@
 import os
 import logging
-from logging.config import dictConfig
 
 class Logger(object):
     def __init__(self):
