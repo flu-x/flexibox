@@ -1,7 +1,6 @@
-import os
 import logging
 import logging.config
-from browserium.utility.utility import Utility
+from utility import Utility
 
 class Logger(object):
     def __init__(self):
