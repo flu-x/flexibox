@@ -1,13 +1,14 @@
-import os
+from utility import Utility
 import logging
 import logging.config
 
 class Logger(object):
     def __init__(self):
         self.logger = self.configureLogger()
+        self.ut = Utility()
 
     def configureLogger(self):
-        path = os.path.abspath('logging_config.ini')
+        path = self.ut.get_path('../browserium/configurations/logging_config.ini')
         logging.config.fileConfig(fname=path, disable_existing_loggers=False)
         rootLogger = logging.getLogger(__name__)
         return rootLogger
