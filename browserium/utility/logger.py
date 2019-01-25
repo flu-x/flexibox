@@ -7,8 +7,7 @@ class Logger(object):
         self.logger = self.configureLogger()
 
     def configureLogger(self):
-        path = os.path.abspath('../browserium/configurations/logging_config.ini')
-        logging.config.fileConfig(fname=path, disable_existing_loggers=False)
+        logging.config.fileConfig(fname='logging_config.ini', disable_existing_loggers=False)
         rootLogger = logging.getLogger(__name__)
         return rootLogger
 
