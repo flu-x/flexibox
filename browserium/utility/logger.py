@@ -10,6 +10,9 @@ class Logger(object):
         path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../browserium/configurations/logging_config.ini')
         logging.config.fileConfig(fname=path, disable_existing_loggers=False)
         rootLogger = logging.getLogger(__name__)
+        c_handler = logging.StreamHandler()
+        c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+        c_handler.setFormatter(c_format)
         return rootLogger
 
     def log_info(self, informationMessage):
