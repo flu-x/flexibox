@@ -5,10 +5,9 @@ from browserium.utility.utility import Utility
 class Logger(object):
     def __init__(self):
         self.logger = self.configureLogger()
-        self.ut = Utility()
 
     def configureLogger(self):
-        path = self.ut.get_path('../configurations/logging_config.ini')
+        path = '../configurations/logging_config.ini'
         logging.config.fileConfig(fname=path, disable_existing_loggers=False)
         rootLogger = logging.getLogger(__name__)
         return rootLogger
