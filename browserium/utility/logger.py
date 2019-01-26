@@ -17,3 +17,7 @@ class Logger(object):
     def log_warning(self, warningMessage):
         logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.WARNING)
         logging.info(warningMessage)
+
+    def log_critical(self, criticalMessage):
+        logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.CRITICAL)
+        logging.critical(criticalMessage)

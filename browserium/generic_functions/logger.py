@@ -16,3 +16,6 @@ class Loggerobject(object):
 
     def logDebug(self, debug):
         self.log.log_debug(debug)
+
+    def logCritical(self, critical):
+        self.log.log_critical(critical)
