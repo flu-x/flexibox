@@ -20,4 +20,4 @@ class Logger(object):
 
     def log_critical(self, criticalMessage):
         logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.CRITICAL)
-        logging.info(criticalMessage)
+        logging.critical(criticalMessage)
