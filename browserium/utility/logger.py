@@ -1,28 +1,19 @@
 import logging
-import logging.config
-import os
 
 class Logger(object):
-    def __init__(self):
-        self.logger = self.configureLogger()
-
-    def configureLogger(self):
-        path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../browserium/configurations/logging_config.ini')
-        logging.config.fileConfig(fname=path, disable_existing_loggers=False)
-        rootLogger = logging.getLogger(__name__)
-        c_handler = logging.StreamHandler()
-        c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
-        c_handler.setFormatter(c_format)
-        return rootLogger
 
     def log_info(self, informationMessage):
-        self.logger.info(informationMessage)
+        logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
+        logging.info(informationMessage)
 
     def log_error(self, errorMessage):
-        self.logger.error(errorMessage)
+        logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.ERROR)
+        logging.info(errorMessage)
 
     def log_debug(self, debugMessage):
-        self.logger.debug(debugMessage)
+        logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.DEBUG)
+        logging.info(debugMessage)
 
     def log_warning(self, warningMessage):
-        self.logger.warn(warningMessage)
+        logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.WARNING)
+        logging.info(warningMessage)
