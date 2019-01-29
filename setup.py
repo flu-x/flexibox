@@ -27,7 +27,9 @@ setup(
     install_requires = [
         'requests',
         'wget',
-        'selenium'
+        'selenium',
+        'pytest-html',
+        'allure-pytest'
     ],
     packages = [
         'browserium',
