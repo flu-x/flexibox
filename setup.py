@@ -29,8 +29,7 @@ setup(
         'requests',
         'wget',
         'selenium',
-        'pytest-html',
-        'allure-pytest'
+        'pytest-html'
     ],
     packages = [
         'browserium',
