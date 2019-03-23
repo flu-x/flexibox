@@ -31,7 +31,7 @@ class Utility(object):
             return requiredPath
         except IOError as e:
             self.log.log_error("Required Directory / File not found")
-            print e
+            self.log.log_error(e)
 
     # This method would get the required configuration from the config.ini file
     # and ould return the parser object which can be utilised as required.
@@ -54,7 +54,7 @@ class Utility(object):
         except requests.exceptions.TooManyRedirects:
             self.log.log_error("Too many redirects encountered")
         except requests.exceptions.HTTPError as e:
-            print e
+            self.log.log_error(e)
             sys.exit(1)
 
     # This method would parse the required json object and would return back
@@ -169,7 +169,7 @@ class Utility(object):
     def log_message(log_type, log_message):
         time_stamp = Utility.get_current_time_stamp()
         log_message = "["+time_stamp+"]: "+"["+log_type+"] - "+log_message
-        print log_message
+        print(log_message)
 
     # Get the path for the drivers
     @staticmethod

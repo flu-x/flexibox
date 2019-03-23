@@ -22,12 +22,14 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: POSIX',
-        'Topic :: Software Development :: Quality Assurance'
+        'Topic :: Software Development :: Quality Assurance',
+        'Topic :: Software Development :: Testing'
     ],
     install_requires = [
         'requests',
         'wget',
-        'selenium'
+        'selenium',
+        'pytest-html'
     ],
     packages = [
         'browserium',

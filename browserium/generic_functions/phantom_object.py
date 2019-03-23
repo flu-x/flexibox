@@ -16,4 +16,4 @@ class PhantomDriverObject(Utility):
             return driver
         except WebDriverException as e:
             self.log_message("ERROR","There is an exception in the Web Driver configuration")
-            print e
+            self.log.log_error(e)

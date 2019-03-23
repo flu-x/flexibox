@@ -35,7 +35,6 @@ class Phantomjs_driver(Utility, OS_type):
             self.log_message("INFO","Environment: "+os_name)
             self.log_message("INFO","Downloading the required binary for phantomjsdriver")
             self.driver_downloader(download_url['zip_ball'], dir_path)
-            print "\n"
             self.log_message("INFO", "Download completed")
             self.unzip_file('dir_phantomjsdriver/')
             self.log_message("INFO","Unarchiving contents completed")
@@ -44,7 +43,6 @@ class Phantomjs_driver(Utility, OS_type):
             self.log_message("INFO","Environment: "+os_name)
             self.log_message("INFO","Downloading the required binary for phantomjsdriver")
             self.driver_downloader(download_url['tar_ball'], dir_path)
-            print "\n"
             self.log_message("INFO", "Download completed")
             self.untar_file('dir_phantomjsdriver/')
             self.log_message("INFO","Unarchiving contents completed")
