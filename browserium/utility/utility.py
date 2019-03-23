@@ -4,7 +4,7 @@
 # Purpose: The purpose of the class Utility is to consist of the generic functions that
 # can be used across all the functionalities that would be developed in this project
 
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 from time import sleep
 from zipfile import ZipFile
 from datetime import datetime
