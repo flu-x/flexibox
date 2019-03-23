@@ -33,4 +33,4 @@ class OperaDriverObject(object):
             return driver
         except WebDriverException as e:
             self.log.log_error("There is an exception in the Web Driver configuration")
-            print e
+            self.log.log_error(e)

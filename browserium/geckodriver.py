@@ -32,7 +32,6 @@ class Geckodriver(object):
             url_builder_mac = self.parse_geckodriver_api()
             self.log.log_info("Downloading the required binary for geckodriver")
             self.ut.driver_downloader(url_builder_mac['mac'], dir_path)
-            print "\n"
             self.log.log_info("Download completed")
             self.ut.untar_file('dir_geckodriver/')
             self.log.log_info("Unarchiving contents completed")
@@ -42,7 +41,6 @@ class Geckodriver(object):
             url_builder_linux = self.parse_geckodriver_api()
             self.log.log_info("Downloading the required binary for geckodriver")
             self.ut.driver_downloader(url_builder_linux['linux'], dir_path)
-            print "\n"
             self.log.log_info("Download completed")
             self.ut.untar_file('dir_geckodriver/')
             self.log.log_info("Unarchiving contents completed")
@@ -52,7 +50,6 @@ class Geckodriver(object):
             url_builder_linux = self.parse_geckodriver_api()
             self.log.log_info("Downloading the required binary for geckodriver")
             self.ut.driver_downloader(url_builder_linux['linux'], dir_path)
-            print "\n"
             self.log.log_info("Download completed")
             self.ut.untar_file('dir_geckodriver/')
             self.log.log_info("Unarchiving contents completed")

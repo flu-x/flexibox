@@ -35,5 +35,5 @@ class GeckoDriverObject(object):
             self.log.log_info("Executable path for geckodriver is set")
             return driver
         except WebDriverException as e:
-            self.log.log_info("There is an exception in the Web Driver configuration")
-            print e
+            self.log.log_error("There is an exception in the Web Driver configuration")
+            self.log.log_error(e)

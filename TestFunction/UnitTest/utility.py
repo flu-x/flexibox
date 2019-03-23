@@ -16,7 +16,7 @@ class Utility_object(object):
             requiredPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), path_param)
             return requiredPath
         except IOError as e:
-            print e
+            print(e)
 
     # Get the current time stamp
     @classmethod
@@ -28,7 +28,7 @@ class Utility_object(object):
     def log_message(self, log_type, log_message):
         time_stamp = self.get_current_time_stamp()
         log_message = "["+time_stamp+"]: "+"["+log_type+"] - "+log_message
-        print log_message
+        print(log_message)
 
     # return json data
     def json_file_reader(self):
