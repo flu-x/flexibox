@@ -7,7 +7,7 @@ from selenium.common.exceptions import ElementNotSelectableException
 
 from time import sleep
 
-class Browser_controller(object):
+class BrowserController(object):
 
     def __init__(self):
         self.ut = Utility()
