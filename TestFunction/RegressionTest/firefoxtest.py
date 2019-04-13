@@ -4,7 +4,7 @@ class Test_1():
     def test_firefoxdriver_type(self):
         geckodriver = GeckoDriverObject()
         controller = BrowserController()
-        driver = geckodriver.set_geckodriver_object()
+        driver = geckodriver.set_geckodriver_object(geckoArgs=['--headless'])
         controller.get_url(driver, "https://www.google.co.in")
         controller.implicit_wait_time(driver, 4)
         current_url = controller.get_current_url(driver)
