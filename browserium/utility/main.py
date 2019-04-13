@@ -15,7 +15,7 @@ delete.add_argument("--driver", help="delete all drivers")
 def main():
     args = parser.parse_args()
     driver_object = Driver.get_driver(args.driver)()
-    print driver_object
+    print(driver_object)
     # if args.command == "download":
     #     driver_object.download_driver()
     # if args.command == "update":
