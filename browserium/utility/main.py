@@ -13,15 +13,16 @@ download.add_argument("--driver", help="download the respective driver")
 update.add_argument("--driver", help="update the respective driver")
 delete.add_argument("--driver", help="delete all drivers")
 
-args = parser.parse_args()
+def main():
+    args = parser.parse_args()
 
-driver_object = Driver.get_driver(args.driver)()
-if args.command == "download":
-    driver_object.download_driver()
-if args.command == "update":
-    driver_object.update_driver()
-if args.command == "delete":
-    driver_object.delete_driver_history()
+    driver_object = Driver.get_driver(args.driver)()
+    if args.command == "download":
+        driver_object.download_driver()
+    if args.command == "update":
+        driver_object.update_driver()
+    if args.command == "delete":
+        driver_object.delete_driver_history()
 
 if __name__ == '__main__':
     main()
