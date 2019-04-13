@@ -1,7 +1,7 @@
 from .chromedriver import Chromedriver
 from .operadriver import Operadriver
 from .geckodriver import Geckodriver
-# from utility.utility import Utility
+from browserium.utility.utility import Utility
 class Driver(object):
 
     @staticmethod
@@ -11,6 +11,6 @@ class Driver(object):
 driver_class = {
     'chromedriver': Chromedriver,
     'operadriver': Operadriver,
-    'geckodriver': Geckodriver
-    # 'all': Utility
+    'geckodriver': Geckodriver,
+    'all': Utility
 }
