@@ -11,6 +11,6 @@ class Driver(object):
 driver_class = {
     'chromedriver': Chromedriver,
     'operadriver': Operadriver,
-    'geckodriver': Geckodriver
+    'geckodriver': Geckodriver,
     'all': Utility
 }
