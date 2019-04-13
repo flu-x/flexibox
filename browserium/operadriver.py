@@ -1,4 +1,4 @@
-from utility import Utility
+from utility.utility import Utility
 from utility.os_type import OS_type
 from utility.logger import Logger
 import os

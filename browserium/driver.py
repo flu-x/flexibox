@@ -1,7 +1,7 @@
-from .chromedriver import Chromedriver
-from .operadriver import Operadriver
-from .geckodriver import Geckodriver
-# from utility.utility import Utility
+from chromedriver import Chromedriver
+from operadriver import Operadriver
+from geckodriver import Geckodriver
+from utility.utility import Utility
 class Driver(object):
 
     @staticmethod
@@ -12,5 +12,5 @@ driver_class = {
     'chromedriver': Chromedriver,
     'operadriver': Operadriver,
     'geckodriver': Geckodriver
-    # 'all': Utility
+    'all': Utility
 }
