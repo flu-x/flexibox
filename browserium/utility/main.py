@@ -1,5 +1,6 @@
 import argparse
 from ..driver import Driver
+from browserium.utility.utility import Utility
 
 parser = argparse.ArgumentParser()
 subparser = parser.add_subparsers(dest='command',help="download")
@@ -20,7 +21,7 @@ def main():
     if args.command == "update":
         driver_object.update_driver()
     if args.command == "delete":
-        driver_object.delete_driver_history()
+        Utility.delete_driver_history()
 
 if __name__ == '__main__':
     main()
