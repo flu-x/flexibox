@@ -1,6 +1,6 @@
-from utility.utility import Utility
-from utility.os_type import OS_type
-from utility.logger import Logger
+from browserium.utility.utility import Utility
+from browserium.utility.os_type import OS_type
+from browserium.utility.logger import Logger
 import os
 
 class Operadriver(object):
