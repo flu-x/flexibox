@@ -18,6 +18,7 @@ class Main(object):
     def __init__(self):
         self.ut = Utility()
 
+    def configure_parser(self):
         parser = argparse.ArgumentParser()
         subparser = parser.add_subparsers(dest='command',help="download")
 
@@ -38,6 +39,8 @@ class Main(object):
         if args.command == "delete":
             self.ut.delete_driver_history()
 
+m = Main()
+m.configure_parser()
 
 # if __name__ == '__main__':
 #     main()
