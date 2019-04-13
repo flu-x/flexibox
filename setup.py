@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name = 'browserium',
-    version = '2.0.0',
+    version = '2.0',
     description = 'A single endpoint for your browser driver configuration',
     author = [
         'Soumyajit Basu',
@@ -49,7 +49,7 @@ setup(
         ]
     },
     url = "https://github.com/browserium/Browserium",
-    download_url = "https://github.com/browserium/Browserium/archive/2.0.0.tar.gz",
+    download_url = "https://github.com/browserium/Browserium/archive/2.0.tar.gz",
     long_description = long_description,
     long_description_content_type = 'text/markdown'
 )
