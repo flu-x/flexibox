@@ -1,6 +1,6 @@
-from chromedriver import Chromedriver
-from operadriver import Operadriver
-from geckodriver import Geckodriver
+from .chromedriver import Chromedriver
+from .operadriver import Operadriver
+from .geckodriver import Geckodriver
 from utility.utility import Utility
 class Driver(object):
 
