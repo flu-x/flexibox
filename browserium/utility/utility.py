@@ -184,7 +184,8 @@ class Utility(object):
         os.chmod(driver_path, st.st_mode | stat.S_IEXEC)
 
     # Delete driver executables from /usr/local/bin
-    def delete_driver_history(self):
+    @staticmethod
+    def delete_driver_history():
         rel_dir_path = Utility.get_driver_path("/dependencies")
         if not os.path.exists(rel_dir_path):
             self.log.log_error("Driver directory does not exist")
