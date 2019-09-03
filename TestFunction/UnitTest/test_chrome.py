@@ -26,10 +26,9 @@ class TestChrome(unittest.TestCase):
         _data = self.parseJSONChrome()
         _releaseVersionAPI = _data.get('release_version')
         _releaseVersion = ""
-
         response = requests.get(_releaseVersionAPI)
         if response.status_code == 200:
-            _releaseVersion = str(response.json())
+            _releaseVersion = response.text
 
         _url = _data.get('url')
 
@@ -58,7 +57,7 @@ class TestChrome(unittest.TestCase):
 
         response = requests.get(_releaseVersionAPI)
         if response.status_code == 200:
-            _releaseVersion = str(response.json())
+            _releaseVersion = response.text
 
         _url = _data.get('url')
         _linux_bin = _data.get('linux_v_64')
