@@ -7,8 +7,7 @@ tc1 = unittest.TestLoader().loadTestsFromTestCase(TestOpera)
 tc2 = unittest.TestLoader().loadTestsFromTestCase(TestChrome)
 tc3 = unittest.TestLoader().loadTestsFromTestCase(TestGecko)
 
-# Run unit tests
-unitTest = unittest.TestSuite([tc1, tc2, tc3])
-
 # Execute unit test
-unittest.TextTestRunner(verbosity=2).run(unitTest)
+if __name__ == "__main__":
+    suite = unitTest = unittest.TestSuite([tc1, tc2, tc3])
+    unittest.TextTestRunner(verbosity=2).run(suite)
