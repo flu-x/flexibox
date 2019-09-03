@@ -7,3 +7,4 @@ virtualenv==16.0.0
 PyUnitReport
 wget
 requests
+mysql-connector
