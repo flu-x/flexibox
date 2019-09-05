@@ -9,5 +9,5 @@ tc3 = unittest.TestLoader().loadTestsFromTestCase(TestGecko)
 
 # Execute unit test
 if __name__ == "__main__":
-    suite = unitTest = unittest.TestSuite([tc1, tc2, tc3])
+    suite = unittest.TestSuite([tc1, tc2, tc3])
     unittest.TextTestRunner(verbosity=2).run(suite)
