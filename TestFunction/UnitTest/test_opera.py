@@ -1,6 +1,8 @@
 from utility import Utility_object
 import unittest
 import requests
+import os
+import wget
 
 class TestOpera(unittest.TestCase):
     def __init__(self, *args, **kwargs):
@@ -31,15 +33,14 @@ class TestOpera(unittest.TestCase):
 
         # Check response code
         _response = requests.get(download_url)
-        # if _response.status_code == 200:
-        #     wget.download(download_url)
+        if _response.status_code == 200:
+            wget.download(download_url)
 
-        # Assert for response status
-        # self.assertTrue(os.path.exists('operadriver_mac64.zip'))
-        self.assertEquals(_response.status_code,200,"Response status code does not match")
+        # Assert for file exists
+        self.assertTrue(os.path.exists('operadriver_mac64.zip'))
 
         # Delete file
-        # self.utility.delete_file("operadriver_mac64.zip")
+        self.utility.delete_file("operadriver_mac64.zip")
 
     def testOperaDriverLinux(self):
         driverAPI = self.parseJSONOpera()
@@ -48,12 +49,11 @@ class TestOpera(unittest.TestCase):
 
         # Check response code
         _response = requests.get(download_url)
-        # if _response.status_code == 200:
-        #     wget.download(download_url)
+        if _response.status_code == 200:
+            wget.download(download_url)
 
         # Assert for file exists
-        # self.assertTrue(os.path.exists('operadriver_linux64.zip'))
-        self.assertEquals(_response.status_code,200,"Response status code does not match")
+        self.assertTrue(os.path.exists('operadriver_linux64.zip'))
 
         # Delete file
-        # self.utility.delete_file("operadriver_linux64.zip")
+        self.utility.delete_file("operadriver_linux64.zip")
