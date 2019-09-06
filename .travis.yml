@@ -3,7 +3,13 @@ python:
   "3.7"
 before_install:
   sudo apt-get update
-before_script:
-  cd TestFunction/UnitTest/
-script:
- python execute.py
+jobs:
+  include:
+    - stage: Unit test
+      before_script: cd TestFunction/UnitTest/
+      script:
+        python execute.py
+    - stage: Functional test
+      before_script: cd TestFunction/RegressionTest/
+      script:
+        python execute.py
