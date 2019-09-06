@@ -11,6 +11,8 @@ jobs:
         python execute.py
     - stage: Functional test
       before_script: cd TestFunction/RegressionTest/
+      before_script: browserium download --driver=geckodriver
+      before_script: browserium download --driver=chromedriver
       script:
         python chrometest.py
       script:
