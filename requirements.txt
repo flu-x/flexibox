@@ -8,3 +8,4 @@ PyUnitReport
 wget
 requests
 mysql-connector
+browserium==2.0.0
