@@ -12,4 +12,6 @@ jobs:
     - stage: Functional test
       before_script: cd TestFunction/RegressionTest/
       script:
-        python execute.py
+        python chrometest.py
+      script:
+        python firefoxtest.py
