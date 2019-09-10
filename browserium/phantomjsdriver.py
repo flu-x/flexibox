@@ -1,3 +1,9 @@
+# Author: @Corefinder
+# Language: Python
+# Copyrights: SoumyajitBasu
+# Purpose: PhantomJS driver initialization
+# can be used across all the functionalities that would be developed in this project
+
 from browserium.core.utility import Utility
 from utility.os_type import OS_type
 import os

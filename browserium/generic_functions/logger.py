@@ -1,4 +1,4 @@
-from browserium.utility.logger import Logger
+from browserium.core.logger import Logger
 
 class Loggerobject(object):
 
