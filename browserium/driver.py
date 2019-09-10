@@ -1,7 +1,7 @@
 from .chromedriver import Chromedriver
 from .operadriver import Operadriver
 from .geckodriver import Geckodriver
-from browserium.utility.utility import Utility
+from browserium.core.utility import Utility
 class Driver(object):
 
     @staticmethod

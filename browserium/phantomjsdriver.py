@@ -1,4 +1,4 @@
-from utility.utility import Utility
+from browserium.core.utility import Utility
 from utility.os_type import OS_type
 import os
 

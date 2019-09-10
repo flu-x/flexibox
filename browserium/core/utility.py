@@ -8,7 +8,7 @@ from configparser import SafeConfigParser
 from time import sleep
 from zipfile import ZipFile
 from datetime import datetime
-from browserium.utility.logger import Logger
+from logger import Logger
 import wget
 import requests
 import os

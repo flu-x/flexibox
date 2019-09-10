@@ -1,7 +1,7 @@
 from selenium import webdriver
-from browserium.utility.logger import Logger
+from browserium.core.logger import Logger
 from selenium.common.exceptions import WebDriverException
-from browserium.utility.utility import Utility
+from browserium.core.utility import Utility
 
 class ChromeDriverObject(object):
 

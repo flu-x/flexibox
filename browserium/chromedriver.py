@@ -1,6 +1,6 @@
-from browserium.utility.utility import Utility
+from browserium.core.utility import Utility
 from browserium.utility.os_type import OS_type
-from browserium.utility.logger import Logger
+from browserium.core.logger import Logger
 import requests
 import os
 

@@ -1,6 +1,6 @@
 import argparse
 from ..driver import Driver
-from browserium.utility.utility import Utility
+from browserium.core.utility import Utility
 
 parser = argparse.ArgumentParser()
 subparser = parser.add_subparsers(dest='command',help="download")
