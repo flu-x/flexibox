@@ -10,7 +10,7 @@ jobs:
       script:
         python execute.py
     - stage: Functional test
-      before_script: sudo chown -R 757 /usr/local/bin/
+      before_script: chown -R 757 /usr/local/bin/
       before_script: cd TestFunction/RegressionTest/
       before_script: browserium download --driver=geckodriver
       before_script: browserium download --driver=chromedriver

@@ -1,5 +1,5 @@
-from browserium.utility.utility import Utility
-from browserium.utility.logger import Logger
+from utility import Utility
+from browserium.core.logger import Logger
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementNotVisibleException
