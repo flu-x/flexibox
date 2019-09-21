@@ -3,18 +3,7 @@ python:
   "3.7"
 before_install:
   sudo apt-get update
-jobs:
-  include:
-    - stage: Unit test
-      before_script: cd TestFunction/UnitTest/
-      script:
-        python execute.py
-    - stage: Functional test
-      before_script: chown -R 757 /usr/local/bin/
-      before_script: cd TestFunction/RegressionTest/
-      before_script: browserium download --driver=geckodriver
-      before_script: browserium download --driver=chromedriver
-      script:
-        python chrometest.py
-      script:
-        python firefoxtest.py
+before_script:
+  cd TestFunction/UnitTest/
+script:
+ python execute.py
