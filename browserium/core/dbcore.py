@@ -13,7 +13,7 @@ class DBcore(object):
         self.mysql = self.mysqlcore()
 
 class Postgrescore(object):
-    def select(self):
+    def db_object(self):
         print("Select")
 
 class Mysqlcore(object):
