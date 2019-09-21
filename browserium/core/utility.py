@@ -210,6 +210,7 @@ class Utility(object):
                 port=port,
                 database=databasename
             )
+            # Create postgres cursor object
             cursor = connection.cursor()
             return cursor
         except(Exception, psycopg2.Error) as error:
@@ -218,4 +219,9 @@ class Utility(object):
             if(connection):
                 cursor.close()
                 connection.close()
-                self.log.log_info("PostgreSQL connection closed")
+                self.log.log_info("PostgreSQL connection closed.")
+
+    # Configure mysql to create cursor object
+    def configure_mysql(self, username, password, hostname, port, databasename):
+        try:
+            connection =
