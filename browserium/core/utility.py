@@ -17,6 +17,7 @@ import sys
 import shutil
 import tarfile
 import json
+import psycopg2
 
 class Utility(object):
 
@@ -198,3 +199,29 @@ class Utility(object):
         with open(file_path) as data_file:
             json_data = json.loads(data_file)
             return json_data
+
+    # configure postgres to create cursor object
+    def configure_psql(self, username, password, hostname, port, databasename):
+        try:
+            connection = psycopg2.connect(
+                user=username,
+                password=password,
+                host=host,
+                port=port,
+                database=databasename
+            )
+            # Create postgres cursor object
+            cursor = connection.cursor()
+            return cursor
+        except(Exception, psycopg2.Error) as error:
+            self.log.log_error(error)
+        finally:
+            if(connection):
+                cursor.close()
+                connection.close()
+                self.log.log_info("PostgreSQL connection closed.")
+
+    # Configure mysql to create cursor object
+    def configure_mysql(self, username, password, hostname, port, databasename):
+        try:
+            connection =
