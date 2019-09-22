@@ -9,7 +9,6 @@ from time import sleep
 from zipfile import ZipFile
 from datetime import datetime
 from logger import Logger
-import mysql.connector
 import wget
 import requests
 import os
@@ -18,7 +17,6 @@ import sys
 import shutil
 import tarfile
 import json
-import psycopg2
 
 class Utility(object):
 

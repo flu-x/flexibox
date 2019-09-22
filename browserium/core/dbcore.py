@@ -63,9 +63,17 @@ class Mysqlcore(object):
                 database=databasename
             )
             # Create mysql cursor object
-            cur = connection.cursor()
+            cursor = connection.cursor()
             return cursor
         except(Exception, mysql.error) as error:
             self.log.log_error(error)
 
     def execute_query_object(self, cursor_obj, query):
+        # Define cursor object
+        cursor = cursor_obj
+        # Execute database query
+        cursor.execute(query)
+        ldata = []
+        for data in cursor:
+            data.append(ldata)
+        return ldata
