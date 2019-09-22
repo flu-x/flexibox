@@ -45,9 +45,9 @@ class Postgrescore(object):
         if query_condition == 'fetchOne':
             query_data = cursor_obj.fetchone()
             ldata.append(query_data)
-        if query_condition == 'fetchMany':
-            query_data = cursor_obj.fetchmany(size)
-            ldata.append(query_data)
+        # if query_condition == 'fetchMany':
+        #     query_data = cursor_obj.fetchmany(size)
+        #     ldata.append(query_data)
         return ldata
 
 class Mysqlcore(object):
