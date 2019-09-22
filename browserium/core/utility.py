@@ -200,37 +200,3 @@ class Utility(object):
         with open(file_path) as data_file:
             json_data = json.loads(data_file)
             return json_data
-
-    # configure postgres to create cursor object
-    def configure_psql(self, username, password, hostname, port, databasename):
-        try:
-            # Create postgres connection obje
-            connection = psycopg2.connect(
-                user=username,
-                password=password,
-                host=host,
-                port=port,
-                database=databasename
-            )
-            # Create postgres cursor object
-            cursor = connection.cursor()
-            return cursor
-        except(Exception, psycopg2.Error) as error:
-            self.log.log_error(error)
-
-    # Configure mysql to create cursor object
-    def configure_mysql(self, username, password, hostname, port, databasename):
-        try:
-            # Create mysql connection object
-            connection = mysql.connector.connect(
-                user=username,
-                password=password,
-                host=host,
-                port=port,
-                database=databasename
-            )
-            # Create mysql cursor object
-            cur = connection.cursor()
-            return cursor
-        except(Exception, mysql.error) as error:
-            self.log.log_error(error)
