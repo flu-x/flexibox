@@ -1,3 +1,10 @@
+# Author: @Corefinder
+# Language: Python
+# Copyrights: SoumyajitBasu
+# Purpose: The purpose of the class ChromeDriverObject is to set the create an instance for the GeckoDriverObject class
+#          to configure the geckodriver accordingly based on the environment.
+# Can be used to set the chromedriver object
+
 from selenium import webdriver
 from browserium.utility.logger import Logger
 from browserium.utility.utility import Utility

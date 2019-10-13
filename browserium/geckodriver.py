@@ -1,3 +1,10 @@
+# Author: @Corefinder
+# Language: Python
+# Copyrights: SoumyajitBasu
+# Purpose: The purpose of the class Geckodriver is to check for the respective environment and download the required
+#          chrome driver for the respective environment.
+# Download the latest gecko driver object
+
 from browserium.core.utility import Utility
 from browserium.utility.os_type import OS_type
 from browserium.core.logger import Logger

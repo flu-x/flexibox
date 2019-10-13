@@ -1,3 +1,9 @@
+# Author: @Corefinder
+# Language: Python
+# Copyrights: SoumyajitBasu
+# Purpose: The purpose of the class Logger is to have all the generic functionality for logging
+# Can be used to generate logs for all the required functions carried out in the project
+
 import logging
 
 class Logger(object):

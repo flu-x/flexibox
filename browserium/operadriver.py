@@ -1,3 +1,10 @@
+# Author: @Corefinder
+# Language: Python
+# Copyrights: SoumyajitBasu
+# Purpose: The purpose of the class OperaDriver is to check for the respective environment and download the required
+#          opera driver for the respective environment.
+# Download the latest opera driver object
+
 from browserium.core.utility import Utility
 from browserium.utility.os_type import OS_type
 from browserium.core.logger import Logger

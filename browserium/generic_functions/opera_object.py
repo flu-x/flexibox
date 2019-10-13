@@ -1,3 +1,10 @@
+# Author: @Corefinder
+# Language: Python
+# Copyrights: SoumyajitBasu
+# Purpose: The purpose of the class ChromeDriverObject is to set the create an instance for the OperaDriverObject class
+#          to configure the geckodriver accordingly based on the environment.
+# Can be used to set the operadriver object
+
 from selenium import webdriver
 from browserium.utility.utility import Utility
 from browserium.utility.logger import Logger
@@ -11,7 +18,7 @@ class OperaDriverObject(object):
         self.ot = OS_type()
         self.log = Logger()
 
-    # Set geckodriver path
+    # Set opera odriver path
     # Pass the option 'headless' if it is needed to run gecko in headless
     # configuration
     def set_operadriver_object(self):
