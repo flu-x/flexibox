@@ -30,7 +30,7 @@ class Postgrescore(object):
         except(Exception, psycopg2.Error) as error:
             self.log.log_error(error)
 
-    def execute_query_object(self, cursor_obj, query, query_condition="fetchAll"):
+    def execute_query_object(self, cursor_obj, query, query_condition=None, size=None):
         # Define cursor object
         cursor = cursor_obj
         # Execute respective query
@@ -45,9 +45,9 @@ class Postgrescore(object):
         if query_condition == 'fetchOne':
             query_data = cursor_obj.fetchone()
             ldata.append(query_data)
-        # if query_condition == 'fetchMany':
-        #     query_data = cursor_obj.fetchmany(size)
-        #     ldata.append(query_data)
+        if query_condition == 'fetchMany':
+            query_data = cursor_obj.fetchmany(size)
+            ldata.append(query_data)
         return ldata
 
 class Mysqlcore(object):

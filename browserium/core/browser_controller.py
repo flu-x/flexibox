@@ -1,3 +1,9 @@
+# Author: @Corefinder
+# Language: Python
+# Copyrights: SoumyajitBasu
+# Purpose: The purpose of the class BrowserController is to have all the generic browser associated functions
+# Browser controller class consisting of generic browser driven functions.
+
 from utility import Utility
 from browserium.core.logger import Logger
 from selenium.webdriver.support.ui import WebDriverWait
