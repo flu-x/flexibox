@@ -1,5 +1,5 @@
 from browserium.generic_functions.gecko_object import GeckoDriverObject
-from browserium.generic_functions.browser_controller import BrowserController
+from browserium.core.browser_controller import BrowserController
 class Test_1():
     def test_firefoxdriver_type(self):
         geckodriver = GeckoDriverObject()

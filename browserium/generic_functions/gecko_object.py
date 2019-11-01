@@ -6,8 +6,8 @@
 # Can be used to set the chromedriver object
 
 from selenium import webdriver
-from browserium.utility.logger import Logger
-from browserium.utility.utility import Utility
+from browserium.core.logger import Logger
+from browserium.core.utility import Utility
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import WebDriverException
 
@@ -27,7 +27,6 @@ class GeckoDriverObject(object):
             driver = None
             driver_path = self.ut.get_driver_path('/dependencies/dir_geckodriver/geckodriver')
             self.log.log_info("Setting path of geckodriver")
-            self.log.log_info("")
             if not geckoArgs:
                 driver = webdriver.Firefox(executable_path=driver_path)
             else:
@@ -39,7 +38,6 @@ class GeckoDriverObject(object):
                             executable_path=driver_path,
                             firefox_options=firefoxOptions
                         )
-            self.log.log_info("")
             return driver
         except WebDriverException as e:
             self.log.log_error("There is an exception in the Web Driver configuration")

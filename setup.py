@@ -34,6 +34,7 @@ setup(
     ],
     packages = [
         'browserium',
+        'browserium.core',
         'browserium.utility',
         'browserium.configurations',
         'browserium.generic_functions'

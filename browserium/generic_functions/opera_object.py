@@ -6,8 +6,8 @@
 # Can be used to set the operadriver object
 
 from selenium import webdriver
-from browserium.utility.utility import Utility
-from browserium.utility.logger import Logger
+from browserium.core.utility import Utility
+from browserium.core.logger import Logger
 from selenium.common.exceptions import WebDriverException
 from browserium.utility.os_type import OS_type
 

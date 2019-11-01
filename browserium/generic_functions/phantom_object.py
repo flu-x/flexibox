@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
-from browserium.utility.utility import Utility
+from browserium.core.utility import Utility
 
 class PhantomDriverObject(Utility):
     # Set chromedriver path

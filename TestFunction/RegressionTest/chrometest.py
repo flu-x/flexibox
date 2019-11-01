@@ -1,5 +1,5 @@
 from browserium.generic_functions.chrome_object import ChromeDriverObject
-from browserium.generic_functions.browser_controller import BrowserController
+from browserium.core.browser_controller import BrowserController
 class Test_1():
     def test_chromedriver_type(self):
         chromedriver = ChromeDriverObject()
