@@ -37,7 +37,7 @@ class ChromeDriverObject(object):
                     chromeOptions.add_argument(val)
                 driver = webdriver.Chrome(
                             executable_path=driver_path,
-                            chrome_options=chromeOptions
+                            options=chromeOptions
                         )
             self.log.log_info("Path for chrome binary is set")
             return driver
