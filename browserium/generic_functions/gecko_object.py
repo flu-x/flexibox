@@ -11,6 +11,7 @@ from browserium.core.utility import Utility
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import WebDriverException
 
+
 class GeckoDriverObject(object):
 
     def __init__(self):
@@ -20,11 +21,11 @@ class GeckoDriverObject(object):
     # Set geckodriver path
     # Pass the option 'headless' if it is needed to run gecko in headless
     # configuration
+
     def set_geckodriver_object(self, geckoArgs=None):
         try:
             geckoArgs = geckoArgs
             firefoxOptions = Options()
-            driver = None
             driver_path = self.ut.get_driver_path('/dependencies/dir_geckodriver/geckodriver')
             self.log.log_info("Setting path of geckodriver")
             if not geckoArgs:

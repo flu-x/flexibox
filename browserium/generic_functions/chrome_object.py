@@ -10,6 +10,7 @@ from browserium.core.logger import Logger
 from selenium.common.exceptions import WebDriverException
 from browserium.core.utility import Utility
 
+
 class ChromeDriverObject(object):
 
     def __init__(self):
@@ -23,7 +24,6 @@ class ChromeDriverObject(object):
         try:
             chromeArgs = chromeArgs
             chromeOptions = webdriver.ChromeOptions()
-            driver = None
             driver_path = self.ut.get_driver_path('/dependencies/dir_chromedriver/chromedriver')
             self.ut.set_executable_permission(driver_path)
             self.log.log_info("Setting executable permission to the chrome binary")

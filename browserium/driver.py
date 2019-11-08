@@ -2,11 +2,14 @@ from .chromedriver import Chromedriver
 from .operadriver import Operadriver
 from .geckodriver import Geckodriver
 from browserium.core.utility import Utility
+
+
 class Driver(object):
 
     @staticmethod
     def get_driver(driver_name):
         return driver_class.get(driver_name)
+
 
 driver_class = {
     'chromedriver': Chromedriver,

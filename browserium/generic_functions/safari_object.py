@@ -11,6 +11,7 @@ from browserium.core.utility import Utility
 from browserium.utility.os_type import OS_type
 from selenium.common.exceptions import WebDriverException
 
+
 class SafariDriverObject(object):
     def __init__(self):
         self.log = Logger()
@@ -18,6 +19,7 @@ class SafariDriverObject(object):
         self.ot = OS_type()
 
     # Get the executable binary path for safari from the config.ini file
+
     def set_safaridriver_object(self):
         try:
             os_environ = self.ot.os_name()

@@ -8,6 +8,7 @@
 import sys
 import platform
 
+
 class OS_type():
 
     LINUX = "linux"

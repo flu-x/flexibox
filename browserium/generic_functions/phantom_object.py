@@ -2,10 +2,12 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from browserium.core.utility import Utility
 
+
 class PhantomDriverObject(Utility):
     # Set chromedriver path
     # Pass the option 'headless' if it is needed to run chrome in headless
     # configuration
+
     def set_phantomdriver_object(self):
         try:
             driver_path = self.get_driver_path('/dependencies/dir_phantomjsdriver/phantomjsdriver/bin/phantomjs')
