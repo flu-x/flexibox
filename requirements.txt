@@ -6,4 +6,4 @@ PyUnitReport
 wget
 requests
 mysql-connector-python==8.0.17
-browserium==2.0.0
+psycopg2
