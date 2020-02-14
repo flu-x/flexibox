@@ -12,7 +12,5 @@ repos:
     hooks:
     -   id: trailing-whitespace
     -   id: check-merge-conflict
-    -   id: name-tests-test
     -   id: requirements-txt-fixer
-    -   id: check-json
     -   id: end-of-file-fixer

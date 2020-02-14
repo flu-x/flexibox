@@ -3,10 +3,10 @@
 # Copyrights: SoumyajitBasu
 # Purpose: PhantomJS driver initialization
 # can be used across all the functionalities that would be developed in this project
+import os
 
 from browserium.core.utility import Utility
 from browserium.utility.os_type import OS_type
-import os
 
 
 class Phantomjs_driver(Utility, OS_type):
@@ -15,7 +15,7 @@ class Phantomjs_driver(Utility, OS_type):
 
     def phantomjsdriver_object(self):
         config_parser = self.config_reader()
-        api_url = config_parser.get('PhantomJSDriver','latest_browser_driver')
+        api_url = config_parser.get('PhantomJSDriver', 'latest_browser_driver')
         return api_url
 
     # Get the required API data from the function phantomjsdriver_object
@@ -31,10 +31,7 @@ class Phantomjs_driver(Utility, OS_type):
     def parse_apidata(self):
         api_url = {}
         raw_json = self.parse_phantomjsdriver_api()
-        api_url = {
-            "zip_ball": raw_json['zipball_url'],
-            "tar_ball": raw_json['tarball_url']
-        }
+        api_url = {"zip_ball": raw_json['zipball_url'], "tar_ball": raw_json['tarball_url']}
         return api_url
 
     # Download the required phantomjsdriver binary based on the operating system type
@@ -43,7 +40,7 @@ class Phantomjs_driver(Utility, OS_type):
         download_url = self.parse_apidata()
         dir_path = self.get_driver_path('/dependencies/dir_phantomjsdriver')
         if os_name == 'macos':
-            self.log_message("INFO", "Environment: "+os_name)
+            self.log_message("INFO", "Environment: " + os_name)
             self.log_message("INFO", "Downloading the required binary for phantomjsdriver")
             self.driver_downloader(download_url['zip_ball'], dir_path)
             self.log_message("INFO", "Download completed")
@@ -51,7 +48,7 @@ class Phantomjs_driver(Utility, OS_type):
             self.log_message("INFO", "Unarchiving contents completed")
             self.rename_dir('dir_phantomjsdriver/')
         if os_name == 'linux':
-            self.log_message("INFO", "Environment: "+os_name)
+            self.log_message("INFO", "Environment: " + os_name)
             self.log_message("INFO", "Downloading the required binary for phantomjsdriver")
             self.driver_downloader(download_url['tar_ball'], dir_path)
             self.log_message("INFO", "Download completed")
@@ -65,7 +62,10 @@ class Phantomjs_driver(Utility, OS_type):
     def download_driver(self):
         dir_path = self.get_driver_path('/dependencies/dir_phantomjsdriver')
         if os.path.exists(dir_path):
-            self.log_message("INFO", "phantomjs driver is already present. To update phantomjsdriver please run `browserium update --driver=phantomjsdriver`")
+            self.log_message(
+                "INFO",
+                "phantomjs driver is already present. To update phantomjsdriver please run `browserium update --driver=phantomjsdriver`"
+            )
         else:
             os.makedirs(dir_path)
             os_name = self.os_name()
@@ -79,4 +79,4 @@ class Phantomjs_driver(Utility, OS_type):
         self.delete_dir_contents('dir_phantomjsdriver/')
         os_name = self.os_name()
         self.evaluate_on_environment(os_name)
-        self.log_message("INFO", "operadriver updated")
+        self.log_message("INFO", "phantomjs driver updated")
