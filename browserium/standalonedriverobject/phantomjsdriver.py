@@ -79,4 +79,4 @@ class Phantomjs_driver(Utility, OS_type):
         self.delete_dir_contents('dir_phantomjsdriver/')
         os_name = self.os_name()
         self.evaluate_on_environment(os_name)
-        self.log_message("INFO", "operadriver updated")
+        self.log_message("INFO", "phantomjs driver updated")
