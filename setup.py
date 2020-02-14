@@ -7,49 +7,25 @@ setup(
     name='browserium',
     version='2.1.2',
     description='A single endpoint for your browser driver configuration',
-    author=[
-        'Soumyajit Basu',
-        'Bony Roopchandani'
-    ],
+    author=['Soumyajit Basu', 'Bony Roopchandani'],
     author_email='soumyajit.basu62@gmail.com',
     classifiers=[
-        'Intended Audience :: Information Technology',
-        'Intended Audience :: Developers',
-        'Development Status :: 5 - Production/Stable',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.7',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: MacOS :: MacOS X',
-        'Operating System :: POSIX',
-        'Topic :: Software Development :: Quality Assurance',
-        'Topic :: Software Development :: Testing'
+        'Intended Audience :: Information Technology', 'Intended Audience :: Developers',
+        'Development Status :: 5 - Production/Stable', 'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6', 'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.7', 'License :: OSI Approved :: MIT License',
+        'Operating System :: MacOS :: MacOS X', 'Operating System :: POSIX',
+        'Topic :: Software Development :: Quality Assurance', 'Topic :: Software Development :: Testing'
     ],
-    install_requires=[
-        'requests',
-        'wget',
-        'selenium',
-        'pytest-html',
-        'pytest'
-    ],
+    install_requires=['requests', 'wget', 'selenium', 'pytest-html', 'pytest'],
     packages=[
-        'browserium',
-        'browserium.core',
-        'browserium.utility',
-        'browserium.configurations',
-        'browserium.generic_functions'
+        'browserium', 'browserium.core', 'browserium.utility', 'browserium.configurations',
+        'browserium.generic_functions', 'browserium.standalonedriverobject'
     ],
-    package_data= {
-        'browserium.configurations': ['*.ini']
-    },
+    package_data={'browserium.configurations': ['*.ini']},
     include_package_data=True,
     zip_safe=False,
-    entry_points={
-        'console_scripts': [
-            'browserium = browserium.utility.main:main'
-        ]
-    },
+    entry_points={'console_scripts': ['browserium = browserium.utility.main:main']},
     url="https://github.com/browserium/Browserium",
     download_url="https://github.com/browserium/Browserium/archive/2.1.2.tar.gz",
     long_description=long_description,
