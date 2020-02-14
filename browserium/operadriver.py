@@ -4,15 +4,14 @@
 # Purpose: The purpose of the class OperaDriver is to check for the respective environment and download the required
 #          opera driver for the respective environment.
 # Download the latest opera driver object
+import os
 
+from browserium.core.logger import Logger
 from browserium.core.utility import Utility
 from browserium.utility.os_type import OS_type
-from browserium.core.logger import Logger
-import os
 
 
 class Operadriver(object):
-
     def __init__(self):
         self.ut = Utility()
         self.ot = OS_type()
@@ -27,7 +26,7 @@ class Operadriver(object):
         return api_url
 
     # build the required download url based on the information gathered using the
-    # chromedriver_objects function
+    # operadriver_objects function
 
     def parse_operadriver_api(self):
         api_url = self.operadriver_object()
@@ -63,8 +62,10 @@ class Operadriver(object):
     def download_driver(self):
         dir_path = self.ut.get_driver_path('/dependencies/dir_operadriver')
         if os.path.exists(dir_path):
-            self.log.log_info("Opera driver is already present. To update operadriver please run `browserium update "
-                              "--driver=operadriver`")
+            self.log.log_info(
+                "Opera driver is already present. To update operadriver please run `browserium update "
+                "--driver=operadriver`"
+            )
         else:
             os.makedirs(dir_path)
             os_name = self.ot.os_name()
