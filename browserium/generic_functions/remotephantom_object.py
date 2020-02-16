@@ -13,16 +13,17 @@ class RemotephantomdriverObject(object):
     def __init__(self):
         self.log = Logger()
 
-    def set_remote_phantomdriver_object(self, com_exec):
+    def set_remote_phantomdriver_object(self, com_exec, capabilities):
         try:
             phantomdriver = webdriver.Remote(
                 command_executor=com_exec,
-                desired_capabilities={
-                    'waitForReady': True,
-                    'applicationType': 'Web',
-                    'takesScreenshot': False,
-                    'reuseExistingSession': True
-                }
+                # desired_capabilities={
+                #     'waitForReady': True,
+                #     'applicationType': 'Web',
+                #     'takesScreenshot': False,
+                #     'reuseExistingSession': True
+                # }
+                desired_capabilities=capabilities
             )
             self.log.log_info("Remote geckodriver configuration successful")
             return phantomdriver
