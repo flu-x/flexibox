@@ -1,9 +1,23 @@
 language: python
+
+services:
+  - docker
+
 python:
-  "3.7"
+  - "3.7"
+
 before_install:
-  sudo apt-get update
+  - sudo apt-get update
+  - docker pull selenium/hub
+  - docker pull selenium/node-chrome
+  - docker pull selenium/node-firefox
+  - docker pull selenium/node-phantomjs
+
+install:
+  - pip install git+git://github.com/flu-x/flexibox.git
+
 before_script:
-  cd TestFunction/UnitTest/
+  - cd TestFunction/RegressionTest/
+
 script:
- python execute.py
+ python chrometest.py

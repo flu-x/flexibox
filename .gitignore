@@ -2,7 +2,7 @@ venv/
 *.pyc
 dependencies/
 .vscode/
-browserium.egg-info/
+flexibox.egg-info/
 dist/
 build/
 TestFunction/geckodriver.log
