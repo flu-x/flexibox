@@ -61,13 +61,14 @@ class Operadriver(object):
 
     def download_driver(self):
         dir_path = self.ut.get_driver_path('/dependencies/dir_operadriver')
+        os.chmod(dir_path, 0o755)
         if os.path.exists(dir_path):
             self.log.log_info(
                 "Opera driver is already present. To update operadriver please run `flexibox update "
                 "--driver=operadriver`"
             )
         else:
-            os.chmod(os.makedirs(dir_path), 0o755)
+            os.chmod(dir_path, 0o755)
             os_name = self.ot.os_name()
             arch_type = str(self.ot.os_architecture())
             self.evaluate_on_environment(os_name, arch_type)

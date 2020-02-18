@@ -67,12 +67,13 @@ class Phantomjs_driver():
 
     def download_driver(self):
         dir_path = self.ut.get_driver_path('/dependencies/dir_phantomjsdriver')
+        os.chmod(dir_path, 0o755)
         if os.path.exists(dir_path):
             self.log.log_info(
                 "phantomjs driver is already present. To update phantomjsdriver please run `flexibox update --driver=phantomjsdriver`"
             )
         else:
-            os.chmod(os.makedirs(dir_path), 0o755)
+            os.makedirs(dir_path, 0o755)
             os_name = self.ot.os_name()
             self.evaluate_on_environment(os_name)
 

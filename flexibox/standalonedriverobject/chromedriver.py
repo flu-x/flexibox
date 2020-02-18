@@ -74,7 +74,7 @@ class Chromedriver(object):
                 "chrome driver is already present. To update chromedriver please run `flexibox update --driver=chromedriver`"
             )
         else:
-            os.chmod(os.makedirs(dir_path), 0o755)
+            os.makedirs(dir_path, 0o755)
             os_name = self.ot.os_name()
             arch_type = str(self.ot.os_architecture())
             self.evaluate_on_environment(os_name, arch_type)
