@@ -15,8 +15,8 @@ before_install:
 
 install:
   - pip install git+git://github.com/flu-x/flexibox.git@develop
-  - browserium download --driver=chromedriver
-  - browserium download --driver=geckodriver
+  - flexibox download --driver=chromedriver
+  - flexibox download --driver=geckodriver
 
 before_script:
   - cd TestFunction/Tests/
