@@ -66,7 +66,7 @@ class Phantomjs_driver():
     # function to download the required binary
 
     def download_driver(self):
-        dir_path = self.get_driver_path('/dependencies/dir_phantomjsdriver')
+        dir_path = self.ut.get_driver_path('/dependencies/dir_phantomjsdriver')
         if os.path.exists(dir_path):
             self.log.log_info(
                 "phantomjs driver is already present. To update phantomjsdriver please run `flexibox update --driver=phantomjsdriver`"
