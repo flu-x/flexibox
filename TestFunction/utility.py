@@ -31,7 +31,7 @@ class Utility_object(object):
 
     # return json data
     def json_file_reader(self):
-        file_path = self.get_path("api.json")
+        file_path = self.get_path("unittests/api.json")
         with open(file_path, 'r') as data_file:
             json_data = json.load(data_file)
             return json_data
