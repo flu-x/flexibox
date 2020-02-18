@@ -23,7 +23,7 @@ before_install:
 
 install:
   - pip install git+git://github.com/flu-x/flexibox.git@develop
-  # - flexibox download --driver=chromedriver
+  - flexibox download --driver=chromedriver
   # - flexibox download --driver=geckodriver
   # - flexibox download --driver=phantomjsdriver
   # - flexibox download --driver=operadriver
