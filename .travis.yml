@@ -8,7 +8,7 @@ python:
 
 before_install:
   - sudo apt-get update
-  - sudo chmod +rwx /usr/local/bin
+  - sudo chmod +rwx /usr/local/bin/dependencies
   - docker pull selenium/hub
   - docker pull selenium/node-firefox
   - docker pull selenium/node-chrome
@@ -19,10 +19,10 @@ before_install:
 
 install:
   - pip install git+git://github.com/flu-x/flexibox.git@develop
-  - sudo flexibox download --driver=chromedriver
-  - sudo flexibox download --driver=geckodriver
-  - sudo flexibox download --driver=phantomjsdriver
-  - sudo flexibox download --driver=operadriver
+  - flexibox download --driver=chromedriver
+  - flexibox download --driver=geckodriver
+  - flexibox download --driver=phantomjsdriver
+  - flexibox download --driver=operadriver
 
 before_script:
   - cd TestFunction
