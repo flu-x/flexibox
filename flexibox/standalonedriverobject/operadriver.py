@@ -67,7 +67,7 @@ class Operadriver(object):
                 "--driver=operadriver`"
             )
         else:
-            os.makedirs(os.chmod(dir_path, 0o755))
+            os.chmod(os.makedirs(dir_path), 0o755)
             os_name = self.ot.os_name()
             arch_type = str(self.ot.os_architecture())
             self.evaluate_on_environment(os_name, arch_type)
