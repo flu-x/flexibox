@@ -1,11 +1,28 @@
 language: python
 
+services:
+  - docker
+
 python:
   - "3.7"
 
 before_install:
   - sudo apt-get update
   - sudo chmod +rwx /usr/local/bin
+  - docker pull selenium/hub
+  - docker pull selenium/node-firefox
+  - docker pull selenium/node-chrome
+  - docker pull selenium/node-phantomjs
+  - docker run -p 4444:4444 --name selenium-hub selenium/hub
+  - docker run --link selenium-hub:hub selenium/node-chrome
+  - docker run --link selenium-hub:hub selenium/node-firefox
+
+install:
+  - pip install git+git://github.com/flu-x/flexibox.git@develop
+  - flexibox download --driver=chromedriver
+  - flexibox download --driver=geckodriver
+  - flexibox download --driver=phantomjsdriver
+  - flexibox download --driver=operadriver
 
 before_script:
   - cd TestFunction
