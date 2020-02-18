@@ -1,6 +1,8 @@
+import os
 import unittest
 
 import requests
+import wget
 from utility import Utility_object
 
 
@@ -53,6 +55,9 @@ class TestGecko(unittest.TestCase):
     def testGeckoDriverMac(self):
         _data = self.parseJSONResponse()
         _geckoBinMacDownloadURL = _data.get('mac_downloadURL')
+        _geckoBinMacTagName = _data.get('mac_tagName')
+
+        print(_geckoBinMacTagName)
 
         # Check response status
         _response = requests.get(_geckoBinMacDownloadURL)
@@ -75,6 +80,7 @@ class TestGecko(unittest.TestCase):
     def testGeckoDriverLinux32(self):
         _data = self.parseJSONResponse()
         _geckoBinLinux32DownloadURL = _data.get('linux_downloadURL_32')
+        _geckoBinLinux32TagName = _data.get('linux_tagName_32')
 
         # Check response status
         _response = requests.get(_geckoBinLinux32DownloadURL)

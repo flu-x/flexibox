@@ -15,4 +15,5 @@ tc5 = unittest.TestLoader().loadTestsFromTestCase(Test_firefoxregress)
 # Execute unit test
 if __name__ == "__main__":
     suite = unittest.TestSuite([tc1, tc2, tc3, tc4, tc5])
+    # suite = unittest.TestSuite([tc3])
     unittest.TextTestRunner(verbosity=2).run(suite)
