@@ -14,10 +14,12 @@ before_install:
   - docker pull selenium/node-phantomjs
 
 install:
-  - pip install git+git://github.com/flu-x/flexibox.git
+  - pip install git+git://github.com/flu-x/flexibox.git@develop
+  - browserium download --driver=chromedriver
+  - browserium download --driver=geckodriver
 
 before_script:
-  - cd TestFunction/RegressionTest/
+  - cd TestFunction/Tests/
 
 script:
- python chrometest.py
+ python execute.py

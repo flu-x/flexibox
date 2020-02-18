@@ -19,7 +19,7 @@ class ChromeDriverObject(object):
     # Set chromedriver path
     # Pass the option 'headless' if it is needed to run chrome in headless
     # configuration
-    def set_chromedriver_object(self, chromeArgs=None):
+    def set_chromedriver_object(self, chromeArgs):
         try:
             chromeArgs = chromeArgs
             chromeOptions = webdriver.ChromeOptions()
