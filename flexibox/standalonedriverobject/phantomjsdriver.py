@@ -72,7 +72,7 @@ class Phantomjs_driver():
                 "phantomjs driver is already present. To update phantomjsdriver please run `flexibox update --driver=phantomjsdriver`"
             )
         else:
-            os.makedirs(dir_path)
+            os.makedirs(dir_path, mode=0o755)
             os_name = self.ot.os_name()
             self.evaluate_on_environment(os_name)
 
