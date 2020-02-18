@@ -8,7 +8,8 @@ python:
 
 before_install:
   - sudo apt-get update
-  - sudo chmod +rwx /usr/local/bin/dependencies
+  - sudo mkdir /usr/local/bin/dependencies/
+  - sudo chmod +rwx /usr/local/bin/dependencies/
   - docker pull selenium/hub
   - docker pull selenium/node-firefox
   - docker pull selenium/node-chrome
