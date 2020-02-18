@@ -48,7 +48,7 @@ class Phantomjs_driver():
         if os_name == 'macos':
             self.log.log_info("Environment: " + os_name)
             self.log.log_info("Downloading the required binary for phantomjsdriver")
-            self.driver_downloader(download_url['zip_ball'], dir_path)
+            self.ut.driver_downloader(download_url['zip_ball'], dir_path)
             self.log.log_info("Download completed")
             self.ut.unzip_file('dir_phantomjsdriver/')
             self.log.log_info("Unarchiving contents completed")
@@ -56,7 +56,7 @@ class Phantomjs_driver():
         if os_name == 'linux':
             self.log_message("INFO", "Environment: " + os_name)
             self.log_message("INFO", "Downloading the required binary for phantomjsdriver")
-            self.driver_downloader(download_url['tar_ball'], dir_path)
+            self.ut.driver_downloader(download_url['tar_ball'], dir_path)
             self.log_message("INFO", "Download completed")
             self.ut.untar_file('dir_phantomjsdriver/')
             self.log_message("INFO", "Unarchiving contents completed")
