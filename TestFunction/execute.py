@@ -1,10 +1,10 @@
 import unittest
 
-from regressiontest.test_chromeregress import Test_chromeregress
-from regressiontest.test_firefoxregress import Test_firefoxregress
 from unittests.test_chrome import TestChrome
 from unittests.test_gecko import TestGecko
 from unittests.test_opera import TestOpera
+# from regressiontest.test_chromeregress import Test_chromeregress
+# from regressiontest.test_firefoxregress import Test_firefoxregress
 
 tc1 = unittest.TestLoader().loadTestsFromTestCase(TestOpera)
 tc2 = unittest.TestLoader().loadTestsFromTestCase(TestChrome)
