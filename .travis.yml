@@ -13,9 +13,9 @@ before_install:
   - docker pull selenium/node-firefox
   - docker pull selenium/node-chrome
   - docker pull selenium/node-phantomjs
-  - docker run -p 4444:4444 --name selenium-hub selenium/hub
-  - docker run --link selenium-hub:hub selenium/node-chrome
-  - docker run --link selenium-hub:hub selenium/node-firefox
+  - docker run -d -p 4444:4444 --name selenium-hub selenium/hub
+  - docker run -d --link selenium-hub:hub selenium/node-chrome
+  - docker run -d --link selenium-hub:hub selenium/node-firefox
 
 install:
   - pip install git+git://github.com/flu-x/flexibox.git@develop
