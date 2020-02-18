@@ -22,3 +22,4 @@ class RemotechromedriverObject(object):
             return chromedriver
         except WebDriverException as e:
             self.log.log_error("There is an exception in the WebDriver configuration")
+            self.log.log_error(e)

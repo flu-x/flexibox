@@ -21,3 +21,4 @@ class RemotegeckodriverObject(object):
             return geckodriver
         except WebDriverException as e:
             self.log.log_error("There is an exception in the WebDriver configuration")
+            self.log.log_error(e)
