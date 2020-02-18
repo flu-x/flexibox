@@ -5,6 +5,7 @@ python:
 
 before_install:
   - sudo apt-get update
+  - sudo chmod +rwx /usr/local/bin
 
 before_script:
   - cd TestFunction
