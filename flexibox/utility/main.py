@@ -3,7 +3,6 @@
 # Copyrights: SoumyajitBasu
 # Purpose: The purpose of this class is to parse input argument for carrying out the respective functionality of
 #           downloading and updating the required driver
-# Can be used to set the operadriver object
 import argparse
 
 from ..driver import Driver

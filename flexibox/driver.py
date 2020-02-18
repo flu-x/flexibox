@@ -1,3 +1,7 @@
+# Author: @Corefinder
+# Language: Python
+# Copyrights: SoumyajitBasu
+# Purpose: Factory class generator
 from flexibox.core.utility import Utility
 from flexibox.standalonedriverobject.chromedriver import Chromedriver
 from flexibox.standalonedriverobject.geckodriver import Geckodriver

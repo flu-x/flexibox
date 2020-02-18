@@ -18,7 +18,10 @@ setup(
         'Topic :: Software Development :: Quality Assurance', 'Topic :: Software Development :: Testing'
     ],
     install_requires=['requests', 'wget', 'selenium'],
-    packages=['flexibox', 'flexibox.core', 'flexibox.utility', 'flexibox.configurations', 'flexibox.generic_functions'],
+    packages=[
+        'flexibox', 'flexibox.core', 'flexibox.utility', 'flexibox.configurations', 'flexibox.generic_functions',
+        'flexibox.standalonedriverobject'
+    ],
     package_data={'flexibox.configurations': ['*.ini']},
     include_package_data=True,
     zip_safe=False,
