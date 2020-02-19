@@ -23,8 +23,8 @@ distribution () {
 }
 
 release () {
-    # Navigate to the browserium directory
-    # cd browserium/
+    # Navigate to the flexibox directory
+    # cd flexibox/
     expect -c '
         set un "$userName"
         set pw "$userPassword"
