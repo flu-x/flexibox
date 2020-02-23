@@ -15,7 +15,7 @@ class RemotechromedriverObject(object):
     def __init__(self):
         self.log = Logger()
 
-    def set_remote_geckodriver_object(self, com_exec):
+    def set_remote_chromedriver_object(self, com_exec):
         try:
             chromedriver = webdriver.Remote(command_executor=com_exec, desired_capabilities=DesiredCapabilities.CHROME)
             self.log.log_info("Remote chromedriver configuration successful")

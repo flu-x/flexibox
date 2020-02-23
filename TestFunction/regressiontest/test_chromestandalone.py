@@ -2,10 +2,11 @@ import unittest
 
 from flexibox.core.browser_controller import BrowserController
 from flexibox.generic_functions.chrome_object import ChromeDriverObject
+from flexibox.generic_functions.remotechrome_object import RemotechromedriverObject
 
 
-class Test_chromeregress(unittest.TestCase):
-    def test_chromedriver_type(self):
+class Test_chromestandalone(unittest.TestCase):
+    def test_chromedriver_type_standalone(self):
         chromedriver = ChromeDriverObject()
         controller = BrowserController()
         driver = chromedriver.set_chromedriver_object(chromeArgs=['--headless'])
