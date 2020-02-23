@@ -9,7 +9,9 @@ python:
 
 before_install:
   - sudo apt-get update
-  - docker pull selenium/hub selenium/node-chrome selenium/node-firefox
+  - docker pull selenium/hub
+  - docker pull selenium/node-chrome
+  - docker pull selenium/node-firefox
   - docker run -d -p 4444:4444 --name selenium-hub selenium/hub
   - docker run -d --link selenium-hub:hub selenium/node-chrome
   - docker run -d --link selenium-hub:hub selenium/node-firefox
