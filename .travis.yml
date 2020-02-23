@@ -15,10 +15,13 @@ before_install:
   - docker run -d -p 4444:4444 --name selenium-hub selenium/hub
   - docker run -d --link selenium-hub:hub selenium/node-chrome
   - docker run -d --link selenium-hub:hub selenium/node-firefox
+  - curl -sSL https://raw.githubusercontent.com/cloud66/habitus/master/habitus_install.sh | bash
+
 
 install:
   - pip install -r requirements.txt
   - python setup.py install
+
 
 before_script:
   - cd TestFunction
