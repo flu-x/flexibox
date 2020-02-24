@@ -8,6 +8,7 @@ RUN apt-get -y install git
 
 # Add private key and clone the project
 COPY docker .
+RUN chmod 600 docker
 RUN eval $(ssh-agent) && \
     ssh-add docker && \
     ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
