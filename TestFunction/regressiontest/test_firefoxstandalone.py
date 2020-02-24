@@ -4,7 +4,7 @@ from flexibox.core.browser_controller import BrowserController
 from flexibox.generic_functions.gecko_object import GeckoDriverObject
 
 
-class Test_firefoxregress(unittest.TestCase):
+class Test_firefoxstandalone(unittest.TestCase):
     def test_firefoxdriver_type(self):
         geckodriver = GeckoDriverObject()
         controller = BrowserController()
