@@ -14,9 +14,6 @@ RUN eval $(ssh-agent) && \
     ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
     git clone git@github.com:flu-x/flexibox.git -b develop
 
-# Get the dependency for chrome and firefox
-WORKDIR /usr/local/dependencies/
-
 # Install python version 3.0+
 RUN apt install -y software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
@@ -32,3 +29,13 @@ RUN python3 -m virtualenv venv
 RUN . venv/bin/activate
 RUN pip3 install -r requirements.txt
 RUN python3 setup.py install
+
+# Install module from develop branch
+RUN pip3 install git+git://github.com/flu-x/flexibox.git@develop
+
+# Get user permissions to
+RUN chmod ugo+rwx /usr/local/bin/
+
+# Download driver
+RUN flexibox download --driver=chromedriver
+RUN flexibox download --driver=geckodriver
