@@ -31,7 +31,7 @@ RUN eval $(ssh-agent) && \
     git clone git@github.com:flu-x/flexibox.git -b develop
 
 # Install google chrome browser
-WORKDIR "/Downloads"
+WORKDIR /Downloads
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 RUN apt-get update
@@ -48,8 +48,8 @@ RUN pip3 install --upgrade pip \
 
 # Get user permissions to /usr/local/bin and install browser drivers
 RUN chmod ugo+rwx /usr/local/bin/
-WORKDIR "/usr/local/bin/dependencies/"
-WORKDIR "/usr/local/bin/dependencies/dir_chromedriver"
+WORKDIR /usr/local/bin/dependencies/
+WORKDIR /usr/local/bin/dependencies/dir_chromedriver
 RUN CHROMEDRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE` && \
     mkdir -p /opt/chromedriver-$CHROMEDRIVER_VERSION && \
     curl -sS -o /tmp/chromedriver_linux64.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip && \
@@ -57,7 +57,7 @@ RUN CHROMEDRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RE
     rm /tmp/chromedriver_linux64.zip && \
     chmod +x /opt/chromedriver-$CHROMEDRIVER_VERSION/chromedriver && \
     ln -fs /opt/chromedriver-$CHROMEDRIVER_VERSION/chromedriver /usr/local/bin/dependencies/dir_chromedriver/chromedriver
-WORKDIR "/usr/local/bin/dependencies/dir_geckodriver"
+WORKDIR /usr/local/bin/dependencies/dir_geckodriver
 RUN export BASE_URL=https://github.com/mozilla/geckodriver/releases/download \
     && export VERSION=$(curl -sL \
     https://api.github.com/repos/mozilla/geckodriver/releases/latest | \
@@ -66,9 +66,9 @@ RUN export BASE_URL=https://github.com/mozilla/geckodriver/releases/download \
     $BASE_URL/$VERSION/geckodriver-$VERSION-linux64.tar.gz | tar -xz
 
 # Configure project
-WORKDIR "/"
+WORKDIR /
 RUN pip3 install --user virtualenv
-WORKDIR "/flexibox"
+WORKDIR /flexibox
 RUN python3 -m virtualenv venv
 RUN . venv/bin/activate
 RUN pip3 install git+git://github.com/flu-x/flexibox.git@develop
