@@ -30,14 +30,12 @@ RUN eval $(ssh-agent) && \
     ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
     git clone git@github.com:flu-x/flexibox.git -b develop
 
-# Install google chrome browser
+# Install required browsers (chrome and firefox)
 WORKDIR /Downloads
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 RUN apt-get update
 RUN apt-get install -y google-chrome-stable
-
-# Install firefox browser
 RUN apt-get install -y firefox
 
 # Install python version 3.0+
@@ -71,6 +69,6 @@ RUN pip3 install --user virtualenv
 WORKDIR /flexibox
 RUN python3 -m virtualenv venv
 RUN . venv/bin/activate
-RUN pip3 install git+git://github.com/flu-x/flexibox.git@develop
-RUN pip3 install -r requirements.txt
+RUN pip3 install git+git://github.com/flu-x/flexibox.git@develop \
+                 -r requirements.txt
 RUN python3 setup.py install
