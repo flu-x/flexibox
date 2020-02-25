@@ -14,6 +14,6 @@ tc5 = unittest.TestLoader().loadTestsFromTestCase(Test_firefoxremote)
 
 # Execute unit test
 if __name__ == "__main__":
-    # suite = unittest.TestSuite([tc1, tc2, tc3, tc4, tc5])
-    suite = unittest.TestSuite([tc5])
+    suite = unittest.TestSuite([tc1, tc2, tc3, tc4, tc5])
+    # suite = unittest.TestSuite([tc5])
     unittest.TextTestRunner(verbosity=2).run(suite)
