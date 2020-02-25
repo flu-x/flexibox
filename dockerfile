@@ -3,8 +3,24 @@ FROM ubuntu:latest
 # update machine
 RUN apt-get -y update
 
-# Install git
-RUN apt-get -y install git
+# Install system dependencies
+RUN apt install -y software-properties-common \
+                   apt-utils \
+                   curl \
+                   unzip \
+                   git \
+                   libxss1 \
+                   libappindicator1 \
+                   libindicator7 \
+                   libasound2 \
+                   libgconf-2-4 \
+                   libnspr4 \
+                   libnss3 \
+                   libpango1.0-0 \
+                   fonts-liberation \
+                   xdg-utils \
+                   wget
+RUN add-apt-repository ppa:deadsnakes/ppa
 
 # Add private key and clone the project
 COPY docker .
@@ -14,29 +30,21 @@ RUN eval $(ssh-agent) && \
     ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
     git clone git@github.com:flu-x/flexibox.git -b develop
 
-# Install system dependencies
-RUN apt install -y software-properties-common
-RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt-get install -y apt-utils
-RUN apt-get install -y curl
-RUN apt-get install -y unzip
-
-# Install chrome browser
-RUN apt-get install -y libxss1 libappindicator1 libindicator7 libasound2 libgconf-2-4 libnspr4 libnss3 libpango1.0-0 fonts-liberation xdg-utils
+# Install google chrome browser
 WORKDIR "/Downloads"
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 RUN apt-get update
-RUN apt-get install google-chrome-stable
+RUN apt-get install -y google-chrome-stable
 
 # Install firefox browser
 RUN apt-get install -y firefox
 
 # Install python version 3.0+
-RUN apt install -y python3.7
-RUN apt install -y python3-pip
-RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade setuptools
+RUN apt install -y python3.7 \
+                   python3-pip
+RUN pip3 install --upgrade pip \
+                 --upgrade setuptools
 
 # Get user permissions to /usr/local/bin and install browser drivers
 RUN chmod ugo+rwx /usr/local/bin/
