@@ -3,6 +3,7 @@ import unittest
 
 import requests
 import wget
+from requests import exceptions
 from utility import Utility_object
 
 from flexibox.core.logger import Logger
