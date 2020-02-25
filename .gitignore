@@ -17,3 +17,4 @@ docker.pub
 .gitsecret/keys/random_seed
 !*.secret
 docker
+.gitsecret/
