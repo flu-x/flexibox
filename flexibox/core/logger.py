@@ -9,7 +9,7 @@ import sentry_sdk
 from sentry_sdk.integrations.logging import LoggingIntegration
 
 sentry_logging = LoggingIntegration(level=logging.INFO, event_level=logging.ERROR)
-sentry_sdk.init(dsn="https://bc26766d1b0c464f80a60d18394c1585@sentry.io/2844244", integrations=[sentry_logging])
+sentry_sdk.init(dsn="https://5b823e3b2d184f829b8ec52bfcd40a84@sentry.io/2944174", integrations=[sentry_logging])
 
 
 class Logger(object):
