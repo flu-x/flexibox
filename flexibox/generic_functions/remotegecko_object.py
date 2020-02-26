@@ -5,6 +5,7 @@
 #          is to connect to the remote firefox browser in the
 #          docker container and execute the test cases
 from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 from flexibox.core.logger import Logger

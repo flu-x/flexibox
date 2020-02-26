@@ -5,6 +5,7 @@
 #          is to connect to the remote phantom browser in the
 #          docker container and execute the test cases
 from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
 
 from flexibox.core.logger import Logger
 
