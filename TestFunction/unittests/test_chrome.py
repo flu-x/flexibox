@@ -53,14 +53,13 @@ class TestChrome(unittest.TestCase):
             _url = requests.get(_apiURLBuilder)
             if _url.status_code == 200:
                 wget.download(_apiURLBuilder)
+                self.log.log_info("Binary for chromedriver downloaded for macOS")
         except requests.exceptions.Timeout:
             self.log.log_error("Request time out")
         except requests.exceptions.TooManyRedirects:
             self.log.log_error("Too many redirects")
         except requests.exceptions.RequestException as e:
             self.log.log_error(e)
-
-        self.log.log_info("Binary for chromedriver downloaded for macOS")
 
         # Assert for file exists
         self.assertTrue(os.path.exists('chromedriver_mac64.zip'))
@@ -97,14 +96,13 @@ class TestChrome(unittest.TestCase):
             _url = requests.get(_apiURLBuilder)
             if _url.status_code == 200:
                 wget.download(_apiURLBuilder)
+                self.log.log_info("Binary for chromedriver downloaded for Linux")
         except requests.exceptions.Timeout:
             self.log.log_error("Request time out")
         except requests.exceptions.TooManyRedirects:
             self.log.log_error("Too many redirects")
         except requests.exceptions.RequestException as e:
             self.log.log_error(e)
-
-        self.log.log_info("Binary for chromedriver downloaded for Linux")
 
         # Assert for file exists
         self.assertTrue(os.path.exists('chromedriver_linux64.zip'))
