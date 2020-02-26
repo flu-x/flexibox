@@ -39,8 +39,8 @@ class TestOpera(unittest.TestCase):
             wget.download(download_url)
             self.log.log_info("Binary downloaded for mac")
         else:
-            raise requests.exceptions.ConnectionError("Connection error")
             self.log.log_error("Connection error")
+            raise requests.exceptions.ConnectionError("Connection error")
 
         # Assert for file exists
         self.assertTrue(os.path.exists('operadriver_mac64.zip'))
@@ -61,8 +61,8 @@ class TestOpera(unittest.TestCase):
             wget.download(download_url)
             self.log.log_info("Binary files downloaded")
         else:
-            raise requests.exceptions.ConnectionError("Connection error")
             self.log.log_error("Connection error")
+            raise requests.exceptions.ConnectionError("Connection error")
 
         # Assert for file exists
         self.assertTrue(os.path.exists('../TestFunction/operadriver_linux64.zip'))
