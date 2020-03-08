@@ -14,3 +14,5 @@ RELEASENOTES.md
 TestFunction/RegressionTest/geckodriver.log
 .idea/
 bond/
+docker.pub
+flexibox.egg-info/
