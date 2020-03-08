@@ -2,7 +2,7 @@ venv/
 *.pyc
 dependencies/
 .vscode/
-browserium.egg-info/
+flexibox.egg-info/
 dist/
 build/
 TestFunction/geckodriver.log
@@ -13,6 +13,7 @@ notes.md
 RELEASENOTES.md
 TestFunction/RegressionTest/geckodriver.log
 .idea/
-bond/
 docker.pub
-flexibox.egg-info/
+.gitsecret/keys/random_seed
+!*.secret
+docker

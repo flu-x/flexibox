@@ -1,8 +1,8 @@
-# Browserium
+# Flexibox
 
-![Browserium logo](https://farm2.staticflickr.com/1742/41852028144_642310d9b6_m.jpg)
+![Flexibox logo](https://farm2.staticflickr.com/1742/41852028144_642310d9b6_m.jpg)
 
-**Browserium** is the a selenium wrapper for all **browsers** and **browser** **configurations**. This module is a single end point to access all the browser drivers and as well as the webdriver object for all the respective browsers along with the installation of your **selenium** module.
+**Flexibox** is the a selenium wrapper for all **browsers** and **browser** **configurations**. This module is a single end point to access all the browser drivers and as well as the webdriver object for all the respective browsers along with the installation of your **selenium** module.
 
 ## Problem Statement
 With the very fast pace of development, it has now become very important to have regular release cycle and with it it should be also kept in mind that we do a quality release. For this reason we have to have our tests automated as well so that we can have a centralised reports for regressions and other flaws in the system at the end of each build.
@@ -10,19 +10,19 @@ With the very fast pace of development, it has now become very important to have
 Now, for a stable build we have to check that our application is compatible with different browsers and platforms. When we start implementing a framework based out of Selenium WebDriver, for the code to get executed in different browsers we have to configure each of the browsers separately and make a call to the browser based on the requirement. Phewww !! That is some good amount of code written.
 
 ## The Idea
-The problem statement that has been defined above was the reason I took out time to ease this entire process of setting up the browser drivers and the respective configurations for each browser. What if this process can be reduced down into few steps of execution? That is how I ended up with the idea and the implementation of **Browserium**.
+The problem statement that has been defined above was the reason I took out time to ease this entire process of setting up the browser drivers and the respective configurations for each browser. What if this process can be reduced down into few steps of execution? That is how I ended up with the idea and the implementation of **Flexibox**.
 
-## Features covered up by 'Browserium'
+## Features covered up by 'Flexibox'
 *   One step to **download** the required browser drivers.
 *   One step to **update** the required browser drivers.
 *   Create a **single** **instance** for your required browser object. No more code required to configure your browsers separately.
 *   A set of browser related **generic** **functions** that can be utilised for debugging as well as for achieving the required functionalities. So, we are reducing quite an effort over here as well !!
 *   You can run browsers **Chrome** and **Firefox** using the **headless** option as well so that it is comfortable running your framework on the server as well.
 
-## Browserium by functionality
+## Flexibox by functionality
 ![functionality screenshot](https://farm2.staticflickr.com/1750/41853754714_971a727962.jpg)
 
-There are two ways in which you can use Browserium.
+There are two ways in which you can use Flexibox.
 
 *   Download the required browser driver, create instance for the specific browser driver class.
 *   Download the required browser driver, create instance for the specific browser driver class, create instance for the browser controller class and use the generic functions to get started with your framework.
@@ -31,52 +31,52 @@ You can refer to the above diagram for reference.
 
 ## Installing and Updating driver packages
 
-### Install Browserium module
-*   To install Browserium using PiP run the command:
+### Install Flexibox module
+*   To install Flexibox using PiP run the command:
 
-	   `pip install browserium`
+	   `pip install flexibox`
 
-*   To install Browserium from GitHub run the command:
+*   To install Flexibox from GitHub run the command:
 
-	   `pip install git+git://github.com/browserium/Browserium.git`
+	   `pip install git+git://github.com/flexibox/Flexibox.git`
 
-### Modules installed with browserium
+### Modules installed with flexibox
 *   **requests**
 *   **selenium**
 *   **wget**
 
 Make sure you have **ssh** configured in GitHub. You can also use **https** as well to install the module. But preferrable would be if you have **ssh** configured in GitHub.
 
-To install Browserium from GitHub using HTTPS run the command:
+To install Flexibox from GitHub using HTTPS run the command:
 
-	pip install git+https://github.com/browserium/Browserium.git
+	pip install git+https://github.com/flexibox/Flexibox.git
 
 *   To download chromedriver run the command
 
-	   ```browserium download --driver=chromedriver```
+	   ```flexibox download --driver=chromedriver```
 
 *   To download geckodriver run the command
 
-	   ```browserium download --driver=geckodriver```
+	   ```flexibox download --driver=geckodriver```
 
 *   To download operadriver run the command
 
-	   ```browserium download --driver=operadriver```
+	   ```flexibox download --driver=operadriver```
 
 ### Update Drivers
 *   To update chromedriver run the command
 
-	   ```browserium update --driver=chromedriver```
+	   ```flexibox update --driver=chromedriver```
 
 *   To update geckodriver run the command
 
-	   ```browserium update --driver=geckodriver```
+	   ```flexibox update --driver=geckodriver```
 
 *   To update operadriver run the command
 
-	   ```browserium update --driver=operadriver```
+	   ```flexibox update --driver=operadriver```
 
-## Get started with Browserium
+## Get started with Flexibox
 ### Browser Controller class by functionality
 The `Browser Controller` class provides you with some eccentric methods that can be utilised to achieve the required functions.
 
@@ -104,8 +104,8 @@ The `Browser Controller` class provides you with some eccentric methods that can
 *      Create instance for the `Browser_controller` class to use the generic methods.
 
 ```python
-	from browserium.generic_functions.chrome_object import ChromeDriverObject
-	from browserium.generic_functions.browser_controller import Browser_controller
+	from flexibox.generic_functions.chrome_object import ChromeDriverObject
+	from flexibox.generic_functions.browser_controller import Browser_controller
 	from time import sleep
 
 	class Test_1():
@@ -121,8 +121,8 @@ The `Browser Controller` class provides you with some eccentric methods that can
 *      To run chromedriver using the `headless` feature you have to pass the argument '--headless' in the `set_chromedriver_object()` method
 
 ```python
-	from browserium.generic_functions.chrome_object import ChromeDriverObject
-	from browserium.generic_functions.browser_controller import Browser_controller
+	from flexibox.generic_functions.chrome_object import ChromeDriverObject
+	from flexibox.generic_functions.browser_controller import Browser_controller
 	class Test_1():
 		def test_chromedriver_type1(self):
 			chromedriver = ChromeDriverObject()
@@ -140,8 +140,8 @@ The `Browser Controller` class provides you with some eccentric methods that can
 *   Create instance for the `Browser_controller` class to use the generic methods.
 
 ```python
-	from browserium.generic_functions.gecko_object import GeckoDriverObject
-	from browserium.generic_functions.browser_controller import Browser_controller
+	from flexibox.generic_functions.gecko_object import GeckoDriverObject
+	from flexibox.generic_functions.browser_controller import Browser_controller
 	class Test1():
 		def test_geckodriver_type1(self):
 			geckodriver = GeckoDriverObject()
@@ -156,8 +156,8 @@ The `Browser Controller` class provides you with some eccentric methods that can
 *  To run geckodriver using the `headless` feature you have to pass the argument '--headless' in the `set_geckodriver_object()` method
 
 ```python
-	from browserium.generic_functions.gecko_object import GeckoDriverObject
-	from browserium.generic_functions.browser_controller import Browser_controller
+	from flexibox.generic_functions.gecko_object import GeckoDriverObject
+	from flexibox.generic_functions.browser_controller import Browser_controller
 	class Test1():
 		def test_geckodriver_type1(self):
 			geckodriver = GeckoDriverObject()
@@ -176,8 +176,8 @@ The `Browser Controller` class provides you with some eccentric methods that can
 *   Create instance for the `Browser_controller` class to use the generic methods.
 
 ```python
-	from browserium.generic_functions.opera_object import OperaDriverObject
-	from browserium.generic_functions.browser_controller import Browser_controller
+	from flexibox.generic_functions.opera_object import OperaDriverObject
+	from flexibox.generic_functions.browser_controller import Browser_controller
 	class Test1():
 		def test_operadriver_type1(self):
 			operadriver = OperaDriverObject()
@@ -196,8 +196,8 @@ The `Browser Controller` class provides you with some eccentric methods that can
 *   Create instance for the `Browser_controller` class to use the generic methods.
 
 ```python
-	from browserium.generic_functions.safari_object import SafariDriverObject
-	from browserium.generic_functions.browser_controller import Browser_controller
+	from flexibox.generic_functions.safari_object import SafariDriverObject
+	from flexibox.generic_functions.browser_controller import Browser_controller
 	class Test_1():
 		def test_safaridriver_type1(self):
 			safaridriver = SafariDriverObject()
@@ -218,6 +218,6 @@ Keep in mind that your safari version has to be more than 10. If it is not 10 or
 ### Deleting all browser driver
 To delete all browser drivers from `/usr/local/bin` run the command:
 
-   ```browserium delete --driver=all```
+   ```flexibox delete --driver=all```
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d8f7a6f46bc4182992b04c7f9b51447)](https://www.codacy.com/app/Corefinder89/Browserium?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=browserium/Browserium&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d8f7a6f46bc4182992b04c7f9b51447)](https://www.codacy.com/app/Corefinder89/Flexibox?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=flexibox/Flexibox&amp;utm_campaign=Badge_Grade)
