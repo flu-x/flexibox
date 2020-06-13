@@ -7,7 +7,7 @@ setup(
     name='flexibox',
     version='1.0.0',
     description='A single box of functionalities for a selenium project',
-    author=['Soumyajit Basu'],
+    author='Soumyajit Basu',
     author_email='soumyajit.basu62@gmail.com',
     classifiers=[
         'Intended Audience :: Information Technology', 'Intended Audience :: Developers',
