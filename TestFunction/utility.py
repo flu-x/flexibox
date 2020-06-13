@@ -9,7 +9,6 @@ from datetime import datetime
 
 
 class Utility_object(object):
-    @classmethod
     def get_path(self, path_param):
         try:
             requiredPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), path_param)
@@ -18,7 +17,6 @@ class Utility_object(object):
             print(e)
 
     # Get the current time stamp
-    @classmethod
     def get_current_time_stamp(self):
         curr_timestamp = str(datetime.now())
         return curr_timestamp
