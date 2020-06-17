@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name='flexibox',
-    version='1.0.0',
+    version='1.0.1',
     description='A single box of functionalities for a selenium project',
     author='Soumyajit Basu',
     author_email='soumyajit.basu62@gmail.com',
@@ -27,7 +27,7 @@ setup(
     zip_safe=False,
     entry_points={'console_scripts': ['flexibox = flexibox.utility.main:main']},
     url="https://github.com/flu-x/Flexibox",
-    download_url="https://github.com/flu-x/Flexibox/archive/1.0.0.tar.gz",
+    download_url="https://github.com/flu-x/Flexibox/archive/1.0.1.tar.gz",
     long_description=long_description,
     long_description_content_type='text/markdown'
 )
