@@ -49,3 +49,4 @@ jobs:
           VALIDATE_PYTHON: true
           VALIDATE_BASH: true
           VALIDATE_DOCKER: true
+          VALIDATE_ENV: true
