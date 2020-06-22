@@ -54,12 +54,12 @@ class Phantomjs_driver():
             self.log.log_info("Unarchiving contents completed")
             self.ut.rename_dir('dir_phantomjsdriver/')
         if os_name == 'linux':
-            self.log_message("INFO", "Environment: " + os_name)
-            self.log_message("INFO", "Downloading the required binary for phantomjsdriver")
+            self.log.log_info("Environment: " + os_name)
+            self.log.log_info("Downloading the required binary for phantomjsdriver")
             self.ut.driver_downloader(download_url['tar_ball'], dir_path)
-            self.log_message("INFO", "Download completed")
+            self.log.log_info("Download completed")
             self.ut.untar_file('dir_phantomjsdriver/')
-            self.log_message("INFO", "Unarchiving contents completed")
+            self.log.log_message("Unarchiving contents completed")
             self.ut.rename_dir('dir_phantomjsdriver/')
 
     # Create a required directory separately for phantomjs and called the evaluate_on_environment
