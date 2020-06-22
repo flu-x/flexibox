@@ -44,7 +44,8 @@
               python-version: '3.x'
           - name: Install dependencies
             run: |
-              if [ -f setup.py ]; then python setup.py install; fi
+              python -m pip install --upgrade pip
+              pip install requests selenium wget
 
           ################################
           # Run Linter against code base #
