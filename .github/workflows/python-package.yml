@@ -17,4 +17,4 @@ jobs:
     - name: Super-Linter
       uses: github/super-linter@v2.1.0
       with:
-        python-version: '3.x'
+        python-version: '3.7'
