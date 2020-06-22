@@ -1,4 +1,4 @@
-name: Syntax checker
+name: Python package
 
 on:
   pull_request:
