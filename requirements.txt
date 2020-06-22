@@ -1,7 +1,4 @@
 pre-commit==1.10.4
 pydocstyle==5.0.2
 pylint
-requests
-sentry-sdk==0.14.1
 twine==1.11.0
-wget
