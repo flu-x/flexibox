@@ -242,7 +242,7 @@ $ docker run --link selenium-hub:hub selenium/node-firefox
 ```
 
 ### Running flexibox for chrome node
-```
+```python
 import unittest
 
 from flexibox.core.browser_controller import BrowserController
@@ -263,7 +263,7 @@ class Test_chromeremote(unittest.TestCase):
 ```
 
 ### Running flexibox for firefox node
-```
+```python
 import unittest
 
 from flexibox.core.browser_controller import BrowserController
