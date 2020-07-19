@@ -34,11 +34,15 @@ You can refer to the above diagram for reference.
 ### Install Flexibox module
 *   To install Flexibox using PiP run the command:
 
-	   `pip install flexibox`
+	   ```python
+	   pip install flexibox
+	   ```
 
 *   To install Flexibox from GitHub run the command:
 
-	   `pip install git+git://github.com/flexibox/Flexibox.git`
+	   ```python
+	   pip install git+git://github.com/flexibox/Flexibox.git
+	   ```
 
 ### Modules installed with flexibox
 *   **requests**
@@ -49,32 +53,46 @@ Make sure you have **ssh** configured in GitHub. You can also use **https** as w
 
 To install Flexibox from GitHub using HTTPS run the command:
 
-	pip install git+https://github.com/flexibox/Flexibox.git
+```python
+pip install git+https://github.com/flexibox/Flexibox.git
+```
 
 *   To download chromedriver run the command
 
-	   ```flexibox download --driver=chromedriver```
+	   ```bash
+	   flexibox download --driver=chromedriver
+	   ```
 
 *   To download geckodriver run the command
 
-	   ```flexibox download --driver=geckodriver```
+	   ```bash
+	   flexibox download --driver=geckodriver
+	   ```
 
 *   To download operadriver run the command
 
-	   ```flexibox download --driver=operadriver```
+	   ```bash
+	   flexibox download --driver=operadriver
+	   ```
 
 ### Update Drivers
 *   To update chromedriver run the command
 
-	   ```flexibox update --driver=chromedriver```
+	   ```bash
+	   flexibox update --driver=chromedriver
+	   ```
 
 *   To update geckodriver run the command
 
-	   ```flexibox update --driver=geckodriver```
+	   ```bash
+	   flexibox update --driver=geckodriver
+	   ```
 
 *   To update operadriver run the command
 
-	   ```flexibox update --driver=operadriver```
+	   ```bash
+	   flexibox update --driver=operadriver
+	   ```
 
 ## Get started with Flexibox
 ### Browser Controller class by functionality
@@ -218,6 +236,70 @@ Keep in mind that your safari version has to be more than 10. If it is not 10 or
 ### Deleting all browser driver
 To delete all browser drivers from `/usr/local/bin` run the command:
 
-   ```flexibox delete --driver=all```
+   ```bash
+   flexibox delete --driver=all
+   ```
+
+## Running flexibox using grid
+Use the docker containers for selenium grid to start the docker services using the following instructions:
+
+### For running Docker Hub
+```bash
+$ docker run -p 4444:4444 --name selenium-hub selenium/hub
+# Run the hub, forwarding the "4444" port from the docker container to the host machine.
+```
+
+### For running the CHROME node
+```bash
+$ docker run --link selenium-hub:hub selenium/node-chrome
+# Run the chrome node and link it to the `--name` we specified for the hub.
+```
+
+### For running the FIREFOX node
+```bash
+$ docker run --link selenium-hub:hub selenium/node-firefox
+# Run the firefox node and link it to the `--name` we specified for the hub.
+```
+
+### Running flexibox for chrome node
+```python
+import unittest
+
+from flexibox.core.browser_controller import BrowserController
+from flexibox.generic_functions.remotechrome_object import RemotechromedriverObject
+
+
+class Test_chromeremote(unittest.TestCase):
+    def test_chromedriver_type_remote(self):
+        chromedriver = RemotechromedriverObject()
+        controller = BrowserController()
+        driver = chromedriver.set_remote_chromedriver_object("http://localhost:4444/wd/hub")
+        controller.get_url(driver, "https://www.google.co.in")
+        controller.implicit_wait_time(driver, 4)
+        current_url = controller.get_current_url(driver)
+        print(current_url)
+        controller.tear_browser(driver)
+
+```
+
+### Running flexibox for firefox node
+```python
+import unittest
+
+from flexibox.core.browser_controller import BrowserController
+from flexibox.generic_functions.remotegecko_object import RemotegeckodriverObject
+
+
+class Test_firefoxremote(unittest.TestCase):
+    def test_firefox_type_remote(self):
+        firefoxdriver = RemotegeckodriverObject()
+        controller = BrowserController()
+        driver = firefoxdriver.set_remote_geckodriver_object("http://localhost:4444/wd/hub")
+        controller.get_url(driver, "https://www.google.co.in")
+        controller.implicit_wait_time(driver, 4)
+        current_url = controller.get_current_url(driver)
+        print(current_url)
+        controller.tear_browser(driver)
+```
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d8f7a6f46bc4182992b04c7f9b51447)](https://www.codacy.com/app/Corefinder89/Flexibox?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=flexibox/Flexibox&amp;utm_campaign=Badge_Grade)
