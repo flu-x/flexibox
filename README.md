@@ -1,6 +1,6 @@
 # Flexibox
 
-![Flexibox logo](https://live.staticflickr.com/65535/49996933693_2d253b2b0d_o.png)
+![Flexibox logo](https://live.staticflickr.com/65535/50236270473_9e9e3bfce5.png)
 
 **Flexibox** is the a selenium wrapper for all **browsers** and **browser** **configurations**. This module is a single end point to access all the browser drivers and as well as the webdriver object for all the respective browsers along with the installation of your **selenium** module.
 
