@@ -12,7 +12,7 @@ from selenium.webdriver.common.by import By
 from flexibox.core.logger import Logger
 
 
-class Browserobject(object):
+class Pageobject(object):
     def __init__(self):
         self.log = Logger()
 
